@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.png?v=6.4.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=6.4.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=6.4.0">
+
+
+  <link rel="mask-icon" href="/images/avatar.png?v=6.4.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '6.4.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="Free As The Wind路由器是要带给人们幸福的东西啊！不发光的路由器不是好路由器，是黑暗路由器。">
+<meta name="keywords" content="Tutorial,Internet,Router,Shadowsocks,DNS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OpenWrt Router">
+<meta property="og:url" content="https://seanxp.com/2017/02/OpenWrt-Router/index.html">
+<meta property="og:site_name" content="SeanXP">
+<meta property="og:description" content="Free As The Wind路由器是要带给人们幸福的东西啊！不发光的路由器不是好路由器，是黑暗路由器。">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-08-12T00:52:36.786Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="OpenWrt Router">
+<meta name="twitter:description" content="Free As The Wind路由器是要带给人们幸福的东西啊！不发光的路由器不是好路由器，是黑暗路由器。">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="SeanXP" type="application/atom+xml" />
+
+
+
+
+  <link rel="canonical" href="https://seanxp.com/2017/02/OpenWrt-Router/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>OpenWrt Router | SeanXP</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-77366457-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-77366457-1');
+</script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">SeanXP</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://seanxp.com/2017/02/OpenWrt-Router/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="SeanXP">
+      <meta itemprop="description" content="为学日益，为道日损，损之又损，以至于无为，无为而无不为。">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SeanXP">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">OpenWrt Router
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2017-02-17 21:39:43" itemprop="dateCreated datePublished" datetime="2017-02-17T21:39:43+08:00">2017-02-17</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Tutorial/" itemprop="url" rel="index"><span itemprop="name">Tutorial</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon"
+            >
+            <i class="fa fa-eye"></i>
+             Views:  
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote class="blockquote-center"> Free As The Wind<br>路由器是要带给人们幸福的东西啊！<br>不发光的路由器不是好路由器，是黑暗路由器。<br></blockquote>
+
+<a id="more"></a>
+<p>该方案提供一套 OpenWrt 完整的网络访问策略，使用 shadowsocks-libev 实现网络代理，dnsmasq + ChinaDNS 实现国内外代理分流与 DNS 防污染。</p>
+<h1 id="install-shadowsocks-libev"><a href="#install-shadowsocks-libev" class="headerlink" title="install shadowsocks-libev"></a>install shadowsocks-libev</h1><p><a href="https://github.com/shadowsocks/openwrt-shadowsocks" target="_blank" rel="noopener">openwrt-shadowsocks</a>，是一个专门为 OpenWrt 路由器定制过的 SS 软件包。<br>不懂如何交叉编译的朋友，可以直接下载编译过的 ipk 包在 OpenWrt 中直接安装，例如<a href="https://dl.bintray.com/aa65535/opkg/shadowsocks-libev/" target="_blank" rel="noopener">aa65535/shadowsocks-libev</a>，选择适配自己路由器芯片架构（可通过网络查询）的最新的 SS 软件包和相关依赖库。<br><strong>注意：下载他人的编译的软件包一定要谨慎，并确认可靠性。</strong></p>
+<p>例如 WR703N 的相关 ipk 软件包 <a href="https://dl.bintray.com/aa65535/opkg/shadowsocks-libev/3.0.2/OpenWrt/ar71xx/" target="_blank" rel="noopener">aa65535/shadowsocks-libev/3.0.2/ar71xx/</a> 中包括：</p>
+<ul>
+<li>shadowsocks-libev_3.0.2-1_ar71xx.ipk，要运行在路由器上的ss程序；</li>
+<li>libev_4.22-1_ar71xx.ipk，依赖包；</li>
+<li>libmbedtls_2.4.0-2_ar71xx.ipk，依赖包；</li>
+<li>libpcre_8.39-1_ar71xx.ipk，依赖包；</li>
+<li>libsodium_1.0.11-2_ar71xx.ipk，依赖包；</li>
+</ul>
+<p>另外可以下载 <a href="https://github.com/shadowsocks/luci-app-shadowsocks" target="_blank" rel="noopener">luci-app-shadowsocks</a>，luci-app-shadowsocks 软件包是 shadowsocks-libev 的 LuCI 控制界面，方便用户控制和使用「透明代理」「SOCKS5 代理」「端口转发」功能。<br>下载完 ipk 软件包以后，scp/rsync 拷贝到 OpenWrt 并安装，安装时注意依赖关系，按顺序安装，如果出现错误可根据错误提示 Google 解决：</p>
+<pre><code># opkg install libev*.ipk libmbedtls*.ipk libpcre*.ipk libsodium*.ipk
+# opkg install shadowsocks-libev*.ipk luci-app-shadowsocks*.ipk
+</code></pre><h1 id="configure-shadowsocks-libev"><a href="#configure-shadowsocks-libev" class="headerlink" title="configure shadowsocks-libev"></a>configure shadowsocks-libev</h1><ol>
+<li>登录 LuCI 后台（web 浏览器输入路由器地址），输入 root 密码，在菜单栏会看到新安装的 <code>Services - ShadowSocks</code>；</li>
+<li><code>Services -&gt; ShadowSocks -&gt; Servers Manage</code>，添加 SS 服务器信息（可购买或自行VPS搭建），可以同时添加多个服务器的配置信息。且服务器地址必须填入实际 IP 地址而非域名；</li>
+<li><code>Services -&gt; ShadowSocks -&gt; General Settings</code>，<code>Transparent Proxy（透明代理）</code>选择刚才添加的服务器，<code>SOCKS5 Proxy（SOCKS5 代理）</code>也选择刚才添加的服务器，<code>Port Forward</code> 不修改（依然是 Disable，具体原因会讲，将使用 dns-forwarder 代替）；</li>
+<li>查看配置信息，确认无误后，点击 <code>Save &amp; Apply</code>，路由器会自动启动 SS，且默认开机自启动；</li>
+<li>局域网下，其他设备，关闭之前配置的代理信息，打开浏览器，「It just works!」；</li>
+</ol>
+<p>注意：这样配置，「It just works!」，但是不够优雅，因为这样是 SS 全局代理，虽然可以代理国外网站，但是国内网站的速度由于走代理会慢不少。因此下面使用 ChinaDNS + DNS-Forwarder 实现国内外 IP 分流。</p>
+<h2 id="Transparent-Proxy"><a href="#Transparent-Proxy" class="headerlink" title="Transparent Proxy"></a>Transparent Proxy</h2><p>透明代理（Transparent Proxy）：对应程序 ss-redir，是 shadowosocks 代理的基础服务，提供 TCP/UDP 透明代理。ss-redir 将客户端的原始数据封装成 shadowsocks 协议内容，转发（常用 ss-redir 作为 iptables REDIRECT 的代理服务器程序）给 shadowsocks server，实现透明转发。</p>
+<ul>
+<li>主服务器：透明代理使用的默认服务器（TCP 透明代理、端口转发两个功能会使用这里选择的服务器），此处从列表中选择你需要使用的服务器。</li>
+<li>UDP服务器：UDP 透明代理使用的服务器，可以和主服务器一致，也可以不同（也就是可以使用不同的服务器分别代理 TCP 和 UDP 连接）。在代理一些外服网络游戏的时候可能比较有用，其他多数情况下可以关闭。开启此项需要服务器支持，服务器端需要开启 UDP 功能。</li>
+<li>本地端口：shadowsocks 服务需要占用一个路由器端口，推荐保留默认，但不能和其他运行的程序有冲突，也不能和下面「SOCKS5 代理」和「端口转发」中的本地端口冲突。<br>ss-redir 与 ss-tunnel 的关系：<a href="https://github.com/shadowsocks/openwrt-shadowsocks/issues/82" target="_blank" rel="noopener">ss-redir已经支持udp了，还需要ss-tunnel吗？</a></li>
+</ul>
+<h2 id="SOCKS5-Proxy"><a href="#SOCKS5-Proxy" class="headerlink" title="SOCKS5 Proxy"></a>SOCKS5 Proxy</h2><p>SOCKS5 代理，对应程序 ss-local，实现 shadowsocks 的 SOCKS5 代理功能，路由器作为 SOCKS5 代理服务器。默认端口 1080。<br><a href="https://www.wikiwand.com/zh-hans/SOCKS" target="_blank" rel="noopener">SOCKS</a> 是一种网络传输协议，主要用于客户端与外网服务器之间通讯的中间传递。SOCKS 是 “SOCKetS” 的缩写。当防火墙后的客户端要访问外部的服务器时，就跟 SOCKS 代理服务器连接。这个代理服务器控制客户端访问外网的资格，允许的话，就将客户端的请求发往外部的服务器。这个协议最初由 David Koblas 开发，而后由NEC的 Ying-Da Lee 将其扩展到版本4。最新协议是版本5，与前一版本相比，增加支持 UDP、验证，以及 IPv6。<br>根据OSI模型，SOCKS是会话层的协议，位于表示层与传输层之间。（shadowsocks 只代理传输层数据 TCP/UDP，使用网路层 ICMP 协议的 ping 命令无法走 shadowsocks 代理，即使可以代理访问 google.com 也无法 ping 通）</p>
+<h2 id="Port-Forward"><a href="#Port-Forward" class="headerlink" title="Port Forward"></a>Port Forward</h2><p>Port Forward（端口转发），对应程序 ss-tunnel，通常用作转发 DNS。ss-tunnel 将监听 5300 端口（可修改），将监听到的数据包经过 SS 代理，转发给 8.8.4.4:53（可修改），因此可以通过此方法防止 DNS 污染。<br>在局域网下的其他电脑进行指定端口进行 DNS 解析，解析出来的 IP 可通过网络查询是否是真实IP。</p>
+<pre><code>$ dig @192.168.1.1 www.youtube.com -p5300
+</code></pre><p>注意：由于性能问题（<a href="https://github.com/breakwa11/shadowsocks-rss/issues/264" target="_blank" rel="noopener">ss-tunnel 在使用混淆之后的udp通讯经常被阻断</a>），本文方案中的端口转发改用 DNS-Forwarder，因此这里 Port Forward 设置为 disable。</p>
+<h2 id="Access-Control"><a href="#Access-Control" class="headerlink" title="Access Control"></a>Access Control</h2><p>Access Control（访问控制），这里可以选择配置 SS 的代理范围。分外网（Zone WAN）与内网（Zone LAN）两部分。</p>
+<h3 id="Zone-WAN"><a href="#Zone-WAN" class="headerlink" title="Zone WAN"></a>Zone WAN</h3><p>被忽略IP列表（Bypassed IP List），可以指定一份避免走代理的 IP 列表，例如构造列表 <code>/etc/shadowsocks/ignore.list</code>，里面枚举了国内的 IP 列表，可以避免访问国内网站走代理。（这种方法已不再使用，而是改为 ChinaDNS方案，IP 列表为 <code>/etc/chinadns_chnroute.txt</code>，原理类似）<br>创建国内IP段列表，用于忽略国内目标主机。防止走代理，可以将 IP 添加到 ignore.list 中。</p>
+<pre><code># mkdir /etc/shadowsocks
+# wget -O- &apos;https://ftp.apnic.net/apnic/stats/apnic/delegated-apnic-latest&apos; | awk -F\| &apos;/CN\|ipv4/ { printf(&quot;%s/%d\n&quot;, $4, 32-log($5)/log(2)) }&apos; &gt; /etc/shadowsocks/ignore.list
+</code></pre><p>代理方法（<code>Access Control - Zone WAN - Proxy method</code>）选择忽略列表（ignore list），并在 –custom– 中填入 <code>/etc/shadowsocks/ignore.list</code>。代理协议（Proxy protocol）选择 TCP+UDP。<br>注意：本文使用 ChinaDNS 方案，安装 ChinaDNS 后，这里的 ignore list 选择 ChinaDNS 即可。</p>
+<p>额外被忽略IP（Bypassed IP）：这个列表中的 IP 强制绕过 shadowsocks 代理，如果有多组 shadowsocks 服务器的可以将所有服务器的 IP 填进去，如果是单服务器不用填；其他按需添加。<br>强制走代理IP（Forwarded IP）：这个列表中的 IP 强制走 shadowsocks 代理，填入 8.8.8.8 和 8.8.4.4，其他按需添加。</p>
+<h3 id="Zone-LAN"><a href="#Zone-LAN" class="headerlink" title="Zone LAN"></a>Zone LAN</h3><p>内网区域（Zone LAN），控制特定内网 IP 的代理方式。</p>
+<ol>
+<li>网络接口：shadowsocks 只作用于勾选了的网络接口。默认 OpenWrt 只有一个LAN区域，此处也只会显示一个接口，也就是：“桥接：br-lan”；一般情况勾选它就行。当路由配置了多个LAN区域时候，则会显示多个。</li>
+<li>代理类型：内网区域默认的代理方式。<ul>
+<li>正常代理：使用外网区域设置的方式。</li>
+<li>直接连接：忽略外网区域的设置，不走代理。</li>
+<li>全局代理：忽略外网区域的设置，强制走代理。</li>
+</ul>
+</li>
+<li>代理自身：路由设备自身的代理方式。</li>
+<li>内网主机：单独配置内网特定IP的代理方式。</li>
+</ol>
+<h1 id="Pure-DNS"><a href="#Pure-DNS" class="headerlink" title="Pure DNS"></a>Pure DNS</h1><h2 id="DNS-cache-poisoning"><a href="#DNS-cache-poisoning" class="headerlink" title="DNS cache poisoning"></a>DNS cache poisoning</h2><p>只要安装好第一节的 shadowsocks-libev，就已经可以访问众多网站了。但是依然有几个问题：</p>
+<ol>
+<li>全局代理的弊端：最简单的配置，直接添加 SS 服务器信息，并打开（Transparent Proxy）和（SOCKS5 Proxy），这样的路由器是 SS 全局代理。可以通过添加 ignore list 的办法禁止国内 IP 走代理。</li>
+<li>DNS 污染，只要是 53 端口的 DNS 报文，都会面临 DNS 污染的情况。<ul>
+<li>直接污染：使用国外的知名 DNS 服务器（8.8.8.8 / 8.8.4.4），会在出口被篡改 DNS 报文的 IP 地址（DNS 攻击）。</li>
+<li>间接污染：使用国内的知名 DNS 服务器（114.114.114.114 / 119.29.29.29），在访问国外网站时会上溯至国外根服务器访问，依然面临 DNS 报文中 IP 地址被篡改的问题，并且有投毒效果，一人访问，多人中毒。</li>
+</ul>
+</li>
+</ol>
+<p><a href="https://www.wikiwand.com/zh-hans/%E5%9F%9F%E5%90%8D%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%BC%93%E5%AD%98%E6%B1%A1%E6%9F%93" target="_blank" rel="noopener">域名服务器缓存污染（DNS cache poisoning）</a>，又称域名服务器缓存投毒（DNS cache poisoning），是指一些刻意制造或无意中制造出来的域名伺服器封包，把域名指往不正确的IP位址。一般来说，在互联网上都有可信赖的网域伺服器，但为减低网络上的流量压力，一般的域名服务器都会把从上游的域名服务器获得的解析记录暂存起来，待下次有其他机器要求解析域名时，可以立即提供服务。一旦有关网域的局域域名服务器的缓存受到污染，就会把网域内的电脑导引往错误的服务器或伺服器的网址。<br>对所有经过出口的 DNS 报文（UDP:53）进行 IDS 入侵检测，匹配到黑名单关键词时，立刻伪装目标域名的解析服务器返回虚假的查询结果。由于通常的域名查询没有任何认证机制，而且域名查询通常基于无连接不可靠的UDP协议，查询者只能接受最先到达的格式正确结果，并丢弃之后的结果。</p>
+<p>想要检测目前的 DNS 是否被篡改，很简单的方法：</p>
+<pre><code>$ dig www.youtube.com
+$ dig @119.29.29.29 www.youtube.com
+$ dig @114.114.114.114 www.youtube.com
+</code></pre><p>解析到的 IP 地址，上网检索 IP 地址或 DNS 污染知名 IP 即可，网络上有收录注明污染 IP 地址列表。</p>
+<h2 id="ChinaDNS"><a href="#ChinaDNS" class="headerlink" title="ChinaDNS"></a>ChinaDNS</h2><ul>
+<li><a href="https://github.com/aa65535/openwrt-chinadns" target="_blank" rel="noopener">openwrt-chinadns</a></li>
+<li><a href="https://github.com/aa65535/openwrt-dist-luci" target="_blank" rel="noopener">luci-app-chinadns</a></li>
+</ul>
+<p>ChinaDNS 用于解决 DNS 污染问题，同时可加速国内网站的访问。<br>其原理如下：<br>提供至少一个国内 DNS 服务器和一个国外 DNS 服务器（通过设置 ChinaDNS 的上游服务器），ChinaDNS 收到来自用户的 DNS 请求后，同时向这两个服务器发 DNS 请求。如果从国内 DNS 服务器返回的解析结果为国外 IP，则选择国外 DNS 服务器的解析结果，否则选择国内 DNS 的解析结果（解析速度比国外解析快很多），最后返回给用户。<br>下载对应版本（路由器 CPU 架构）的 <code>ChinaDNS*.ipk</code> 与 <code>luci-app-chinadns*.ipk</code>，并生成国内的 IP 地址列表，用作绕 SS 代理。</p>
+<pre><code># opkg install ChinaDNS*.ipk luci-app-chinadns*.ipk
+# wget -O- &apos;https://ftp.apnic.net/apnic/stats/apnic/delegated-apnic-latest&apos; | awk -F\| &apos;/CN\|ipv4/ { printf(&quot;%s/%d\n&quot;, $4, 32-log($5)/log(2)) }&apos; &gt; /etc/chinadns_chnroute.txt
+</code></pre><p>安装完成后，登录路由器的 luci 管理页面 <code>Services -&gt; ChinaDNS</code>，勾选 <code>Enable（启用）</code>和 <code>Enable Bidirectional Filter （启用双向过滤）</code>，其他设置保持默认即可（也可修改本地端口）。<br>默认开启 <code>127.0.0.1:5353</code> 端口，监听 DNS 请求。<code>国内路由表（CHNRoute File）</code>默认位置 <code>/etc/chinadns_chnroute.txt</code>，上游服务器 <code>114.114.114.114,127.0.0.1:5300</code>。（可将国内 DNS 114.114.114.114 改成当前你所在网络的 ISP 所提供的 DNS 服务器 IP，以加快国内域名的解析速度）。<br>这里的国外 DNS 设置为 <code>127.0.0.1:5300</code>，是因为无法直接设置 <code>8.8.8.8</code>，否则会在网络出口被直接污染，需要通过走代理的方法避免污染。<br>走代理有两种方法：</p>
+<ul>
+<li>ss-tunnel，即开启 <code>ShadowSocks - General Settings - Port Forward</code>，将默认监听端口 5300 的 DNS 请求，并转发到目的地（默认为 8.8.4.4:53），实现 DNS 代理。<a href="https://github.com/aa65535/openwrt-chinadns/wiki/Use-DNS-Forwarder" target="_blank" rel="noopener">但是部分 ISP 下使用 ss-tunnel 不稳定，导致 ChinaDNS 无法正常工作，其根本原因是这类的 ISP 的 UDP 不稳定。</a></li>
+<li>DNS-Forwarder，实现类似 ss-tunnel 的端口转发功能，但是使用 ss 代理并 TCP 协议，可靠的多。</li>
+</ul>
+<h2 id="DNS-Forwarder"><a href="#DNS-Forwarder" class="headerlink" title="DNS-Forwarder"></a>DNS-Forwarder</h2><ul>
+<li><a href="https://github.com/aa65535/openwrt-dns-forwarder" target="_blank" rel="noopener">openwrt-dns-forwarder</a></li>
+<li><a href="https://github.com/aa65535/openwrt-dist-luci" target="_blank" rel="noopener">luci-app-dns-forwarder</a></li>
+<li><a href="https://github.com/aa65535/openwrt-chinadns/wiki/Use-DNS-Forwarder" target="_blank" rel="noopener">Wiki - Use DNS Forwarder</a></li>
+</ul>
+<p>安装 <code>dns-forwarder*.ipk</code> 和 <code>luci-app-dns-forwarder*.ipk</code>，录路由器的 luci 管理页面，<code>Services -&gt; DNS-Forwarder</code>，点击 Enable，修改监听端口为 5300，DNS Server 为 8.8.8.8，然后点击 <code>Save &amp; Apply</code>。</p>
+<h2 id="DNS-bridge"><a href="#DNS-bridge" class="headerlink" title="DNS bridge"></a>DNS bridge</h2><p>现在只是启动了 ChinaDNS 与 DNS-Forwarder，还没有把 DNS 桥接通顺（配置端口映射和转发关系）。</p>
+<ol>
+<li><code>luci - Network - Interfaces - WAN - Advanced Settings - Use DNS servers advertised by peer</code> 关闭，避免 WAN 接口连接外网时被上层路由器指定 DNS 服务器。</li>
+<li><code>luci - Network - DHCP and DNS - Server Settings - DNS forwardings</code>，设置为 <code>127.0.0.1#5353</code>，实现 端口 53 到本机端口 5353 的 DNS 转发，即将路由器接收到的 DNS 请求交给 ChinaDNS 处理。</li>
+<li><code>luci - Network - DHCP and DNS - Server Settings - Resolv and Hosts Files - Ignore resolve file</code> 关闭，虽然禁止了 WAN 接口指定 DNS，但是本机的 <code>/etc/resolv.conf</code> 还在，DNS 将会查询其中的 nameservers，这里也关闭。</li>
+<li>局域网内的其他上网设备，将预设的 DNS 删除，则连接 Wi-Fi 后默认 DNS 地址为路由器的 IP 地址，这样就将 DNS 解析交由路由器处理。</li>
+</ol>
+<p>DNS 线路解析：</p>
+<ul>
+<li>国外线路：<code>dnsmasq(:53)</code> –(dnsmasq-china-list)–(DNS forwardings)–&gt; <code>ChinaDNS(:5353)</code> –(CHNRoute File &amp; Upstream Servers)–&gt; <code>ss-tunnel / dns-forwarder (:5300)</code> –( Port Forward / DNS-Forwarder)–&gt; <code>ss server</code> –&gt;8.8.8.8:53</li>
+<li>国内线路：<code>dnsmasq(:53)</code> –(dnsmasq-china-list)–(DNS forwardings)–&gt; <code>ChinaDNS(:5353)</code> –(CHNRoute File &amp; Upstream Servers)–&gt; 114.114.114.114:53</li>
+</ul>
+<ol>
+<li><code>dnsmasq(:53)</code>，路由器的默认 DNS 监听端口，监听局域网内的 DNS 请求，其他设备将 DNS 设置为路由器 IP 后，DNS 请求交由路由器处理；</li>
+<li><code>dnsmasq-china-list</code>，提供一份国内域名的加速列表，国内域名可以直接通过指定的 DNS 服务器解析，并由 dnsmasqn 提供长时间的缓存，提高命中率，没有在加速列表中的国内域名，还可能会再走 ChinaDNS 的加速，所以不用担心列表不足；</li>
+<li><code>DNS forwardings</code>，/etc/config/dhcp（Network - DHCP and DNS），配置 DNS 转发为 <code>127.0.0.1#5353</code>（ChinaDNS），则路由器会将 53 端口的 DNS 转发给 5353 端口的 ChinaDNS 处理；</li>
+<li><code>ChinaDNS(:5353)</code> 的上游 DNS 服务器 配置为 114.114.114.114,127.0.0.1:5300，ChinaDNS 根据 CHNRoute File 确认 IP 的位置，国内默认走 114.114.114.114，国外默认走 127.0.0.1:5300；</li>
+<li><code>DNS-Forwarder(:5300)</code> 监听 5300 端口，并通过转发到 <code>8.8.8.8:53</code>，且在 ShadowSocks - Access Control 已经明确配置 8.8.8.8 必须走代理，最终绕开污染源。</li>
+</ol>
+<h2 id="dnsmasq"><a href="#dnsmasq" class="headerlink" title="dnsmasq"></a>dnsmasq</h2><p><a href="https://www.wikiwand.com/zh-hans/Dnsmasq" target="_blank" rel="noopener">Wiki - dnsmasq</a><br>Dnsmasq 是一个开源的轻量级 DNS 转发和 DHCP、TFTP 服务器，使用C语言编写。Dnsmasq 针对家庭局域网等小型局域网设计，资源占用低，易于配置。<br><strong>对于 OpenWrt 来说默认就安装了 dnsmasq，dnsmasq 监听了 53 端口，是系统的默认 DNS server。</strong><br>Dnsmasq 提供 DNS 缓存和 DHCP 服务功能。作为域名解析服务器（DNS），dnsmasq 可以通过缓存 DNS 请求来提高对访问过的网址的连接速度。作为 DHCP 服务器，dnsmasq 可以用于为局域网电脑分配内网 IP 地址和提供路由。</p>
+<p>编辑配置文件 <code>/etc/dnsmasq.conf</code>，在最后添加一行：</p>
+<pre><code>conf-dir=/etc/dnsmasq.d
+</code></pre><p>该配置让 dnsmasq 去加载 <code>/etc/dnsmasq.d</code> 目录下所有的配置。例如，生成一个 <code>/etc/dnsmasq.d/gfw.conf</code> 文件，把需要代理的域名代理给 ChinaDNS：</p>
+<pre><code># /etc/dnsmasq.d/gfw.conf --- google
+server=/.google.com/127.0.0.1#5353
+server=/.googlecode.com/127.0.0.1#5353
+server=/.googleapis.com/127.0.0.1#5353
+server=/.gmail.com/127.0.0.1#5353
+server=/.youtube.com/127.0.0.1#5353
+</code></pre><p>然后重启 dnsmasq 服务即可：</p>
+<pre><code># /etc/init.d/dnsmasq restart
+</code></pre><p>因为需要代理的域名很多而且很繁琐，因此这里使用 <a href="https://github.com/felixonmars/dnsmasq-china-list" target="_blank" rel="noopener">dnsmasq-china-list</a> 的代理配置：</p>
+<pre><code># mkdir -p /etc/dnsmasq.d/ &amp;&amp; mv /etc/dnsmasq.d/
+# wget --no-check-certificate https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/accelerated-domains.china.conf
+# wget --no-check-certificate https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/bogus-nxdomain.china.conf
+# wget --no-check-certificate https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/google.china.conf
+</code></pre><p>配置文件解析：</p>
+<ul>
+<li><code>accelerated-domains.china.conf</code>: Acceleratable Domains. The domain should have a better resolving speed or result when using a Chinese DNS server. 指定了国内的域名直接使用 <code>114.114.114.114</code> 即可，加速国内域名访问。</li>
+<li><code>bogus-nxdomain.china.conf</code>: Known addresses that are hijacking NXDOMAIN results returned by DNS servers. 一些常用的 DNS 劫持 IP。</li>
+<li><code>google.china.conf</code>: Acceleratable Google domains. 加速 Google 域名访问，使用 114 解析 Google 的 IP，只要部分可以，例如 youtube.com 即使 114 也可能是解析错误的。</li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Tutorial/" rel="tag"># Tutorial</a>
+          
+            <a href="/tags/Internet/" rel="tag"># Internet</a>
+          
+            <a href="/tags/Router/" rel="tag"># Router</a>
+          
+            <a href="/tags/Shadowsocks/" rel="tag"># Shadowsocks</a>
+          
+            <a href="/tags/DNS/" rel="tag"># DNS</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/02/GBA-Ace-Attorney/" rel="next" title="異議あり！">
+                <i class="fa fa-chevron-left"></i> 異議あり！
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/02/IEEE-802.11/" rel="prev" title="IEEE 802.11">
+                IEEE 802.11 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="SeanXP" />
+            
+              <p class="site-author-name" itemprop="name">SeanXP</p>
+              <p class="site-description motion-element" itemprop="description">为学日益，为道日损，损之又损，以至于无为，无为而无不为。</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">33</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">12</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">41</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/SeanXP" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:aXNlYW54cCtibG9nQGdtYWlsLmNvbQ==?subject=Hello" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://pgp.mit.edu/pks/lookup?op=get&search=0x5655CA935F09337F" target="_blank" title="GPG"><i class="fa fa-fw fa-key"></i>GPG</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+            <div class="cc-license motion-element" itemprop="license">
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+                <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+              </a>
+            </div>
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#install-shadowsocks-libev"><span class="nav-number">1.</span> <span class="nav-text">install shadowsocks-libev</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#configure-shadowsocks-libev"><span class="nav-number">2.</span> <span class="nav-text">configure shadowsocks-libev</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Transparent-Proxy"><span class="nav-number">2.1.</span> <span class="nav-text">Transparent Proxy</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SOCKS5-Proxy"><span class="nav-number">2.2.</span> <span class="nav-text">SOCKS5 Proxy</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Port-Forward"><span class="nav-number">2.3.</span> <span class="nav-text">Port Forward</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Access-Control"><span class="nav-number">2.4.</span> <span class="nav-text">Access Control</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Zone-WAN"><span class="nav-number">2.4.1.</span> <span class="nav-text">Zone WAN</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Zone-LAN"><span class="nav-number">2.4.2.</span> <span class="nav-text">Zone LAN</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Pure-DNS"><span class="nav-number">3.</span> <span class="nav-text">Pure DNS</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#DNS-cache-poisoning"><span class="nav-number">3.1.</span> <span class="nav-text">DNS cache poisoning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ChinaDNS"><span class="nav-number">3.2.</span> <span class="nav-text">ChinaDNS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DNS-Forwarder"><span class="nav-number">3.3.</span> <span class="nav-text">DNS-Forwarder</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DNS-bridge"><span class="nav-number">3.4.</span> <span class="nav-text">DNS bridge</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dnsmasq"><span class="nav-number">3.5.</span> <span class="nav-text">dnsmasq</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2015 – <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">SeanXP</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Mist</a></div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="Total Visitors">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="Total Views">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
