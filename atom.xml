@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://seanxp.com/"/>
-  <updated>2018-08-24T00:25:02.929Z</updated>
+  <updated>2018-08-24T14:23:25.766Z</updated>
   <id>https://seanxp.com/</id>
   
   <author>
@@ -18,16 +18,16 @@
   
   <entry>
     <title>那个“歌吧”</title>
-    <link href="https://seanxp.com/2018/08/I-miss-that-bug/"/>
-    <id>https://seanxp.com/2018/08/I-miss-that-bug/</id>
+    <link href="https://seanxp.com/2018/08/I-miss-that-gub/"/>
+    <id>https://seanxp.com/2018/08/I-miss-that-gub/</id>
     <published>2018-08-24T00:20:21.000Z</published>
-    <updated>2018-08-24T00:25:02.929Z</updated>
+    <updated>2018-08-24T14:23:25.766Z</updated>
     
-    <content type="html"><![CDATA[ <div align="center"><br> <img src="https://ws3.sinaimg.cn/large/006tNbRwgy1fukhe3xu0zj30rs0rsguf.jpg" width="500" height="500" alt="that-bug"><br> <blockquote class="blockquote-center"> 磁盘的风，能否吹降内存的增<br>液晶的光，能否抚慰终端的伤<br>栈顶的针，能否落向堆链的身<br>北桥的包，能否转往南桥的槽<br>能否早一点，看透命运的伏线<br>能否不轻易就升仙<br>能否慢一点，挥霍有限的时间<br>能否许我一个永远<br>可能我撞了南墙才会回头吧<br>可能我溢了缓冲才会死机吧<br>可能我偏要单线程走到底吧<br>可能我还没遇见，那个“歌吧”（GUB）<br> </blockquote><br> </div><a id="more"></a>]]></content>
+    <content type="html"><![CDATA[ <div align="center"><br> <img src="https://ws3.sinaimg.cn/large/006tNbRwgy1fukhe3xu0zj30rs0rsguf.jpg" width="500" height="500" alt="that-bug"><br> <blockquote class="blockquote-center"><br> 磁盘的风，能否吹降内存的增<br> 液晶的光，能否抚慰终端的伤<br> 栈顶的针，能否落向堆链的身<br> 北桥的包，能否转往南桥的槽<br> 能否早一点，看透命运流水线<br> 能否不轻易就升仙<br> 能否慢一点，挥霍有限时间片<br> 能否许我一个独占<br> 可能我撞了南墙才会回头吧<br> 可能我溢了缓冲才会死机吧<br> 可能我偏要单线程跑到底吧<br> 可能我还没遇见，那个“歌吧”（GUB）<br> </blockquote><br> </div><a id="more"></a>]]></content>
     
     <summary type="html">
     
-      &lt;div align=&quot;center&quot;&gt;&lt;br&gt; &lt;img src=&quot;https://ws3.sinaimg.cn/large/006tNbRwgy1fukhe3xu0zj30rs0rsguf.jpg&quot; width=&quot;500&quot; height=&quot;500&quot; alt=&quot;that-bug&quot;&gt;&lt;br&gt; &lt;blockquote class=&quot;blockquote-center&quot;&gt; 磁盘的风，能否吹降内存的增&lt;br&gt;液晶的光，能否抚慰终端的伤&lt;br&gt;栈顶的针，能否落向堆链的身&lt;br&gt;北桥的包，能否转往南桥的槽&lt;br&gt;能否早一点，看透命运的伏线&lt;br&gt;能否不轻易就升仙&lt;br&gt;能否慢一点，挥霍有限的时间&lt;br&gt;能否许我一个永远&lt;br&gt;可能我撞了南墙才会回头吧&lt;br&gt;可能我溢了缓冲才会死机吧&lt;br&gt;可能我偏要单线程走到底吧&lt;br&gt;可能我还没遇见，那个“歌吧”（GUB）&lt;br&gt; &lt;/blockquote&gt;&lt;br&gt; &lt;/div&gt;
+      &lt;div align=&quot;center&quot;&gt;&lt;br&gt; &lt;img src=&quot;https://ws3.sinaimg.cn/large/006tNbRwgy1fukhe3xu0zj30rs0rsguf.jpg&quot; width=&quot;500&quot; height=&quot;500&quot; alt=&quot;that-bug&quot;&gt;&lt;br&gt; &lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;br&gt; 磁盘的风，能否吹降内存的增&lt;br&gt; 液晶的光，能否抚慰终端的伤&lt;br&gt; 栈顶的针，能否落向堆链的身&lt;br&gt; 北桥的包，能否转往南桥的槽&lt;br&gt; 能否早一点，看透命运流水线&lt;br&gt; 能否不轻易就升仙&lt;br&gt; 能否慢一点，挥霍有限时间片&lt;br&gt; 能否许我一个独占&lt;br&gt; 可能我撞了南墙才会回头吧&lt;br&gt; 可能我溢了缓冲才会死机吧&lt;br&gt; 可能我偏要单线程跑到底吧&lt;br&gt; 可能我还没遇见，那个“歌吧”（GUB）&lt;br&gt; &lt;/blockquote&gt;&lt;br&gt; &lt;/div&gt;
     
     </summary>
     
@@ -272,9 +272,9 @@
     </summary>
     
     
-      <category term="Documentary" scheme="https://seanxp.com/tags/Documentary/"/>
-    
       <category term="Learning" scheme="https://seanxp.com/tags/Learning/"/>
+    
+      <category term="Documentary" scheme="https://seanxp.com/tags/Documentary/"/>
     
       <category term="Life" scheme="https://seanxp.com/tags/Life/"/>
     
