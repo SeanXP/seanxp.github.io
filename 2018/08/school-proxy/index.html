@@ -116,17 +116,17 @@
 <meta property="og:site_name" content="SeanXP">
 <meta property="og:description" content="那时我们有梦，关于校园网，关于种子，关于穿越高校的 IPv6，    如今下班后的我们深夜饮酒，杯子碰到一起，都是梦破碎的声音。">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://ws4.sinaimg.cn/large/0069RVTdgy1fu6wd96wcaj31kw0gwtd0.jpg">
-<meta property="og:image" content="https://ws4.sinaimg.cn/large/0069RVTdgy1fu6x6pc8q8j31ja10o7h9.jpg">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/0069RVTdgy1fu6ych1rt1j30m80hjq85.jpg">
-<meta property="og:image" content="https://ws3.sinaimg.cn/large/0069RVTdgy1fu6yxjsbi6j30m80du432.jpg">
-<meta property="og:image" content="https://ws3.sinaimg.cn/large/0069RVTdgy1fu6zu2jhglj30es0codfu.jpg">
-<meta property="og:image" content="https://ws3.sinaimg.cn/large/0069RVTdgy1fu71g0mpgrj31kw12pe81.jpg">
-<meta property="og:updated_time" content="2018-08-12T10:02:40.232Z">
+<meta property="og:image" content="https://i.loli.net/2019/04/30/5cc8533a1dd81.jpg">
+<meta property="og:image" content="https://i.loli.net/2019/04/30/5cc8533a23dbe.jpg">
+<meta property="og:image" content="https://i.loli.net/2019/04/30/5cc8533a18c5d.jpg">
+<meta property="og:image" content="https://seanxp.com/2018/08/school-proxy/(https://i.loli.net/2019/04/30/5cc8533a16f00.jpg">
+<meta property="og:image" content="https://i.loli.net/2019/04/30/5cc8533a0ffe1.jpg">
+<meta property="og:image" content="https://i.loli.net/2019/04/30/5cc8533a0ffe1.jpg">
+<meta property="og:updated_time" content="2019-04-30T13:54:39.301Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="内网穿透校园网搭建 IPv6 代理">
 <meta name="twitter:description" content="那时我们有梦，关于校园网，关于种子，关于穿越高校的 IPv6，    如今下班后的我们深夜饮酒，杯子碰到一起，都是梦破碎的声音。">
-<meta name="twitter:image" content="https://ws4.sinaimg.cn/large/0069RVTdgy1fu6wd96wcaj31kw0gwtd0.jpg">
+<meta name="twitter:image" content="https://i.loli.net/2019/04/30/5cc8533a1dd81.jpg">
 
 
 
@@ -455,10 +455,10 @@
       
 
       
-        <div align="center"><br><img src="https://ws4.sinaimg.cn/large/0069RVTdgy1fu6wd96wcaj31kw0gwtd0.jpg" alt="proxy"><br><blockquote class="blockquote-center">那时我们有梦，关于校园网，关于种子，关于穿越高校的 IPv6，<br>    如今下班后的我们深夜饮酒，杯子碰到一起，都是梦破碎的声音。<br></blockquote><br></div>
+        <div align="center"><br><!--<img src="https://ws4.sinaimg.cn/large/0069RVTdgy1fu6wd96wcaj31kw0gwtd0.jpg" alt='proxy'/>--><br><img src="https://i.loli.net/2019/04/30/5cc8533a1dd81.jpg" alt="proxy"><br><blockquote class="blockquote-center">那时我们有梦，关于校园网，关于种子，关于穿越高校的 IPv6，<br>    如今下班后的我们深夜饮酒，杯子碰到一起，都是梦破碎的声音。<br></blockquote><br></div>
 
 <a id="more"></a>
-<p><div align="center"><br><img src="https://ws4.sinaimg.cn/large/0069RVTdgy1fu6x6pc8q8j31ja10o7h9.jpg" width="400" height="400" alt="NAT"><br></div></p>
+<p><div align="center"><br><!--<img src="https://ws4.sinaimg.cn/large/0069RVTdgy1fu6x6pc8q8j31ja10o7h9.jpg" width="400" height="400" alt='NAT'/>--><br><img src="https://i.loli.net/2019/04/30/5cc8533a23dbe.jpg" width="400" height="400" alt="NAT"><br></div></p>
 <ul>
 <li><a href="https://www.wikiwand.com/zh-hans/%E7%BD%91%E7%BB%9C%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%8D%A2" target="_blank" rel="noopener">wiki-网络地址转换</a></li>
 </ul>
@@ -481,7 +481,8 @@
 </ol>
 <h3 id="autossh"><a href="#autossh" class="headerlink" title="autossh"></a>autossh</h3><p>上面提到过，校园网防火墙一般会拒绝外网的单向主动请求，除非内网有机器建立了相应链路。因此，我们需要一个“内应”，即一台处于校园网的机器及其登录权限。而且第一次需要有人主动操作内网服务器来建立请求。</p>
 <p>autossh 是一个用来启动 SSH 并进行监控的程序，通过 autossh，内网机器通过防火墙利用 SSH 隧道搭建一个反向代理，建立端口映射关系，外网就可以主动访问内网的特定端口了。实际上 SSH 本身就可以搭建反向代理，但是由于网络故障或抖动，SSH 可能会断开，而 autossh 支持断开重连机制，确保 SSH 会话的稳定。</p>
-<p><img src="https://ws1.sinaimg.cn/large/0069RVTdgy1fu6ych1rt1j30m80hjq85.jpg" alt="ssh反向代理"></p>
+<!--![ssh反向代理](https://ws1.sinaimg.cn/large/0069RVTdgy1fu6ych1rt1j30m80hjq85.jpg)-->
+<p><img src="https://i.loli.net/2019/04/30/5cc8533a18c5d.jpg" alt="ssh反向代理"></p>
 <p><a href="https://www.systutorials.com/docs/linux/man/1-autossh/" target="_blank" rel="noopener">autossh (1) - Linux Man Pages</a><br>autossh: monitor and restart ssh sessions<br>autossh is a program to start a copy of ssh and monitor it, restarting it as necessary should it die or stop passing traffic.</p>
 <h4 id="1-安装-autossh"><a href="#1-安装-autossh" class="headerlink" title="1. 安装 autossh"></a>1. 安装 autossh</h4><pre><code># yum install autossh
 # apt install autossh
@@ -507,7 +508,8 @@ client# ssh user@vps -p40022
 <li>外网机器 VPS 防火墙开启 SSH 端口（22）及映射端口（40022），否则内网机器 autossh 无法正常搭建代理，客户端也无法连接外网机器；</li>
 <li>内网机器可以通过 SSH 连接外网机器（这里为了方便连接，一般可使用 SSH 公钥认证登录（ssh public key authentication）来避免手动输入密码；</li>
 </ol>
-<h3 id="ngrok"><a href="#ngrok" class="headerlink" title="ngrok"></a>ngrok</h3><p><img src="https://ws3.sinaimg.cn/large/0069RVTdgy1fu6yxjsbi6j30m80du432.jpg" alt="ngrok内网穿透"></p>
+<h3 id="ngrok"><a href="#ngrok" class="headerlink" title="ngrok"></a>ngrok</h3><!--![ngrok内网穿透](https://ws3.sinaimg.cn/large/0069RVTdgy1fu6yxjsbi6j30m80du432.jpg)-->
+<p><img src="(https://i.loli.net/2019/04/30/5cc8533a16f00.jpg" alt="ngrok内网穿透"></p>
 <h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><ul>
 <li><a href="https://github.com/inconshreveable/ngrok" target="_blank" rel="noopener">ngrok - Introspected tunnels to localhost</a></li>
 <li><a href="http://cjting.me/misc/ngrok-tutorial/" target="_blank" rel="noopener">使用Ngrok实现内网穿透</a></li>
@@ -580,7 +582,8 @@ tunnels:
 <li><a href="https://github.com/fatedier/frp" target="_blank" rel="noopener">github-frp</a></li>
 <li><a href="https://github.com/fatedier/frp/blob/master/README_zh.md" target="_blank" rel="noopener">frp中文文档</a></li>
 </ul>
-<p><img src="https://ws3.sinaimg.cn/large/0069RVTdgy1fu6zu2jhglj30es0codfu.jpg" alt="frp架构"></p>
+<!--![frp架构](https://ws3.sinaimg.cn/large/0069RVTdgy1fu6zu2jhglj30es0codfu.jpg)-->
+<p><img src="https://i.loli.net/2019/04/30/5cc8533a0ffe1.jpg" alt="frp架构"></p>
 <p>根据对应的操作系统及架构，从 <a href="https://github.com/fatedier/frp/releases" target="_blank" rel="noopener">Release</a> 页面下载最新版本的程序。</p>
 <pre><code>$ wget https://github.com/fatedier/frp/releases/download/v0.21.0/frp_0.21.0_linux_amd64.tar.gz
 </code></pre><p>将 frps 及 frps.ini 放到具有公网 IP 的机器上。将 frpc 及 frpc.ini 放到处于内网环境的机器上。</p>
@@ -601,7 +604,8 @@ client # cd frp &amp;&amp; ./frpc -c frpc.ini
 <p>第二代中国教育和科研计算机网 CERNET2（The China Education and Research Network 2）是中国下一代互联网示范工程CNGI最大的核心网和唯一的全国性学术网，是目前所知世界上规模最大的采用纯IPv6技术的下一代互联网主干网。</p>
 <p>CERNET2主干网将充分使用CERNET的全国高速传输网，以 2.5Gbps-10Gbps 传输速率连接全国 20 个主要城市的 CERNET2 核心节点，实现全国 200 余所高校下一代互联网IPv6的高速接入，同时为全国其他科研院所和研发机构提供下一代互联网 IPv6 高速接入服务，并通过中国下一代互联网交换中心 CNGI-6IX，高速连接国内外下一代互联网。CERNET2主干网采用纯IPv6协议，为基于IPv6的下一代互联网技术提供了广阔的试验环境。</p>
 <p>中国教育和科研计算机网CERNET始建于1994年，是中国第一个采用IPv6技术的全国性互联网，对中国互联网发展具有重大示范意义。<br>2001年，CERNET提出建设全国性下一代互联网CERNET2计划。2003年8月，CERNET2计划被纳入由国家发改委等八部委联合领导的中国下一代互联网示范工程CNGI。</p>
-<p><img src="https://ws3.sinaimg.cn/large/0069RVTdgy1fu71g0mpgrj31kw12pe81.jpg" alt="CERNET2的100所高校的主干网络拓扑图"></p>
+<!--![CERNET2的100所高校的主干网络拓扑图](https://ws3.sinaimg.cn/large/0069RVTdgy1fu71g0mpgrj31kw12pe81.jpg)-->
+<p><img src="https://i.loli.net/2019/04/30/5cc8533a0ffe1.jpg" alt="CERNET2的100所高校的主干网络拓扑图"></p>
 <h3 id="IPv6"><a href="#IPv6" class="headerlink" title="IPv6"></a><a href="https://www.wikiwand.com/zh-hans/IPv6" target="_blank" rel="noopener">IPv6</a></h3><p>网际网路通讯协定第6版（英文：Internet Protocol version 6，缩写：IPv6）是互联网协议的最新版本，用于封包交换互联网络的网路层协议，旨在解决IPv4地址枯竭问题。</p>
 <p>IPv6的计划是建立未来网际网路扩充的基础，其目标是取代IPv4。虽然IPv6在1994年就已被IETF指定作为IPv4的下一代标准，由于早期的路由器、防火墙、企业的企业资源计划系统及相关应用程式皆须改写，所以在世界范围内使用IPv6部署的公众网与IPv4相比还非常的少，技术上仍以双架构并存居多。</p>
 <p>在Internet上，数据以分组的形式传输。<strong>IPv6定义了一种新的分组格式，目的是为了最小化路由器处理的报文首部。</strong>由于IPv4报文和IPv6报文首部有很大不同，因此这两种协议无法互操作。但是在大多数情况下，IPv6仅仅是对IPv4的一种保守扩展。</p>
