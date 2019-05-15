@@ -17,23 +17,9 @@
 <html class="theme-next mist use-motion" lang="en">
 <head>
   <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
-<meta name="theme-color" content="#222">
-
-
-
-
-
-
-
-
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta name="theme-color" content="#222"/>
 
 
 
@@ -56,37 +42,39 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=6.6.0" rel="stylesheet" type="text/css" />
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.png?v=6.6.0">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"/>
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.1"/>
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=6.6.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.png?v=7.1.1">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=6.6.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=7.1.1">
 
 
-  <link rel="mask-icon" href="/images/avatar.png?v=6.6.0" color="#222">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=7.1.1">
 
 
-
-
+  <link rel="mask-icon" href="/images/avatar.png?v=7.1.1" color="#222">
 
 
 
 
 
-<script type="text/javascript" id="hexo.configurations">
+
+
+<script id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
     scheme: 'Mist',
-    version: '6.6.0',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    version: '7.1.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":true},
+    back2top: true,
+    back2top_sidebar: false,
     fancybox: false,
     fastclick: false,
     lazyload: false,
@@ -122,16 +110,17 @@
 
 
 
-  <link rel="alternate" href="/atom.xml" title="SeanXP" type="application/atom+xml" />
+  <link rel="alternate" href="/atom.xml" title="SeanXP" type="application/atom+xml"/>
 
 
 
-
+  
+  
   <link rel="canonical" href="https://seanxp.com/tags/"/>
 
 
 
-<script type="text/javascript" id="page.configurations">
+<script id="page.configurations">
   CONFIG.page = {
     sidebar: "",
   };
@@ -143,14 +132,6 @@
 
 
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-77366457-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-77366457-1');
-</script>
 
 
 
@@ -160,29 +141,27 @@
 
 
   <noscript>
-  <style type="text/css">
-    .use-motion .motion-element,
-    .use-motion .brand,
-    .use-motion .menu-item,
-    .sidebar-inner,
-    .use-motion .post-block,
-    .use-motion .pagination,
-    .use-motion .comments,
-    .use-motion .post-header,
-    .use-motion .post-body,
-    .use-motion .collection-title { opacity: initial; }
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
 
-    .use-motion .logo,
-    .use-motion .site-title,
-    .use-motion .site-subtitle {
-      opacity: initial;
-      top: initial;
-    }
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
 
-    .use-motion {
-      .logo-line-before i { left: initial; }
-      .logo-line-after i { right: initial; }
-    }
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
   </style>
 </noscript>
 
@@ -200,7 +179,7 @@
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
+  <div class="site-meta">
     
 
     <div class="custom-logo-site-title">
@@ -210,6 +189,7 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
+    
     
   </div>
 
@@ -242,7 +222,7 @@
 
     
 
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>Home</a>
 
   </li>
         
@@ -259,7 +239,7 @@
 
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>Archives</a>
 
   </li>
         
@@ -276,7 +256,7 @@
 
     
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>Tags</a>
 
   </li>
         
@@ -293,7 +273,7 @@
 
     
 
-    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br/>About</a>
 
   </li>
 
@@ -355,7 +335,9 @@
     <div class="post-block page">
       <header class="post-header">
 
-<h1 class="post-title" itemprop="name headline">tags</h1>
+<h1 class="post-title" itemprop="name headline">tags
+
+</h1>
 
 <div class="post-meta">
   
@@ -375,200 +357,202 @@
         
           <div class="tag-cloud">
             <div class="tag-cloud-title">
-                
-                
-                  
-                    
-                  
+              
+              
                 
                   
-                    
-                  
+                
+              
                 
                   
-                    
-                  
+                
+              
                 
                   
-                    
-                  
+                
+              
                 
                   
-                    
-                  
+                
+              
                 
                   
-                    
-                  
+                
+              
                 
                   
-                    
-                  
+                
+              
                 
                   
-                    
-                  
+                
+              
                 
                   
-                    
-                  
+                
+              
                 
                   
-                    
-                  
+                
+              
                 
                   
-                    
-                  
+                
+              
                 
                   
-                    
-                  
+                
+              
                 
                   
-                    
-                  
+                
+              
                 
                   
-                    
-                  
+                
+              
                 
                   
-                    
-                  
+                
+              
                 
                   
-                    
-                  
+                
+              
                 
                   
-                    
-                  
+                
+              
                 
                   
-                    
-                  
+                
+              
                 
                   
-                    
-                  
+                
+              
                 
                   
-                    
-                  
+                
+              
                 
                   
-                    
-                  
+                
+              
                 
                   
-                    
-                  
+                
+              
                 
                   
-                    
-                  
+                
+              
                 
                   
-                    
-                  
+                
+              
                 
                   
-                    
-                  
+                
+              
                 
                   
-                    
-                  
+                
+              
                 
                   
-                    
-                  
+                
+              
                 
                   
-                    
-                  
+                
+              
                 
                   
-                    
-                  
+                
+              
                 
                   
-                    
-                  
+                
+              
                 
                   
-                    
-                  
+                
+              
                 
                   
-                    
-                  
+                
+              
                 
                   
-                    
-                  
+                
+              
                 
                   
-                    
-                  
+                
+              
                 
                   
-                    
-                  
+                
+              
                 
                   
-                    
-                  
+                
+              
                 
                   
-                    
-                  
+                
+              
                 
                   
-                    
-                  
+                
+              
                 
                   
-                    
-                  
+                
+              
                 
                   
-                    
-                  
+                
+              
                 
                   
-                    
-                  
+                
+              
                 
                   
-                    
-                  
+                
+              
                 
                   
-                    
-                  
+                
+              
                 
                   
-                    
-                  
+                
+              
                 
                   
-                    
-                  
+                
+              
                 
                   
-                    
-                  
+                
+              
                 
                   
-                    
+                
+              
+                
                   
                 
-                47 tags in total
+              
+              47 tags in total
             </div>
             <div class="tag-cloud-tags">
-              <a href="/tags/Abstract/" style="font-size: 23.25px; color: #575757">Abstract</a> <a href="/tags/Analysis/" style="font-size: 21px; color: #6f6f6f">Analysis</a> <a href="/tags/Biology/" style="font-size: 12px; color: #ccc">Biology</a> <a href="/tags/Book/" style="font-size: 18.75px; color: #868686">Book</a> <a href="/tags/Chinese/" style="font-size: 12px; color: #ccc">Chinese</a> <a href="/tags/Clock/" style="font-size: 12px; color: #ccc">Clock</a> <a href="/tags/Course/" style="font-size: 23.25px; color: #575757">Course</a> <a href="/tags/DIY/" style="font-size: 12px; color: #ccc">DIY</a> <a href="/tags/DNS/" style="font-size: 12px; color: #ccc">DNS</a> <a href="/tags/Documentary/" style="font-size: 16.5px; color: #9d9d9d">Documentary</a> <a href="/tags/Education/" style="font-size: 12px; color: #ccc">Education</a> <a href="/tags/Efficiency/" style="font-size: 16.5px; color: #9d9d9d">Efficiency</a> <a href="/tags/Embedded/" style="font-size: 12px; color: #ccc">Embedded</a> <a href="/tags/Finance/" style="font-size: 27.75px; color: #282828">Finance</a> <a href="/tags/Fun/" style="font-size: 12px; color: #ccc">Fun</a> <a href="/tags/GBA/" style="font-size: 12px; color: #ccc">GBA</a> <a href="/tags/Game/" style="font-size: 18.75px; color: #868686">Game</a> <a href="/tags/GitHub/" style="font-size: 14.25px; color: #b5b5b5">GitHub</a> <a href="/tags/Guide/" style="font-size: 14.25px; color: #b5b5b5">Guide</a> <a href="/tags/History/" style="font-size: 16.5px; color: #9d9d9d">History</a> <a href="/tags/Internet/" style="font-size: 25.5px; color: #404040">Internet</a> <a href="/tags/Khan/" style="font-size: 23.25px; color: #575757">Khan</a> <a href="/tags/Learning/" style="font-size: 30px; color: #111">Learning</a> <a href="/tags/Life/" style="font-size: 25.5px; color: #404040">Life</a> <a href="/tags/Linux/" style="font-size: 18.75px; color: #868686">Linux</a> <a href="/tags/List/" style="font-size: 12px; color: #ccc">List</a> <a href="/tags/Love/" style="font-size: 12px; color: #ccc">Love</a> <a href="/tags/Mac/" style="font-size: 12px; color: #ccc">Mac</a> <a href="/tags/Master/" style="font-size: 12px; color: #ccc">Master</a> <a href="/tags/Math/" style="font-size: 14.25px; color: #b5b5b5">Math</a> <a href="/tags/Mourn/" style="font-size: 12px; color: #ccc">Mourn</a> <a href="/tags/Music/" style="font-size: 12px; color: #ccc">Music</a> <a href="/tags/Network/" style="font-size: 16.5px; color: #9d9d9d">Network</a> <a href="/tags/Nintendo/" style="font-size: 14.25px; color: #b5b5b5">Nintendo</a> <a href="/tags/Poetry/" style="font-size: 16.5px; color: #9d9d9d">Poetry</a> <a href="/tags/Reading/" style="font-size: 18.75px; color: #868686">Reading</a> <a href="/tags/Review/" style="font-size: 25.5px; color: #404040">Review</a> <a href="/tags/Router/" style="font-size: 16.5px; color: #9d9d9d">Router</a> <a href="/tags/Server/" style="font-size: 16.5px; color: #9d9d9d">Server</a> <a href="/tags/Shadowsocks/" style="font-size: 12px; color: #ccc">Shadowsocks</a> <a href="/tags/Social/" style="font-size: 16.5px; color: #9d9d9d">Social</a> <a href="/tags/Software/" style="font-size: 16.5px; color: #9d9d9d">Software</a> <a href="/tags/Student/" style="font-size: 18.75px; color: #868686">Student</a> <a href="/tags/TV/" style="font-size: 12px; color: #ccc">TV</a> <a href="/tags/Tutorial/" style="font-size: 25.5px; color: #404040">Tutorial</a> <a href="/tags/University/" style="font-size: 14.25px; color: #b5b5b5">University</a> <a href="/tags/War/" style="font-size: 12px; color: #ccc">War</a>
+              
+                <a href="/tags/Abstract/" style="font-size: 23.25px; color: #575757">Abstract</a> <a href="/tags/Analysis/" style="font-size: 21px; color: #6f6f6f">Analysis</a> <a href="/tags/Biology/" style="font-size: 12px; color: #ccc">Biology</a> <a href="/tags/Book/" style="font-size: 18.75px; color: #868686">Book</a> <a href="/tags/Chinese/" style="font-size: 12px; color: #ccc">Chinese</a> <a href="/tags/Clock/" style="font-size: 12px; color: #ccc">Clock</a> <a href="/tags/Course/" style="font-size: 23.25px; color: #575757">Course</a> <a href="/tags/DIY/" style="font-size: 12px; color: #ccc">DIY</a> <a href="/tags/DNS/" style="font-size: 12px; color: #ccc">DNS</a> <a href="/tags/Documentary/" style="font-size: 16.5px; color: #9d9d9d">Documentary</a> <a href="/tags/Education/" style="font-size: 12px; color: #ccc">Education</a> <a href="/tags/Efficiency/" style="font-size: 16.5px; color: #9d9d9d">Efficiency</a> <a href="/tags/Embedded/" style="font-size: 12px; color: #ccc">Embedded</a> <a href="/tags/Finance/" style="font-size: 27.75px; color: #282828">Finance</a> <a href="/tags/Fun/" style="font-size: 12px; color: #ccc">Fun</a> <a href="/tags/GBA/" style="font-size: 12px; color: #ccc">GBA</a> <a href="/tags/Game/" style="font-size: 18.75px; color: #868686">Game</a> <a href="/tags/GitHub/" style="font-size: 14.25px; color: #b5b5b5">GitHub</a> <a href="/tags/Guide/" style="font-size: 14.25px; color: #b5b5b5">Guide</a> <a href="/tags/History/" style="font-size: 16.5px; color: #9d9d9d">History</a> <a href="/tags/Internet/" style="font-size: 25.5px; color: #404040">Internet</a> <a href="/tags/Khan/" style="font-size: 23.25px; color: #575757">Khan</a> <a href="/tags/Learning/" style="font-size: 30px; color: #111">Learning</a> <a href="/tags/Life/" style="font-size: 25.5px; color: #404040">Life</a> <a href="/tags/Linux/" style="font-size: 18.75px; color: #868686">Linux</a> <a href="/tags/List/" style="font-size: 12px; color: #ccc">List</a> <a href="/tags/Love/" style="font-size: 12px; color: #ccc">Love</a> <a href="/tags/Mac/" style="font-size: 12px; color: #ccc">Mac</a> <a href="/tags/Master/" style="font-size: 12px; color: #ccc">Master</a> <a href="/tags/Math/" style="font-size: 14.25px; color: #b5b5b5">Math</a> <a href="/tags/Mourn/" style="font-size: 12px; color: #ccc">Mourn</a> <a href="/tags/Music/" style="font-size: 12px; color: #ccc">Music</a> <a href="/tags/Network/" style="font-size: 16.5px; color: #9d9d9d">Network</a> <a href="/tags/Nintendo/" style="font-size: 14.25px; color: #b5b5b5">Nintendo</a> <a href="/tags/Poetry/" style="font-size: 16.5px; color: #9d9d9d">Poetry</a> <a href="/tags/Reading/" style="font-size: 18.75px; color: #868686">Reading</a> <a href="/tags/Review/" style="font-size: 25.5px; color: #404040">Review</a> <a href="/tags/Router/" style="font-size: 16.5px; color: #9d9d9d">Router</a> <a href="/tags/Server/" style="font-size: 16.5px; color: #9d9d9d">Server</a> <a href="/tags/Shadowsocks/" style="font-size: 12px; color: #ccc">Shadowsocks</a> <a href="/tags/Social/" style="font-size: 16.5px; color: #9d9d9d">Social</a> <a href="/tags/Software/" style="font-size: 16.5px; color: #9d9d9d">Software</a> <a href="/tags/Student/" style="font-size: 18.75px; color: #868686">Student</a> <a href="/tags/TV/" style="font-size: 12px; color: #ccc">TV</a> <a href="/tags/Tutorial/" style="font-size: 25.5px; color: #404040">Tutorial</a> <a href="/tags/University/" style="font-size: 14.25px; color: #b5b5b5">University</a> <a href="/tags/War/" style="font-size: 12px; color: #ccc">War</a>
+              
             </div>
           </div>
         
@@ -603,23 +587,22 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
-    
     <div class="sidebar-inner">
 
       
 
       
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image"
                 src="/images/avatar.png"
-                alt="SeanXP" />
+                alt="SeanXP"/>
             
               <p class="site-author-name" itemprop="name">SeanXP</p>
-              <p class="site-description motion-element" itemprop="description">为学日益，为道日损，损之又损，以至于无为，无为而无不为。</p>
+              <div class="site-description motion-element" itemprop="description">为学日益，为道日损，损之又损，以至于无为，无为而无不为。</div>
           </div>
 
           
@@ -639,7 +622,11 @@
                 
                 
                 <div class="site-state-item site-state-categories">
-                  <a href="/categories/index.html">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
                     
                     
                       
@@ -680,7 +667,11 @@
                 
                 
                 <div class="site-state-item site-state-tags">
-                  <a href="/tags/index.html">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
                     
                     
                       
@@ -795,6 +786,8 @@
           
 
           
+
+          
             <div class="links-of-author motion-element">
               
                 <span class="links-of-author-item">
@@ -844,7 +837,7 @@
           
 
         </div>
-      </section>
+      </div>
 
       
 
@@ -852,6 +845,9 @@
 
     </div>
   </aside>
+  
+    <div id="sidebar-dimmer"></div>
+  
 
 
         
@@ -890,15 +886,23 @@
   <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   
-    <span class="site-uv" title="Total Visitors">
+    <span class="post-meta-item-icon">
       <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="Total Visitors">
       <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
     </span>
   
 
   
-    <span class="site-pv" title="Total Views">
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
       <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="Total Views">
       <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
     </span>
   
@@ -924,7 +928,7 @@
     
 
     
-	
+
     
 
     
@@ -932,7 +936,7 @@
 
   
 
-<script type="text/javascript">
+<script>
   if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
     window.Promise = null;
   }
@@ -964,63 +968,56 @@
 
 
   
-  
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
 
   
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
 
   
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=6.6.0"></script>
+  <script src="/js/utils.js?v=7.1.1"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=6.6.0"></script>
+  <script src="/js/motion.js?v=7.1.1"></script>
 
 
 
   
   
 
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.6.0"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=6.6.0"></script>
 
+  <script src="/js/schemes/muse.js?v=7.1.1"></script>
 
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.6.0"></script>
 
 
 
   
+  <script src="/js/scrollspy.js?v=7.1.1"></script>
+<script src="/js/post-details.js?v=7.1.1"></script>
 
 
 
   
 
 
-
-
-
-
-
-
+  <script src="/js/next-boot.js?v=7.1.1"></script>
 
 
   
 
+  
+
+  
+
+  
+
+
+
+  
 
 
 
@@ -1036,6 +1033,9 @@
   
 
   
+
+  
+
   
 
   

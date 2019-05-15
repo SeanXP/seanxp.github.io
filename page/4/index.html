@@ -17,23 +17,9 @@
 <html class="theme-next mist use-motion" lang="en">
 <head>
   <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
-<meta name="theme-color" content="#222">
-
-
-
-
-
-
-
-
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta name="theme-color" content="#222"/>
 
 
 
@@ -56,37 +42,39 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=6.6.0" rel="stylesheet" type="text/css" />
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.png?v=6.6.0">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"/>
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.1"/>
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=6.6.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.png?v=7.1.1">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=6.6.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=7.1.1">
 
 
-  <link rel="mask-icon" href="/images/avatar.png?v=6.6.0" color="#222">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=7.1.1">
 
 
-
-
+  <link rel="mask-icon" href="/images/avatar.png?v=7.1.1" color="#222">
 
 
 
 
 
-<script type="text/javascript" id="hexo.configurations">
+
+
+<script id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
     scheme: 'Mist',
-    version: '6.6.0',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    version: '7.1.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":true},
+    back2top: true,
+    back2top_sidebar: false,
     fancybox: false,
     fastclick: false,
     lazyload: false,
@@ -121,16 +109,17 @@
 
 
 
-  <link rel="alternate" href="/atom.xml" title="SeanXP" type="application/atom+xml" />
+  <link rel="alternate" href="/atom.xml" title="SeanXP" type="application/atom+xml"/>
 
 
 
-
+  
+  
   <link rel="canonical" href="https://seanxp.com/page/4/"/>
 
 
 
-<script type="text/javascript" id="page.configurations">
+<script id="page.configurations">
   CONFIG.page = {
     sidebar: "",
   };
@@ -142,14 +131,6 @@
 
 
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-77366457-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-77366457-1');
-</script>
 
 
 
@@ -159,29 +140,27 @@
 
 
   <noscript>
-  <style type="text/css">
-    .use-motion .motion-element,
-    .use-motion .brand,
-    .use-motion .menu-item,
-    .sidebar-inner,
-    .use-motion .post-block,
-    .use-motion .pagination,
-    .use-motion .comments,
-    .use-motion .post-header,
-    .use-motion .post-body,
-    .use-motion .collection-title { opacity: initial; }
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
 
-    .use-motion .logo,
-    .use-motion .site-title,
-    .use-motion .site-subtitle {
-      opacity: initial;
-      top: initial;
-    }
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
 
-    .use-motion {
-      .logo-line-before i { left: initial; }
-      .logo-line-after i { right: initial; }
-    }
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
   </style>
 </noscript>
 
@@ -200,7 +179,7 @@
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
+  <div class="site-meta">
     
 
     <div class="custom-logo-site-title">
@@ -210,6 +189,7 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
+    
     
   </div>
 
@@ -242,7 +222,7 @@
 
     
 
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>Home</a>
 
   </li>
         
@@ -259,7 +239,7 @@
 
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>Archives</a>
 
   </li>
         
@@ -276,7 +256,7 @@
 
     
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>Tags</a>
 
   </li>
         
@@ -293,7 +273,7 @@
 
     
 
-    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br/>About</a>
 
   </li>
 
@@ -345,16 +325,16 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://seanxp.com/2016/05/reading-need-book/">
+    <link itemprop="mainEntityOfPage" href="https://seanxp.com/2016/05/reading-need-book/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="SeanXP">
-      <meta itemprop="description" content="为学日益，为道日损，损之又损，以至于无为，无为而无不为。">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="SeanXP"/>
+      <meta itemprop="description" content="为学日益，为道日损，损之又损，以至于无为，无为而无不为。"/>
+      <meta itemprop="image" content="/images/avatar.png"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SeanXP">
+      <meta itemprop="name" content="SeanXP"/>
     </span>
 
     
@@ -365,7 +345,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2016/05/reading-need-book/" class="post-title-link" itemprop="https://seanxp.com/page/4/index.html">电子时代深度阅读离不开书籍</a>
+                <a href="/2016/05/reading-need-book/" class="post-title-link" itemprop="url">电子时代深度阅读离不开书籍</a>
               
             
           </h1>
@@ -394,10 +374,26 @@
             
 
             
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-08-12 08:52:36" itemprop="dateModified" datetime="2018-08-12T08:52:36+08:00">2018-08-12</time>
+              
+            
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -417,6 +413,7 @@
           
 
           
+            
             
           
 
@@ -446,6 +443,12 @@
           <p>原文: <a href="https://blog.sina.com.cn/s/blog_4cacf1f30102wa4r.html" target="_blank" rel="noopener">电子时代深度阅读离不开书籍</a><br>作者: 徐 贲<br>
           <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2016/05/reading-need-book/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
@@ -460,7 +463,7 @@
     
 
     
-       
+      
     
     
 
@@ -501,16 +504,16 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://seanxp.com/2016/05/my-rss-list/">
+    <link itemprop="mainEntityOfPage" href="https://seanxp.com/2016/05/my-rss-list/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="SeanXP">
-      <meta itemprop="description" content="为学日益，为道日损，损之又损，以至于无为，无为而无不为。">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="SeanXP"/>
+      <meta itemprop="description" content="为学日益，为道日损，损之又损，以至于无为，无为而无不为。"/>
+      <meta itemprop="image" content="/images/avatar.png"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SeanXP">
+      <meta itemprop="name" content="SeanXP"/>
     </span>
 
     
@@ -521,7 +524,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2016/05/my-rss-list/" class="post-title-link" itemprop="https://seanxp.com/page/4/index.html">我的RSS订阅列表</a>
+                <a href="/2016/05/my-rss-list/" class="post-title-link" itemprop="url">我的RSS订阅列表</a>
               
             
           </h1>
@@ -550,10 +553,26 @@
             
 
             
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-08-12 08:52:36" itemprop="dateModified" datetime="2018-08-12T08:52:36+08:00">2018-08-12</time>
+              
+            
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -573,6 +592,7 @@
           
 
           
+            
             
           
 
@@ -602,6 +622,12 @@
           <p>我个人很喜欢RSS，少数量、高质量的RSS订阅，使人可以在纷繁杂乱的互联网潮流中，及时获取到真正有阅读价值的文章。<br>这里不做RSS的科普，网上已经有很多，善用搜索引擎就能找到。<br>关于RSS阅读器，我使用的是<a href="https://feedly.com/" target="_blank" rel="noopener">feedly</a>，客户端使用<a href="https://reederapp.com" target="_blank" rel="noopener">Reeder</a>。<br>良好的客户端阅读体验必不可少，但更重要的是RSS的订阅质量。</p>
           <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2016/05/my-rss-list/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
@@ -616,7 +642,7 @@
     
 
     
-       
+      
     
     
 
@@ -657,16 +683,16 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://seanxp.com/2016/04/TV-Jin/">
+    <link itemprop="mainEntityOfPage" href="https://seanxp.com/2016/04/TV-Jin/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="SeanXP">
-      <meta itemprop="description" content="为学日益，为道日损，损之又损，以至于无为，无为而无不为。">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="SeanXP"/>
+      <meta itemprop="description" content="为学日益，为道日损，损之又损，以至于无为，无为而无不为。"/>
+      <meta itemprop="image" content="/images/avatar.png"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SeanXP">
+      <meta itemprop="name" content="SeanXP"/>
     </span>
 
     
@@ -677,7 +703,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2016/04/TV-Jin/" class="post-title-link" itemprop="https://seanxp.com/page/4/index.html">日剧：JIN-仁(仁医)</a>
+                <a href="/2016/04/TV-Jin/" class="post-title-link" itemprop="url">日剧：JIN-仁(仁医)</a>
               
             
           </h1>
@@ -706,10 +732,26 @@
             
 
             
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-04-30 21:37:08" itemprop="dateModified" datetime="2019-04-30T21:37:08+08:00">2019-04-30</time>
+              
+            
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -729,6 +771,7 @@
           
 
           
+            
             
           
 
@@ -759,6 +802,12 @@
 <p><img src="https://i.loli.net/2019/04/30/5cc84f782e69d.jpg" alt="JIN-1"><br>我生君未生，君生我已老。<br>我恨君生迟，君恨我生早。<br>唯留书一封，寸心以相表。<br>若得生同时，誓拟与君好。<br>
           <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2016/04/TV-Jin/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
@@ -773,7 +822,7 @@
     
 
     
-       
+      
     
     
 
@@ -814,16 +863,16 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://seanxp.com/2015/09/monkey-kingdom/">
+    <link itemprop="mainEntityOfPage" href="https://seanxp.com/2015/09/monkey-kingdom/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="SeanXP">
-      <meta itemprop="description" content="为学日益，为道日损，损之又损，以至于无为，无为而无不为。">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="SeanXP"/>
+      <meta itemprop="description" content="为学日益，为道日损，损之又损，以至于无为，无为而无不为。"/>
+      <meta itemprop="image" content="/images/avatar.png"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SeanXP">
+      <meta itemprop="name" content="SeanXP"/>
     </span>
 
     
@@ -834,7 +883,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2015/09/monkey-kingdom/" class="post-title-link" itemprop="https://seanxp.com/page/4/index.html">猴子王国 Monkey Kingdom</a>
+                <a href="/2015/09/monkey-kingdom/" class="post-title-link" itemprop="url">猴子王国 Monkey Kingdom</a>
               
             
           </h1>
@@ -863,10 +912,26 @@
             
 
             
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-08-12 08:52:36" itemprop="dateModified" datetime="2018-08-12T08:52:36+08:00">2018-08-12</time>
+              
+            
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -886,6 +951,7 @@
           
 
           
+            
             
           
 
@@ -915,6 +981,12 @@
           <p><img src="https://images-na.ssl-images-amazon.com/images/M/MV5BMzIxNDc1MDg0MF5BMl5BanBnXkFtZTgwNTI3ODE4MzE@._V1_SY1000_SX676_AL_.jpg" alt="Monkey Kingdom"><br>
           <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2015/09/monkey-kingdom/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
@@ -929,7 +1001,7 @@
     
 
     
-       
+      
     
     
 
@@ -970,16 +1042,16 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://seanxp.com/2015/09/drunk-man/">
+    <link itemprop="mainEntityOfPage" href="https://seanxp.com/2015/09/drunk-man/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="SeanXP">
-      <meta itemprop="description" content="为学日益，为道日损，损之又损，以至于无为，无为而无不为。">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="SeanXP"/>
+      <meta itemprop="description" content="为学日益，为道日损，损之又损，以至于无为，无为而无不为。"/>
+      <meta itemprop="image" content="/images/avatar.png"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SeanXP">
+      <meta itemprop="name" content="SeanXP"/>
     </span>
 
     
@@ -990,7 +1062,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2015/09/drunk-man/" class="post-title-link" itemprop="https://seanxp.com/page/4/index.html">《醉步男》</a>
+                <a href="/2015/09/drunk-man/" class="post-title-link" itemprop="url">《醉步男》</a>
               
             
           </h1>
@@ -1019,10 +1091,26 @@
             
 
             
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-08-12 08:52:36" itemprop="dateModified" datetime="2018-08-12T08:52:36+08:00">2018-08-12</time>
+              
+            
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -1042,6 +1130,7 @@
           
 
           
+            
             
           
 
@@ -1073,6 +1162,12 @@
 <p>电影推荐：<a href="https://movie.douban.com/subject/20278505/" target="_blank" rel="noopener">Movie - Predestination</a><br>
           <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2015/09/drunk-man/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
@@ -1087,7 +1182,7 @@
     
 
     
-       
+      
     
     
 
@@ -1128,16 +1223,16 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://seanxp.com/2015/09/movie-the-pianist/">
+    <link itemprop="mainEntityOfPage" href="https://seanxp.com/2015/09/movie-the-pianist/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="SeanXP">
-      <meta itemprop="description" content="为学日益，为道日损，损之又损，以至于无为，无为而无不为。">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="SeanXP"/>
+      <meta itemprop="description" content="为学日益，为道日损，损之又损，以至于无为，无为而无不为。"/>
+      <meta itemprop="image" content="/images/avatar.png"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SeanXP">
+      <meta itemprop="name" content="SeanXP"/>
     </span>
 
     
@@ -1148,7 +1243,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2015/09/movie-the-pianist/" class="post-title-link" itemprop="https://seanxp.com/page/4/index.html">The Pianist</a>
+                <a href="/2015/09/movie-the-pianist/" class="post-title-link" itemprop="url">The Pianist</a>
               
             
           </h1>
@@ -1177,10 +1272,26 @@
             
 
             
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-04-30 21:43:57" itemprop="dateModified" datetime="2019-04-30T21:43:57+08:00">2019-04-30</time>
+              
+            
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -1200,6 +1311,7 @@
           
 
           
+            
             
           
 
@@ -1231,6 +1343,12 @@
 <p><img src="https://i.loli.net/2019/04/30/5cc8510d389ae.jpg" alt="The-Pianist.jpg"><br><a href="https://movie.douban.com/subject/1296736/" target="_blank" rel="noopener">《The Pianist》</a>, 和《Schindler’s List》一样的传记题材电影，不一样的人物视角。二战题材的电影看过不少，在那个年代，无论发生什么都不会再令我感到震惊，因为那本来就是一个荒谬而残酷的时代。<br>
           <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2015/09/movie-the-pianist/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
@@ -1245,7 +1363,7 @@
     
 
     
-       
+      
     
     
 
@@ -1286,16 +1404,16 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://seanxp.com/2015/08/why-do-people-work/">
+    <link itemprop="mainEntityOfPage" href="https://seanxp.com/2015/08/why-do-people-work/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="SeanXP">
-      <meta itemprop="description" content="为学日益，为道日损，损之又损，以至于无为，无为而无不为。">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="SeanXP"/>
+      <meta itemprop="description" content="为学日益，为道日损，损之又损，以至于无为，无为而无不为。"/>
+      <meta itemprop="image" content="/images/avatar.png"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SeanXP">
+      <meta itemprop="name" content="SeanXP"/>
     </span>
 
     
@@ -1306,7 +1424,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2015/08/why-do-people-work/" class="post-title-link" itemprop="https://seanxp.com/page/4/index.html">浅谈工作的意义</a>
+                <a href="/2015/08/why-do-people-work/" class="post-title-link" itemprop="url">浅谈工作的意义</a>
               
             
           </h1>
@@ -1335,10 +1453,26 @@
             
 
             
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-08-12 08:52:36" itemprop="dateModified" datetime="2018-08-12T08:52:36+08:00">2018-08-12</time>
+              
+            
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -1358,6 +1492,7 @@
           
 
           
+            
             
           
 
@@ -1390,6 +1525,12 @@
 </blockquote>
           <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2015/08/why-do-people-work/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
@@ -1404,7 +1545,7 @@
     
 
     
-       
+      
     
     
 
@@ -1445,16 +1586,16 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://seanxp.com/2015/05/doing-and-learning/">
+    <link itemprop="mainEntityOfPage" href="https://seanxp.com/2015/05/doing-and-learning/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="SeanXP">
-      <meta itemprop="description" content="为学日益，为道日损，损之又损，以至于无为，无为而无不为。">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="SeanXP"/>
+      <meta itemprop="description" content="为学日益，为道日损，损之又损，以至于无为，无为而无不为。"/>
+      <meta itemprop="image" content="/images/avatar.png"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SeanXP">
+      <meta itemprop="name" content="SeanXP"/>
     </span>
 
     
@@ -1465,7 +1606,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2015/05/doing-and-learning/" class="post-title-link" itemprop="https://seanxp.com/page/4/index.html">大学生：“学”与“做”的迷思</a>
+                <a href="/2015/05/doing-and-learning/" class="post-title-link" itemprop="url">大学生：“学”与“做”的迷思</a>
               
             
           </h1>
@@ -1494,10 +1635,26 @@
             
 
             
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-08-12 08:52:36" itemprop="dateModified" datetime="2018-08-12T08:52:36+08:00">2018-08-12</time>
+              
+            
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -1517,6 +1674,7 @@
           
 
           
+            
             
           
 
@@ -1547,6 +1705,12 @@
 <p>事实上，四年的大学读下来（不是玩下来、混下来），几十门课程学完，真的把上百本的教科书、参考书、习题集啃下来，上千个概念、原理、定理、公式至少过了一遍（按理工科算），若还说“没学到啥东西”，倒真是让人觉得有些不可思议。<br>
           <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2015/05/doing-and-learning/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
@@ -1561,7 +1725,7 @@
     
 
     
-       
+      
     
     
 
@@ -1602,16 +1766,16 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://seanxp.com/2015/04/more-reading-more-poor/">
+    <link itemprop="mainEntityOfPage" href="https://seanxp.com/2015/04/more-reading-more-poor/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="SeanXP">
-      <meta itemprop="description" content="为学日益，为道日损，损之又损，以至于无为，无为而无不为。">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="SeanXP"/>
+      <meta itemprop="description" content="为学日益，为道日损，损之又损，以至于无为，无为而无不为。"/>
+      <meta itemprop="image" content="/images/avatar.png"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SeanXP">
+      <meta itemprop="name" content="SeanXP"/>
     </span>
 
     
@@ -1622,7 +1786,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2015/04/more-reading-more-poor/" class="post-title-link" itemprop="https://seanxp.com/page/4/index.html">为什么越读书越穷？</a>
+                <a href="/2015/04/more-reading-more-poor/" class="post-title-link" itemprop="url">为什么越读书越穷？</a>
               
             
           </h1>
@@ -1651,10 +1815,26 @@
             
 
             
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-08-12 08:52:36" itemprop="dateModified" datetime="2018-08-12T08:52:36+08:00">2018-08-12</time>
+              
+            
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -1674,6 +1854,7 @@
           
 
           
+            
             
           
 
@@ -1704,6 +1885,12 @@
 <p>为什么越读书越穷？<br>鲍海飞 2015-3-13<br>
           <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2015/04/more-reading-more-poor/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
@@ -1718,7 +1905,7 @@
     
 
     
-       
+      
     
     
 
@@ -1759,16 +1946,16 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://seanxp.com/2015/03/on-books-and-reading/">
+    <link itemprop="mainEntityOfPage" href="https://seanxp.com/2015/03/on-books-and-reading/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="SeanXP">
-      <meta itemprop="description" content="为学日益，为道日损，损之又损，以至于无为，无为而无不为。">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="SeanXP"/>
+      <meta itemprop="description" content="为学日益，为道日损，损之又损，以至于无为，无为而无不为。"/>
+      <meta itemprop="image" content="/images/avatar.png"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SeanXP">
+      <meta itemprop="name" content="SeanXP"/>
     </span>
 
     
@@ -1779,7 +1966,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2015/03/on-books-and-reading/" class="post-title-link" itemprop="https://seanxp.com/page/4/index.html">叔本华：读书与书籍</a>
+                <a href="/2015/03/on-books-and-reading/" class="post-title-link" itemprop="url">叔本华：读书与书籍</a>
               
             
           </h1>
@@ -1808,10 +1995,26 @@
             
 
             
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-08-12 08:52:36" itemprop="dateModified" datetime="2018-08-12T08:52:36+08:00">2018-08-12</time>
+              
+            
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -1831,6 +2034,7 @@
           
 
           
+            
             
           
 
@@ -1861,6 +2065,12 @@
 <p>摘自 《叔本华散文集》<br>英文文章地址：<a href="https://www.berfrois.com/2013/02/on-books-and-reading-schopenhauer/" target="_blank" rel="noopener">https://www.berfrois.com/2013/02/on-books-and-reading-schopenhauer/</a><br>
           <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2015/03/on-books-and-reading/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
@@ -1875,7 +2085,7 @@
     
 
     
-       
+      
     
     
 
@@ -1926,23 +2136,22 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
-    
     <div class="sidebar-inner">
 
       
 
       
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image"
                 src="/images/avatar.png"
-                alt="SeanXP" />
+                alt="SeanXP"/>
             
               <p class="site-author-name" itemprop="name">SeanXP</p>
-              <p class="site-description motion-element" itemprop="description">为学日益，为道日损，损之又损，以至于无为，无为而无不为。</p>
+              <div class="site-description motion-element" itemprop="description">为学日益，为道日损，损之又损，以至于无为，无为而无不为。</div>
           </div>
 
           
@@ -1962,7 +2171,11 @@
                 
                 
                 <div class="site-state-item site-state-categories">
-                  <a href="/categories/index.html">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
                     
                     
                       
@@ -2003,7 +2216,11 @@
                 
                 
                 <div class="site-state-item site-state-tags">
-                  <a href="/tags/index.html">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
                     
                     
                       
@@ -2118,6 +2335,8 @@
           
 
           
+
+          
             <div class="links-of-author motion-element">
               
                 <span class="links-of-author-item">
@@ -2167,7 +2386,7 @@
           
 
         </div>
-      </section>
+      </div>
 
       
 
@@ -2175,6 +2394,9 @@
 
     </div>
   </aside>
+  
+    <div id="sidebar-dimmer"></div>
+  
 
 
         
@@ -2213,15 +2435,23 @@
   <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   
-    <span class="site-uv" title="Total Visitors">
+    <span class="post-meta-item-icon">
       <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="Total Visitors">
       <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
     </span>
   
 
   
-    <span class="site-pv" title="Total Views">
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
       <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="Total Views">
       <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
     </span>
   
@@ -2247,7 +2477,7 @@
     
 
     
-	
+
     
 
     
@@ -2255,7 +2485,7 @@
 
   
 
-<script type="text/javascript">
+<script>
   if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
     window.Promise = null;
   }
@@ -2287,59 +2517,52 @@
 
 
   
-  
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
 
   
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
 
   
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=6.6.0"></script>
+  <script src="/js/utils.js?v=7.1.1"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=6.6.0"></script>
+  <script src="/js/motion.js?v=7.1.1"></script>
 
 
 
   
   
 
-  
 
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.6.0"></script>
-
-
-
-  
-
-
-
-  
-
-
-
-
-
-
+  <script src="/js/schemes/muse.js?v=7.1.1"></script>
 
 
 
 
   
 
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
 
 
 
@@ -2355,6 +2578,9 @@
   
 
   
+
+  
+
   
 
   

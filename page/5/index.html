@@ -17,23 +17,9 @@
 <html class="theme-next mist use-motion" lang="en">
 <head>
   <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
-<meta name="theme-color" content="#222">
-
-
-
-
-
-
-
-
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta name="theme-color" content="#222"/>
 
 
 
@@ -56,37 +42,39 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=6.6.0" rel="stylesheet" type="text/css" />
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.png?v=6.6.0">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"/>
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.1"/>
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=6.6.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.png?v=7.1.1">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=6.6.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=7.1.1">
 
 
-  <link rel="mask-icon" href="/images/avatar.png?v=6.6.0" color="#222">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=7.1.1">
 
 
-
-
+  <link rel="mask-icon" href="/images/avatar.png?v=7.1.1" color="#222">
 
 
 
 
 
-<script type="text/javascript" id="hexo.configurations">
+
+
+<script id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
     scheme: 'Mist',
-    version: '6.6.0',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    version: '7.1.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":true},
+    back2top: true,
+    back2top_sidebar: false,
     fancybox: false,
     fastclick: false,
     lazyload: false,
@@ -121,16 +109,17 @@
 
 
 
-  <link rel="alternate" href="/atom.xml" title="SeanXP" type="application/atom+xml" />
+  <link rel="alternate" href="/atom.xml" title="SeanXP" type="application/atom+xml"/>
 
 
 
-
+  
+  
   <link rel="canonical" href="https://seanxp.com/page/5/"/>
 
 
 
-<script type="text/javascript" id="page.configurations">
+<script id="page.configurations">
   CONFIG.page = {
     sidebar: "",
   };
@@ -142,14 +131,6 @@
 
 
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-77366457-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-77366457-1');
-</script>
 
 
 
@@ -159,29 +140,27 @@
 
 
   <noscript>
-  <style type="text/css">
-    .use-motion .motion-element,
-    .use-motion .brand,
-    .use-motion .menu-item,
-    .sidebar-inner,
-    .use-motion .post-block,
-    .use-motion .pagination,
-    .use-motion .comments,
-    .use-motion .post-header,
-    .use-motion .post-body,
-    .use-motion .collection-title { opacity: initial; }
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
 
-    .use-motion .logo,
-    .use-motion .site-title,
-    .use-motion .site-subtitle {
-      opacity: initial;
-      top: initial;
-    }
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
 
-    .use-motion {
-      .logo-line-before i { left: initial; }
-      .logo-line-after i { right: initial; }
-    }
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
   </style>
 </noscript>
 
@@ -200,7 +179,7 @@
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
+  <div class="site-meta">
     
 
     <div class="custom-logo-site-title">
@@ -210,6 +189,7 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
+    
     
   </div>
 
@@ -242,7 +222,7 @@
 
     
 
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>Home</a>
 
   </li>
         
@@ -259,7 +239,7 @@
 
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>Archives</a>
 
   </li>
         
@@ -276,7 +256,7 @@
 
     
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>Tags</a>
 
   </li>
         
@@ -293,7 +273,7 @@
 
     
 
-    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br/>About</a>
 
   </li>
 
@@ -345,16 +325,16 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://seanxp.com/2015/03/yesenin/">
+    <link itemprop="mainEntityOfPage" href="https://seanxp.com/2015/03/yesenin/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="SeanXP">
-      <meta itemprop="description" content="为学日益，为道日损，损之又损，以至于无为，无为而无不为。">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="SeanXP"/>
+      <meta itemprop="description" content="为学日益，为道日损，损之又损，以至于无为，无为而无不为。"/>
+      <meta itemprop="image" content="/images/avatar.png"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SeanXP">
+      <meta itemprop="name" content="SeanXP"/>
     </span>
 
     
@@ -365,7 +345,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2015/03/yesenin/" class="post-title-link" itemprop="https://seanxp.com/page/5/index.html">不惋惜，不呼唤，我也不啼哭</a>
+                <a href="/2015/03/yesenin/" class="post-title-link" itemprop="url">不惋惜，不呼唤，我也不啼哭</a>
               
             
           </h1>
@@ -394,10 +374,26 @@
             
 
             
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-08-12 08:52:36" itemprop="dateModified" datetime="2018-08-12T08:52:36+08:00">2018-08-12</time>
+              
+            
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -417,6 +413,7 @@
           
 
           
+            
             
           
 
@@ -446,6 +443,12 @@
           <p>作者：叶赛宁<br>译者：顾蕴璞</p>
           <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2015/03/yesenin/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
@@ -460,7 +463,7 @@
     
 
     
-       
+      
     
     
 
@@ -501,16 +504,16 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://seanxp.com/2015/02/red-packet/">
+    <link itemprop="mainEntityOfPage" href="https://seanxp.com/2015/02/red-packet/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="SeanXP">
-      <meta itemprop="description" content="为学日益，为道日损，损之又损，以至于无为，无为而无不为。">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="SeanXP"/>
+      <meta itemprop="description" content="为学日益，为道日损，损之又损，以至于无为，无为而无不为。"/>
+      <meta itemprop="image" content="/images/avatar.png"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SeanXP">
+      <meta itemprop="name" content="SeanXP"/>
     </span>
 
     
@@ -521,7 +524,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2015/02/red-packet/" class="post-title-link" itemprop="https://seanxp.com/page/5/index.html">谈今年的红包现象</a>
+                <a href="/2015/02/red-packet/" class="post-title-link" itemprop="url">谈今年的红包现象</a>
               
             
           </h1>
@@ -550,10 +553,26 @@
             
 
             
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-08-12 08:52:36" itemprop="dateModified" datetime="2018-08-12T08:52:36+08:00">2018-08-12</time>
+              
+            
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -573,6 +592,7 @@
           
 
           
+            
             
           
 
@@ -602,6 +622,12 @@
           <p>2015新年的最大亮点，大概就是互联网公司举办的各种抢红包活动吧。<br>尤其是还没到大年初一，微信和支付宝就已经斗得你死我活了，继支付宝红包分享到微信的功能仅几个小时就遭到微信封杀之后，支付宝又推出安全度不怎么高的红包口令（不知道有多人尝试过随便打口令领红包）。<br>支付宝屏蔽来自微信的链接请求，微信又屏蔽支付宝的支付方式，京东压根没有支付宝支付的选项，互联网巨头间的相互屏蔽已经屡见不鲜了。<br>微信和支付宝真的就没有共赢的方式吗？<br>有是有，不过对于移动支付这块大蛋糕，双方都想独吞（微信社交优势大过阿里系来往，阿里系支付宝大过微信支付），根本没有考虑过如何利用自身特点来划分市场。<br>在打车大战中曾经斗得你死我活的滴滴和快的，如今已经烧不起钱，开始尝试坐在同一张谈判桌上商讨合并事宜喽。不过后面还有一个易到用车在虎视眈眈着打车市场。<br>不说这些互联网公司了，谈谈抢红包的我们。</p>
           <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2015/02/red-packet/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
@@ -616,7 +642,7 @@
     
 
     
-       
+      
     
     
 
@@ -657,16 +683,16 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://seanxp.com/2015/02/tic-tac-toe/">
+    <link itemprop="mainEntityOfPage" href="https://seanxp.com/2015/02/tic-tac-toe/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="SeanXP">
-      <meta itemprop="description" content="为学日益，为道日损，损之又损，以至于无为，无为而无不为。">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="SeanXP"/>
+      <meta itemprop="description" content="为学日益，为道日损，损之又损，以至于无为，无为而无不为。"/>
+      <meta itemprop="image" content="/images/avatar.png"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SeanXP">
+      <meta itemprop="name" content="SeanXP"/>
     </span>
 
     
@@ -677,7 +703,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2015/02/tic-tac-toe/" class="post-title-link" itemprop="https://seanxp.com/page/5/index.html">井字棋优胜策略</a>
+                <a href="/2015/02/tic-tac-toe/" class="post-title-link" itemprop="url">井字棋优胜策略</a>
               
             
           </h1>
@@ -706,10 +732,26 @@
             
 
             
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-08-12 08:52:36" itemprop="dateModified" datetime="2018-08-12T08:52:36+08:00">2018-08-12</time>
+              
+            
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -729,6 +771,7 @@
           
 
           
+            
             
           
 
@@ -758,6 +801,12 @@
           <p>井字棋可能是最简单的棋类游戏了，它简单到了成年人之间玩几乎总是平局的地步。因此，这个游戏貌似最多只能哄哄小孩子。<br>不过，对井字棋游戏中所有可能的情况进行一番细致的分析，你会发现一个你或许不会料到的惊人结论 ——<br><strong>先手的最优策略不是稳坐正中央，而是先占一个角！</strong></p>
           <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2015/02/tic-tac-toe/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
@@ -772,7 +821,7 @@
     
 
     
-       
+      
     
     
 
@@ -823,23 +872,22 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
-    
     <div class="sidebar-inner">
 
       
 
       
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image"
                 src="/images/avatar.png"
-                alt="SeanXP" />
+                alt="SeanXP"/>
             
               <p class="site-author-name" itemprop="name">SeanXP</p>
-              <p class="site-description motion-element" itemprop="description">为学日益，为道日损，损之又损，以至于无为，无为而无不为。</p>
+              <div class="site-description motion-element" itemprop="description">为学日益，为道日损，损之又损，以至于无为，无为而无不为。</div>
           </div>
 
           
@@ -859,7 +907,11 @@
                 
                 
                 <div class="site-state-item site-state-categories">
-                  <a href="/categories/index.html">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
                     
                     
                       
@@ -900,7 +952,11 @@
                 
                 
                 <div class="site-state-item site-state-tags">
-                  <a href="/tags/index.html">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
                     
                     
                       
@@ -1015,6 +1071,8 @@
           
 
           
+
+          
             <div class="links-of-author motion-element">
               
                 <span class="links-of-author-item">
@@ -1064,7 +1122,7 @@
           
 
         </div>
-      </section>
+      </div>
 
       
 
@@ -1072,6 +1130,9 @@
 
     </div>
   </aside>
+  
+    <div id="sidebar-dimmer"></div>
+  
 
 
         
@@ -1110,15 +1171,23 @@
   <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   
-    <span class="site-uv" title="Total Visitors">
+    <span class="post-meta-item-icon">
       <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="Total Visitors">
       <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
     </span>
   
 
   
-    <span class="site-pv" title="Total Views">
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
       <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="Total Views">
       <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
     </span>
   
@@ -1144,7 +1213,7 @@
     
 
     
-	
+
     
 
     
@@ -1152,7 +1221,7 @@
 
   
 
-<script type="text/javascript">
+<script>
   if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
     window.Promise = null;
   }
@@ -1184,59 +1253,52 @@
 
 
   
-  
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
 
   
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
 
   
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=6.6.0"></script>
+  <script src="/js/utils.js?v=7.1.1"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=6.6.0"></script>
+  <script src="/js/motion.js?v=7.1.1"></script>
 
 
 
   
   
 
-  
 
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.6.0"></script>
-
-
-
-  
-
-
-
-  
-
-
-
-
-
-
+  <script src="/js/schemes/muse.js?v=7.1.1"></script>
 
 
 
 
   
 
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
 
 
 
@@ -1252,6 +1314,9 @@
   
 
   
+
+  
+
   
 
   

@@ -17,23 +17,9 @@
 <html class="theme-next mist use-motion" lang="en">
 <head>
   <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
-<meta name="theme-color" content="#222">
-
-
-
-
-
-
-
-
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta name="theme-color" content="#222"/>
 
 
 
@@ -56,37 +42,39 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=6.6.0" rel="stylesheet" type="text/css" />
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.png?v=6.6.0">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"/>
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.1"/>
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=6.6.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.png?v=7.1.1">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=6.6.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=7.1.1">
 
 
-  <link rel="mask-icon" href="/images/avatar.png?v=6.6.0" color="#222">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=7.1.1">
 
 
-
-
+  <link rel="mask-icon" href="/images/avatar.png?v=7.1.1" color="#222">
 
 
 
 
 
-<script type="text/javascript" id="hexo.configurations">
+
+
+<script id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
     scheme: 'Mist',
-    version: '6.6.0',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    version: '7.1.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":true},
+    back2top: true,
+    back2top_sidebar: false,
     fancybox: false,
     fastclick: false,
     lazyload: false,
@@ -121,16 +109,17 @@
 
 
 
-  <link rel="alternate" href="/atom.xml" title="SeanXP" type="application/atom+xml" />
+  <link rel="alternate" href="/atom.xml" title="SeanXP" type="application/atom+xml"/>
 
 
 
-
+  
+  
   <link rel="canonical" href="https://seanxp.com/categories/Reproduce/"/>
 
 
 
-<script type="text/javascript" id="page.configurations">
+<script id="page.configurations">
   CONFIG.page = {
     sidebar: "",
   };
@@ -142,14 +131,6 @@
 
 
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-77366457-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-77366457-1');
-</script>
 
 
 
@@ -159,29 +140,27 @@
 
 
   <noscript>
-  <style type="text/css">
-    .use-motion .motion-element,
-    .use-motion .brand,
-    .use-motion .menu-item,
-    .sidebar-inner,
-    .use-motion .post-block,
-    .use-motion .pagination,
-    .use-motion .comments,
-    .use-motion .post-header,
-    .use-motion .post-body,
-    .use-motion .collection-title { opacity: initial; }
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
 
-    .use-motion .logo,
-    .use-motion .site-title,
-    .use-motion .site-subtitle {
-      opacity: initial;
-      top: initial;
-    }
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
 
-    .use-motion {
-      .logo-line-before i { left: initial; }
-      .logo-line-after i { right: initial; }
-    }
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
   </style>
 </noscript>
 
@@ -199,7 +178,7 @@
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
+  <div class="site-meta">
     
 
     <div class="custom-logo-site-title">
@@ -209,6 +188,7 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
+    
     
   </div>
 
@@ -241,7 +221,7 @@
 
     
 
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>Home</a>
 
   </li>
         
@@ -258,7 +238,7 @@
 
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>Archives</a>
 
   </li>
         
@@ -275,7 +255,7 @@
 
     
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>Tags</a>
 
   </li>
         
@@ -292,7 +272,7 @@
 
     
 
-    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br/>About</a>
 
   </li>
 
@@ -366,18 +346,18 @@
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/2016/05/reading-need-book/" itemprop="url">
-              
-                <span itemprop="name">电子时代深度阅读离不开书籍</span>
-              
-            </a>
+          <a class="post-title-link" href="/2016/05/reading-need-book/" itemprop="url">
+            
+              <span itemprop="name">电子时代深度阅读离不开书籍</span>
+            
+          </a>
         
       </h2>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
               datetime="2016-05-06T14:39:29+08:00"
-              content="2016-05-06" >
+              content="2016-05-06">
           05-06
         </time>
       </div>
@@ -394,18 +374,18 @@
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/2015/09/drunk-man/" itemprop="url">
-              
-                <span itemprop="name">《醉步男》</span>
-              
-            </a>
+          <a class="post-title-link" href="/2015/09/drunk-man/" itemprop="url">
+            
+              <span itemprop="name">《醉步男》</span>
+            
+          </a>
         
       </h2>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
               datetime="2015-09-20T12:47:47+08:00"
-              content="2015-09-20" >
+              content="2015-09-20">
           09-20
         </time>
       </div>
@@ -422,18 +402,18 @@
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/2015/05/doing-and-learning/" itemprop="url">
-              
-                <span itemprop="name">大学生：“学”与“做”的迷思</span>
-              
-            </a>
+          <a class="post-title-link" href="/2015/05/doing-and-learning/" itemprop="url">
+            
+              <span itemprop="name">大学生：“学”与“做”的迷思</span>
+            
+          </a>
         
       </h2>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
               datetime="2015-05-03T12:35:31+08:00"
-              content="2015-05-03" >
+              content="2015-05-03">
           05-03
         </time>
       </div>
@@ -450,18 +430,18 @@
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/2015/04/more-reading-more-poor/" itemprop="url">
-              
-                <span itemprop="name">为什么越读书越穷？</span>
-              
-            </a>
+          <a class="post-title-link" href="/2015/04/more-reading-more-poor/" itemprop="url">
+            
+              <span itemprop="name">为什么越读书越穷？</span>
+            
+          </a>
         
       </h2>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
               datetime="2015-04-13T12:26:21+08:00"
-              content="2015-04-13" >
+              content="2015-04-13">
           04-13
         </time>
       </div>
@@ -478,18 +458,18 @@
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/2015/03/on-books-and-reading/" itemprop="url">
-              
-                <span itemprop="name">叔本华：读书与书籍</span>
-              
-            </a>
+          <a class="post-title-link" href="/2015/03/on-books-and-reading/" itemprop="url">
+            
+              <span itemprop="name">叔本华：读书与书籍</span>
+            
+          </a>
         
       </h2>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
               datetime="2015-03-25T12:08:53+08:00"
-              content="2015-03-25" >
+              content="2015-03-25">
           03-25
         </time>
       </div>
@@ -506,18 +486,18 @@
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/2015/03/yesenin/" itemprop="url">
-              
-                <span itemprop="name">不惋惜，不呼唤，我也不啼哭</span>
-              
-            </a>
+          <a class="post-title-link" href="/2015/03/yesenin/" itemprop="url">
+            
+              <span itemprop="name">不惋惜，不呼唤，我也不啼哭</span>
+            
+          </a>
         
       </h2>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
               datetime="2015-03-25T12:04:55+08:00"
-              content="2015-03-25" >
+              content="2015-03-25">
           03-25
         </time>
       </div>
@@ -534,18 +514,18 @@
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/2015/02/tic-tac-toe/" itemprop="url">
-              
-                <span itemprop="name">井字棋优胜策略</span>
-              
-            </a>
+          <a class="post-title-link" href="/2015/02/tic-tac-toe/" itemprop="url">
+            
+              <span itemprop="name">井字棋优胜策略</span>
+            
+          </a>
         
       </h2>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
               datetime="2015-02-25T07:59:35+08:00"
-              content="2015-02-25" >
+              content="2015-02-25">
           02-25
         </time>
       </div>
@@ -582,23 +562,22 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
-    
     <div class="sidebar-inner">
 
       
 
       
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image"
                 src="/images/avatar.png"
-                alt="SeanXP" />
+                alt="SeanXP"/>
             
               <p class="site-author-name" itemprop="name">SeanXP</p>
-              <p class="site-description motion-element" itemprop="description">为学日益，为道日损，损之又损，以至于无为，无为而无不为。</p>
+              <div class="site-description motion-element" itemprop="description">为学日益，为道日损，损之又损，以至于无为，无为而无不为。</div>
           </div>
 
           
@@ -618,7 +597,11 @@
                 
                 
                 <div class="site-state-item site-state-categories">
-                  <a href="/categories/index.html">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
                     
                     
                       
@@ -659,7 +642,11 @@
                 
                 
                 <div class="site-state-item site-state-tags">
-                  <a href="/tags/index.html">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
                     
                     
                       
@@ -774,6 +761,8 @@
           
 
           
+
+          
             <div class="links-of-author motion-element">
               
                 <span class="links-of-author-item">
@@ -823,7 +812,7 @@
           
 
         </div>
-      </section>
+      </div>
 
       
 
@@ -831,6 +820,9 @@
 
     </div>
   </aside>
+  
+    <div id="sidebar-dimmer"></div>
+  
 
 
         
@@ -869,15 +861,23 @@
   <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   
-    <span class="site-uv" title="Total Visitors">
+    <span class="post-meta-item-icon">
       <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="Total Visitors">
       <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
     </span>
   
 
   
-    <span class="site-pv" title="Total Views">
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
       <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="Total Views">
       <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
     </span>
   
@@ -903,7 +903,7 @@
     
 
     
-	
+
     
 
     
@@ -911,7 +911,7 @@
 
   
 
-<script type="text/javascript">
+<script>
   if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
     window.Promise = null;
   }
@@ -943,59 +943,52 @@
 
 
   
-  
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
 
   
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
 
   
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=6.6.0"></script>
+  <script src="/js/utils.js?v=7.1.1"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=6.6.0"></script>
+  <script src="/js/motion.js?v=7.1.1"></script>
 
 
 
   
   
 
-  
 
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.6.0"></script>
-
-
-
-  
-
-
-
-  
-
-
-
-
-
-
+  <script src="/js/schemes/muse.js?v=7.1.1"></script>
 
 
 
 
   
 
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
 
 
 
@@ -1011,6 +1004,9 @@
   
 
   
+
+  
+
   
 
   
