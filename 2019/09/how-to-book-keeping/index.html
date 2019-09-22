@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"/>
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.1"/>
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=7.1.1">
+
+
+  <link rel="mask-icon" href="/images/avatar.png?v=7.1.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.1.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":true},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="遇到喜欢的东西就买下来，钱不是真的花掉了，而是换了一种形式（账本）陪在你身边。">
+<meta name="keywords" content="Finance,Life,Guide">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浅谈如何深入记账">
+<meta property="og:url" content="https://seanxp.com/2019/09/how-to-book-keeping/index.html">
+<meta property="og:site_name" content="SeanXP">
+<meta property="og:description" content="遇到喜欢的东西就买下来，钱不是真的花掉了，而是换了一种形式（账本）陪在你身边。">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-09-22T03:37:08.101Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="浅谈如何深入记账">
+<meta name="twitter:description" content="遇到喜欢的东西就买下来，钱不是真的花掉了，而是换了一种形式（账本）陪在你身边。">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="SeanXP" type="application/atom+xml"/>
+
+
+
+  
+  
+  <link rel="canonical" href="https://seanxp.com/2019/09/how-to-book-keeping/"/>
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>浅谈如何深入记账 | SeanXP</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">SeanXP</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>Archives</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>Tags</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br/>About</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://seanxp.com/2019/09/how-to-book-keeping/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="SeanXP"/>
+      <meta itemprop="description" content="为学日益，为道日损，损之又损，以至于无为，无为而无不为。"/>
+      <meta itemprop="image" content="/images/avatar.png"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SeanXP"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">浅谈如何深入记账
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-09-22 09:30:54 / Modified: 11:37:08" itemprop="dateCreated datePublished" datetime="2019-09-22T09:30:54+08:00">2019-09-22</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Finance/" itemprop="url" rel="index"><span itemprop="name">Finance</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon"
+            >
+            <i class="fa fa-eye"></i>
+             Views:  
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><div align="center"></div></p>
+<p><blockquote class="blockquote-center">遇到喜欢的东西就买下来，钱不是真的花掉了，而是换了一种形式（账本）陪在你身边。<br></blockquote><br><br><a id="more"></a></p>
+<h2 id="序"><a href="#序" class="headerlink" title="序"></a>序</h2><p>起初想要记账的理由很简单，就是想看看自己还有多少钱（可以花）。于是尝试了国内多款流行的记账软件，不过都是尝试不久后就放弃了。为什么？之前我以为是自己太过慵懒，没有毅力去记账，但是后来发现是一方面尝试的记账软件「还不够好用」，另一方面则是「没有系统地学习如何去记账」。</p>
+<p>很多人可能会觉的奇怪，记账有什么需要系统学习的，不就是记录下开支和收入吗？实际上并不是，微观上从记账类别该如何划分、不同场景该如何记账、如何摊销、如何调节应付/应收款项等，而宏观上除了最基础的记账，后续还有预算制定、报表统计、消费观念，甚至资产分配等个人财务管理的各类问题，都是需要学习实践的。</p>
+<p>对于个人财务管理新手，建议也不要好高骛远，先从最基础的记账入手，能够「1分钟内清楚自己的所有资产明细」（即所谓的资产负债表）。</p>
+<p>我个人目前的记账方法，是使用 MoneyWiz 进行手机端快捷记账和查看，然后每月定期导入到 beancount 实现更为详细的报表统计分析。</p>
+<h2 id="为什么需要记账？"><a href="#为什么需要记账？" class="headerlink" title="为什么需要记账？"></a>为什么需要记账？</h2><ul>
+<li>其一，记录「过去的收支情况」；</li>
+<li>其二，统计「现在的资产明细」；</li>
+<li>其三，规划「未来的收支计划」；</li>
+</ul>
+<p>记账，本质上是统计个人的经济情况，是实现财务自由的必要手段之一。财务自由，并不是绝对的富有，而是相对的富有。资产收入可以覆盖日常生活的开销，即为财务自由。所谓财务自由之路，即了解过去的收支情况，并基于目前的资产明细，对未来进行合理的消费、预算与投资，实现未来的收支目标。</p>
+<h2 id="MoneyWiz-手机记账"><a href="#MoneyWiz-手机记账" class="headerlink" title="MoneyWiz-手机记账"></a>MoneyWiz-手机记账</h2><p>曾经我尝试过多款流行记账 app，可惜都没有让我真正喜欢上记账。直到我遇到了 MoneyWiz，真正地将随手记账作为了一种习惯，而且可以快速查看各类账户的余额，还有各种强大的报表统计（净值、收支现金流、消费类别饼图等）。具体的应用介绍、优点、以及使用教程，这里不再赘述，下载体验 MoneyWiz，有兴趣可以看下面几篇非常好的教程。</p>
+<ul>
+<li><a href="https://wiz.money/" target="_blank" rel="noopener">MoneyWiz</a></li>
+<li><a href="https://sspai.com/series/3" target="_blank" rel="noopener">从零开始做好个人记账</a><ul>
+<li>第一章 | 如何搭建有效的记账系统</li>
+<li>第二章 | 开始用 MoneyWiz 记账前的基本准备</li>
+<li>第三章 | MoneyWiz 初上手：3 种交易类型</li>
+<li>第四章 | 用好 MoneyWiz 的进阶操作</li>
+<li>第五章 | 用报表和预算完善你的记账系统</li>
+</ul>
+</li>
+<li><a href="https://sspai.com/post/40829" target="_blank" rel="noopener">记账进阶：用 MoneyWiz 规划个人预算</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/19733378" target="_blank" rel="noopener">个人财务预算指南</a></li>
+</ul>
+<p>MoneyWiz 让我培养了记账的习惯，而《从零开始做好个人记账》这篇收费教程，是我真正意义上的记账入门课程。之前我的记账毫无章法可言，使用系统默认的记账类别，简单地记账并查看几个简单的默认报表，明确自己的资产明细，可以说已经达到了之前预期的目标。当初购买这篇收费教程，是打算拿来当作 MoneyWiz 使用教程来看的，结果不仅熟悉了 MoneyWiz 的各种用法和记账技巧，还很幸运地跟着作者学习到了记账系统的相关概念。在熟悉基础记账概念和记账技巧之后，深入研究记账系统的报表和预算制定，对个人的资产管理有非常大的帮助。</p>
+<p>MoneyWiz 基本上满足了我的记账、预算、报表的需求，但是 MoneyWiz 还有几个缺点，这也是我要在其基础上使用 beancount 的原因：</p>
+<ol>
+<li>MoneyWiz 毕竟是商业软件，可能随时下架，所以记账数据有一份冗余备份。之前我会定期备份 DropBox 一份 csv 数据，但是这种原数据很难直观查看，目前的做法是每月导入 beancount 一份，双记账系统。</li>
+<li>MoneyWiz 的报表功能很好，手机端查看非常方便，可以各种筛选过滤报表，但是也有手机端查看报表的劣势，时间跨度大的统计就很难明细地查看。beancount 可以提供详细的报表（损益表、资产负债表等），与 MoneyWiz 报表正好互补。目前我使用 MoneyWiz 查看月度报表和季度报表，而使用 beancount 进行年度报表的统计分析。</li>
+</ol>
+<h2 id="beancount-PC记账"><a href="#beancount-PC记账" class="headerlink" title="beancount-PC记账"></a>beancount-PC记账</h2><ul>
+<li><a href="https://www.byvoid.com/zht/blog/beancount-bookkeeping-1" target="_blank" rel="noopener">Beancount複式記賬（一）</a></li>
+<li><a href="https://www.byvoid.com/zht/blog/beancount-bookkeeping-2" target="_blank" rel="noopener">Beancount複式記賬（二）</a></li>
+<li><a href="https://www.byvoid.com/zht/blog/beancount-bookkeeping-3" target="_blank" rel="noopener">Beancount複式記賬（三）</a></li>
+<li><a href="https://www.byvoid.com/zht/blog/beancount-bookkeeping-4" target="_blank" rel="noopener">Beancount複式記賬（四）</a></li>
+<li><a href="https://wzyboy.im/post/1063.html" target="_blank" rel="noopener">Beancount - 命令行复式簿记</a></li>
+<li><a href="https://wzyboy.im/post/1317.html" target="_blank" rel="noopener">使用 Beancount 记录证券投资</a></li>
+<li><a href="https://lyric.im/beancount" target="_blank" rel="noopener">使用 BEANCOUNT 自动记账</a></li>
+</ul>
+<p>推荐 BYVoid 的《Beancount複式記賬》系列教程，从记账的意义、财务自由的定义，引出复式记账的概念，最后给出复式记账的最佳实践之一 beancount。后面几篇教程，都是基于 beancount 的使用技巧。</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Finance/" rel="tag"># Finance</a>
+          
+            <a href="/tags/Life/" rel="tag"># Life</a>
+          
+            <a href="/tags/Guide/" rel="tag"># Guide</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/qin-shi-huang-2/" rel="next" title="中国古代历史与人物：秦始皇（2）">
+                <i class="fa fa-chevron-left"></i> 中国古代历史与人物：秦始皇（2）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="SeanXP"/>
+            
+              <p class="site-author-name" itemprop="name">SeanXP</p>
+              <div class="site-description motion-element" itemprop="description">为学日益，为道日损，损之又损，以至于无为，无为而无不为。</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">50</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">49</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/SeanXP" title="GitHub &rarr; https://github.com/SeanXP" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:aXNlYW54cCtibG9nQGdtYWlsLmNvbQ==?subject=Hello" title="E-Mail &rarr; mailto:aXNlYW54cCtibG9nQGdtYWlsLmNvbQ==?subject=Hello" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://pgp.mit.edu/pks/lookup?op=get&search=0x5655CA935F09337F" title="GPG &rarr; https://pgp.mit.edu/pks/lookup?op=get&search=0x5655CA935F09337F" rel="noopener" target="_blank"><i class="fa fa-fw fa-key"></i>GPG</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#序"><span class="nav-number">1.</span> <span class="nav-text">序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么需要记账？"><span class="nav-number">2.</span> <span class="nav-text">为什么需要记账？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MoneyWiz-手机记账"><span class="nav-number">3.</span> <span class="nav-text">MoneyWiz-手机记账</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#beancount-PC记账"><span class="nav-number">4.</span> <span class="nav-text">beancount-PC记账</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+    <div id="sidebar-dimmer"></div>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2015 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">SeanXP</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a></div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="Total Visitors">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="Total Views">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.1"></script>
+
+  <script src="/js/motion.js?v=7.1.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.1.1"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.1"></script>
+<script src="/js/post-details.js?v=7.1.1"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
