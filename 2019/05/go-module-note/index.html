@@ -104,12 +104,12 @@
 <meta property="og:site_name" content="SeanXP">
 <meta property="og:description" content="我的附庸的附庸，不是我的附庸；我的 module 的 module，仍是我的 module！">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://i.loli.net/2019/06/19/5d09797438f3493756.png">
-<meta property="og:updated_time" content="2019-06-18T23:59:49.107Z">
+<meta property="og:image" content="https://seanxpcom-1252122045.cos.ap-nanjing.myqcloud.com/images/go-module-note-0.png">
+<meta property="og:updated_time" content="2021-01-17T07:46:12.402Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Go Module Notes">
 <meta name="twitter:description" content="我的附庸的附庸，不是我的附庸；我的 module 的 module，仍是我的 module！">
-<meta name="twitter:image" content="https://i.loli.net/2019/06/19/5d09797438f3493756.png">
+<meta name="twitter:image" content="https://seanxpcom-1252122045.cos.ap-nanjing.myqcloud.com/images/go-module-note-0.png">
 
 
 
@@ -388,7 +388,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-19 07:59:49" itemprop="dateModified" datetime="2019-06-19T07:59:49+08:00">2019-06-19</time>
+                <time title="Modified: 2021-01-17 15:46:12" itemprop="dateModified" datetime="2021-01-17T15:46:12+08:00">2021-01-17</time>
               
             
           </span>
@@ -461,7 +461,7 @@
 <p>module 和传统的 GOPATH 不同，不需要包含例如src，bin这样的子目录，一个源代码目录甚至是空目录都可以作为 module，只要其中包含有 go.mod 文件。当我们使用 go build，go test 以及 go list 时，go会自动得更新go.mod文件，将依赖关系写入其中。</p>
 <p>module 是包含了 Go 源文件的目录树，并在根目录中添加了名为 go.mod 的文件。go.mod 包含模块导入名称，声明了要求的依赖项，排除的依赖项和替换的依赖项。go.mod 文件还定义了模块的 dependency requirements（依赖项要求），即为了编译本模块，需要用到哪些其它的模块。每一项依赖项要求都包含了依赖项的 module path，还要指定它的语义版本号。除了 go.mod 文件外，跟目录下还可以存在一个名为 go.sum 的文件，用于保存所有的依赖项的哈希摘要校验值，用于验证缓存的依赖项是否满足模块要求。</p>
 <p>模块依赖项会被下载并存储到 <code>GOPATH/src/pkg/mod</code> 目录中，直接后果就是废除了模块的组织名称，文件结构如下：</p>
-<p><img src="https://i.loli.net/2019/06/19/5d09797438f3493756.png" alt=""></p>
+<p><img src="https://seanxpcom-1252122045.cos.ap-nanjing.myqcloud.com/images/go-module-note-0.png" alt=""></p>
 <ul>
 <li>cache，包含每一个 module 的每一个缓存版本，从 VCS 中获取或构建的源归档文件放置在 download 目录中；<ul>
 <li>.info, 包含 Version &amp; Time;</li>
