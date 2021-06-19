@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="mask-icon" href="/images/avatar.png" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;seanxp.com&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Mist&quot;,&quot;version&quot;:&quot;8.5.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;display&quot;:&quot;post&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:true,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;Searching...&quot;,&quot;empty&quot;:&quot;We didn&#39;t find any results for the search: ${query}&quot;,&quot;hits_time&quot;:&quot;${hits} results found in ${time} ms&quot;,&quot;hits&quot;:&quot;${hits} results found&quot;}}</script><script src="/js/config.js"></script>
+<meta name="description" content="Across the Great Wall we can reach every corner in the world. 「越过长城，走向世界每个角落」 中国互联网发送的第一封电子邮件（1987年）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="shadowsocks">
+<meta property="og:url" content="http://seanxp.com/2016/05/08/shadowsocks/index.html">
+<meta property="og:site_name" content="SeanXP">
+<meta property="og:description" content="Across the Great Wall we can reach every corner in the world. 「越过长城，走向世界每个角落」 中国互联网发送的第一封电子邮件（1987年）">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://seanxp.com/images/2016/shadowsocks-1.png">
+<meta property="og:image" content="http://seanxp.com/images/2016/shadowsocks-2.png">
+<meta property="og:image" content="http://seanxp.com/images/2016/shadowsocks-3.png">
+<meta property="og:image" content="http://seanxp.com/images/2016/shadowsocks-5.png">
+<meta property="og:image" content="http://seanxp.com/images/2016/shadowsocks-6.png">
+<meta property="og:image" content="http://seanxp.com/images/2016/shadowsocks-4.png">
+<meta property="article:published_time" content="2016-05-08T03:30:12.000Z">
+<meta property="article:modified_time" content="2021-06-18T23:27:35.206Z">
+<meta property="article:author" content="SeanXP">
+<meta property="article:tag" content="Tutorial">
+<meta property="article:tag" content="Internet">
+<meta property="article:tag" content="Software">
+<meta property="article:tag" content="Efficiency">
+<meta property="article:tag" content="Linux">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://seanxp.com/images/2016/shadowsocks-1.png">
+
+
+<link rel="canonical" href="http://seanxp.com/2016/05/08/shadowsocks/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;en&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;http:&#x2F;&#x2F;seanxp.com&#x2F;2016&#x2F;05&#x2F;08&#x2F;shadowsocks&#x2F;&quot;,&quot;path&quot;:&quot;2016&#x2F;05&#x2F;08&#x2F;shadowsocks&#x2F;&quot;,&quot;title&quot;:&quot;shadowsocks&quot;}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
+<title>shadowsocks | SeanXP</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-77366457-1"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{&quot;tracking_id&quot;:&quot;UA-77366457-1&quot;,&quot;only_pageview&quot;:false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">SeanXP</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%86%99%E7%BB%99%E9%9D%9E%E4%B8%93%E4%B8%9A%E4%BA%BA%E5%A3%AB%E7%9C%8B%E7%9A%84-Shadowsocks-%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">写给非专业人士看的 Shadowsocks 简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#long-long-ago-%E2%80%A6"><span class="nav-number">1.1.</span> <span class="nav-text">long long ago …</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#when-evil-comes"><span class="nav-number">1.2.</span> <span class="nav-text">when evil comes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ssh-tunnel"><span class="nav-number">1.3.</span> <span class="nav-text">ssh tunnel</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#shadowsocks"><span class="nav-number">1.4.</span> <span class="nav-text">shadowsocks</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Shadowsocks-%E4%BD%BF%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">Shadowsocks 使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%90%AD%E5%BB%BAShadowsocks%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-number">2.1.</span> <span class="nav-text">搭建Shadowsocks服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#VPS%E4%B8%BB%E6%9C%BA%E9%80%89%E8%B4%AD"><span class="nav-number">2.1.1.</span> <span class="nav-text">VPS主机选购</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8VPS%E4%B8%AD%E6%90%AD%E5%BB%BAShadowsocks%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E7%A8%8B%E5%BA%8F"><span class="nav-number">2.1.2.</span> <span class="nav-text">在VPS中搭建Shadowsocks服务器端程序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Install"><span class="nav-number">2.1.2.1.</span> <span class="nav-text">Install</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Usage"><span class="nav-number">2.1.2.2.</span> <span class="nav-text">Usage</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Arch-Linux-Install-Shadowsocks-Server"><span class="nav-number">2.1.2.3.</span> <span class="nav-text">Arch Linux - Install Shadowsocks Server</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Ubuntu-Install-Shadowsocks-Server"><span class="nav-number">2.1.2.4.</span> <span class="nav-text">Ubuntu - Install Shadowsocks Server</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6-shadowsocks-json"><span class="nav-number">2.1.2.5.</span> <span class="nav-text">添加配置文件 shadowsocks.json</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%A8supervisord%E7%AE%A1%E7%90%86python%E8%BF%9B%E7%A8%8B%EF%BC%8C%E5%AE%9E%E7%8E%B0%E5%BC%80%E6%9C%BA%E8%87%AA%E5%8A%A8%E5%90%AF%E5%8A%A8Shadowsocks%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%A8%8B%E5%BA%8F"><span class="nav-number">2.1.2.6.</span> <span class="nav-text">用supervisord管理python进程，实现开机自动启动Shadowsocks服务器程序</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#shadowsocks-%E5%85%AC%E5%85%B1%E4%BB%A3%E7%90%86%E7%9A%84%E5%BF%85%E8%A6%81%E8%AE%BE%E7%BD%AE"><span class="nav-number">2.1.3.</span> <span class="nav-text">shadowsocks 公共代理的必要设置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B4%AD%E4%B9%B0Shadowsocks%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%B8%90%E5%8F%B7"><span class="nav-number">2.2.</span> <span class="nav-text">购买Shadowsocks服务器帐号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEShadowsocks%E5%AE%A2%E6%88%B7%E7%AB%AF"><span class="nav-number">2.3.</span> <span class="nav-text">配置Shadowsocks客户端</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF-GUI%E7%89%88"><span class="nav-number">2.3.1.</span> <span class="nav-text">客户端 - GUI版</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Shadowsocks-for-OSX"><span class="nav-number">2.3.1.1.</span> <span class="nav-text">Shadowsocks for OSX</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF-CLI%E7%89%88"><span class="nav-number">2.3.2.</span> <span class="nav-text">客户端 - CLI版</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Intro"><span class="nav-number">2.3.2.1.</span> <span class="nav-text">Intro</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Features"><span class="nav-number">2.3.2.2.</span> <span class="nav-text">Features</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Usage-1"><span class="nav-number">2.3.2.3.</span> <span class="nav-text">Usage</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0SOCKS-5%E4%BB%A3%E7%90%86%EF%BC%88%E5%BF%85%E9%A1%BB%E9%85%8D%E7%BD%AE%EF%BC%81%EF%BC%89"><span class="nav-number">2.3.3.</span> <span class="nav-text">本地SOCKS 5代理（必须配置！）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP-BBR"><span class="nav-number">2.4.</span> <span class="nav-text">TCP BBR</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8C%BF%E5%90%8D%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8"><span class="nav-number">3.</span> <span class="nav-text">匿名与信息安全</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BF%BB%E5%A2%99%E6%89%8B%E6%AE%B5-%E5%AE%89%E5%85%A8%E5%BA%A6%E6%9C%89%E9%AB%98%E5%88%B0%E4%BD%8E"><span class="nav-number">3.1.</span> <span class="nav-text">翻墙手段(安全度有高到低)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%9D%E6%8A%A4%E5%92%8C%E6%85%8E%E7%94%A8%E5%8C%BF%E5%90%8D%E3%80%81%E5%81%87%E5%90%8D%E7%9A%84%E6%9D%83%E5%88%A9"><span class="nav-number">3.2.</span> <span class="nav-text">保护和慎用匿名、假名的权利</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%90%8E%E8%AE%B0"><span class="nav-number">4.</span> <span class="nav-text">后记</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="SeanXP"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">SeanXP</p>
+  <div class="site-description" itemprop="description">为学日益，为道日损，损之又损，以至于无为，无为而无不为。</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">65</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">53</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/seanxp" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;seanxp" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:aXNlYW54cCtibG9nQGdtYWlsLmNvbQ==?subject=Hello" title="E-Mail → mailto:aXNlYW54cCtibG9nQGdtYWlsLmNvbQ&#x3D;&#x3D;?subject&#x3D;Hello" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://pgp.mit.edu/pks/lookup?op=get&search=0x5655CA935F09337F" title="GPG → https:&#x2F;&#x2F;pgp.mit.edu&#x2F;pks&#x2F;lookup?op&#x3D;get&amp;search&#x3D;0x5655CA935F09337F" rel="noopener" target="_blank"><i class="fa fa-key fa-fw"></i>GPG</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://seanxp.com/2016/05/08/shadowsocks/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="SeanXP">
+      <meta itemprop="description" content="为学日益，为道日损，损之又损，以至于无为，无为而无不为。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SeanXP">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          shadowsocks
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2016-05-08 11:30:12" itemprop="dateCreated datePublished" datetime="2016-05-08T11:30:12+08:00">2016-05-08</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-06-19 07:27:35" itemprop="dateModified" datetime="2021-06-19T07:27:35+08:00">2021-06-19</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Tutorial/" itemprop="url" rel="index"><span itemprop="name">Tutorial</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <blockquote class="blockquote-center"> Across the Great Wall we can reach every corner in the world.
+「越过长城，走向世界每个角落」
+中国互联网发送的第一封电子邮件（1987年）
+</blockquote>
+
+<span id="more"></span>
+
+<h1 id="写给非专业人士看的-Shadowsocks-简介"><a href="#写给非专业人士看的-Shadowsocks-简介" class="headerlink" title="写给非专业人士看的 Shadowsocks 简介"></a>写给非专业人士看的 Shadowsocks 简介</h1><p>原文: <a target="_blank" rel="noopener" href="https://vc2tea.com/whats-shadowsocks/">https://vc2tea.com/whats-shadowsocks/</a></p>
+<h2 id="long-long-ago-…"><a href="#long-long-ago-…" class="headerlink" title="long long ago …"></a>long long ago …</h2><p><img src="/images/2016/shadowsocks-1.png" alt="shadowsocks-1"><br>在很久很久以前，我们访问各种网站都是简单而直接的，用户的请求通过互联网发送到服务提供方，服务提供方直接将信息反馈给用户。</p>
+<h2 id="when-evil-comes"><a href="#when-evil-comes" class="headerlink" title="when evil comes"></a>when evil comes</h2><p><img src="/images/2016/shadowsocks-2.png" alt="shadowsocks-2"><br>然后有一天，GFW 就出现了，他像一个收过路费的强盗一样夹在了在用户和服务之间，每当用户需要获取信息，都经过了 GFW，GFW将它不喜欢的内容统统过滤掉，于是客户当触发 GFW 的过滤规则的时候，就会收到 Connection Reset 这样的响应内容，而无法接收到正常的内容。</p>
+<blockquote>
+<p>国家公共网络监控系统，俗称中国网络防火墙（The Great Fire Wall of China，常用简称“GFW”或“墙”）。一般意义所説的GFW，主要指中国官方对境外涉及敏感内容的网站、IP地址、关键词、网址等的过滤。随着使用的拓广，中文“墙”和英文“GFW”有时也被用作动词，网友所説的“被墙”即指被防火长城所屏蔽。</p>
+</blockquote>
+<p>参考(墙外): <a target="_blank" rel="noopener" href="https://theinitium.com/article/20150904-mainland-greatfirewall/">道高一尺，墙高一丈：互联网封锁是如何升级的</a></p>
+<h2 id="ssh-tunnel"><a href="#ssh-tunnel" class="headerlink" title="ssh tunnel"></a>ssh tunnel</h2><p>聪明的人们想到了利用境外服务器代理的方法来绕过 GFW 的过滤，其中包含了各种HTTP代理服务、Socks服务、VPN服务…<br>其中以 ssh tunnel 的方法比较有代表性:<br><img src="/images/2016/shadowsocks-3.png" alt="shadowsocks-3"></p>
+<ul>
+<li><ol>
+<li>首先用户和境外服务器基于 ssh 建立起一条加密的通道;</li>
+</ol>
+</li>
+<li>2,3) 用户通过建立起的隧道进行代理，通过 ssh server 向真实的服务发起请求;</li>
+<li>4,5) 服务通过 ssh server，再通过创建好的隧道返回给用户;</li>
+</ul>
+<p><img src="/images/2016/shadowsocks-5.png" alt="shadowsocks-5"><br><img src="/images/2016/shadowsocks-6.png" alt="shadowsocks-6"><br>由于 ssh 本身就是基于 RSA 加密技术，所以 GFW 无法从数据传输的过程中的加密数据内容进行关键词分析，避免了被重置链接的问题，但由于创建隧道和数据传输的过程中，ssh 本身的特征是明显的，所以 GFW 一度通过分析连接的特征进行干扰，导致 ssh 存在被定向进行干扰的问题。</p>
+<h2 id="shadowsocks"><a href="#shadowsocks" class="headerlink" title="shadowsocks"></a>shadowsocks</h2><p>于是 <a target="_blank" rel="noopener" href="https://github.com/shadowsocks/shadowsocks">clowwindy</a> 分享并开源了他的解决方案 - <a target="_blank" rel="noopener" href="https://shadowsocks.org/">shadowsocks</a>。<br>简单理解的话，shadowsocks 是将原来 ssh 创建的 Socks5 协议拆开成 server 端和 client 端，所以下面这个原理图基本上和利用 ssh tunnel 大致类似：<br><img src="/images/2016/shadowsocks-4.png" alt="shadowsocks-4"></p>
+<ul>
+<li>1,6) 客户端发出的请求基于 Socks5 协议跟 ss-local 端进行通讯，由于这个 ss-local 一般是本机或路由器或局域网的其他机器，不经过 GFW，所以解决了上面被 GFW 通过特征分析进行干扰的问题;</li>
+<li>2,5) ss-local 和 ss-server 两端通过多种可选的加密方法进行通讯，经过 GFW 的时候是常规的TCP包，没有明显的特征码而且 GFW 也无法对通讯数据进行解密;</li>
+<li>3,4) ss-server 将收到的加密数据进行解密，还原原来的请求，再发送到用户需要访问的服务，获取响应原路返回;</li>
+</ul>
+<h1 id="Shadowsocks-使用"><a href="#Shadowsocks-使用" class="headerlink" title="Shadowsocks 使用"></a>Shadowsocks 使用</h1><p>Shadowsocks分为服务器与客户端两部分程序, 其正常使用需要服务端(其实所有的翻墙方式都需要服务端)，搭建服务端需要你拥有一个属于自己的VPS(或者直接购买其他人提供的Shadowsocks服务器帐号)。服务器端程序一般运行在国外的主机即可。</p>
+<h2 id="搭建Shadowsocks服务器"><a href="#搭建Shadowsocks服务器" class="headerlink" title="搭建Shadowsocks服务器"></a>搭建Shadowsocks服务器</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/shadowsocks">github - shadowsocks</a></li>
+<li><a target="_blank" rel="noopener" href="https://shadowsocks.blogspot.com/2015/01/shadowsocks.html">史上最详尽Shadowsocks从零开始一站式翻墙教程</a></li>
+<li><a target="_blank" rel="noopener" href="https://cokebar.info/archives/767">shadowsocks – libev 服务端的部署</a></li>
+<li><a target="_blank" rel="noopener" href="https://doub.io/ss-jc26/">Shadowsocks指导篇</a></li>
+<li><a target="_blank" rel="noopener" href="https://doub.io/ss-jc5/">Shadowsocks libev一键安装脚本</a></li>
+</ul>
+<h3 id="VPS主机选购"><a href="#VPS主机选购" class="headerlink" title="VPS主机选购"></a>VPS主机选购</h3><p>注意：这些VPS服务商网址在部分地区被墙(DNS污染)，需要翻墙访问。不过在上面购买的VPS不受影响（IP直接访问）。</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.digitalocean.com/">DigitalOcean</a><br>  KVM架构，512MB/1CPU，20GB SSD Disk，1TB流量/月，$5/month($0.007/hour)（折合人民币30元/月）<br>  我个人就是使用<a target="_blank" rel="noopener" href="https://www.digitalocean.com/">DigitalOcean</a>的VPS($5/month)，作为Shadowsocks服务器绰绰有余。<br>  推介计划：点击<a target="_blank" rel="noopener" href="https://m.do.co/c/0ffb835591de">推介地址</a>注册DigitalOcean帐号，可以立即到帐$10用于试用；</li>
+<li><a target="_blank" rel="noopener" href="https://bandwagonhost.com/">搬瓦工(BandwagonHOST)</a><br>  OpenVZ架构，256MB内存，10GB硬盘，500GB流量/月，19.99美元/年（折合人民币10元/月）<br>  OpenVZ架构，512MB内存，20GB硬盘，1TB流量/月，49.99美元/年（折合人民币25元/月）</li>
+<li><a target="_blank" rel="noopener" href="https://www.linode.com/">Linode</a><br>  Xen架构，1GB内存，24GB硬盘，2TB流量/月，10美元/月（折合人民币60元/月）<br>  只推荐给对连接速度和网络延迟有极致追求的用户，一般DigitalOcean或BandwagonHOST足以满足一般翻墙要求。</li>
+<li><a target="_blank" rel="noopener" href="https://www.gubo.org/reliable-vps-providers/">gubo.org - VPS推荐</a></li>
+<li><a target="_blank" rel="noopener" href="https://xiaozhou.net/bandwagonhost_annual_pay_vps_stock_refreshed-2018-01-29.html">搬瓦工19.9刀QN机房双向CN2年付VPS</a></li>
+<li><a target="_blank" rel="noopener" href="https://cloud.google.com/">Google Cloud Platform</a></li>
+</ul>
+<p>DigitalOcean和搬瓦工两家的VPS都支持PayPal付款，DigitalOcean也可以选择在账单里绑定信用卡进行支付。<br>Linode只能使用信用卡支付，官方会随机手工抽查，被抽查到的话需要上传信用卡正反面照片以及可能还需要身份证正反面照片，只要材料真实齐全，审核速度很快，一般一个小时之内就可以全部搞定。账户成功激活以后，就可以安心使用了。</p>
+<blockquote>
+<p>OpenVZ为不完全虚拟化技术，每个VPS账户共享母机内核，易受同一母机下其他VPS的影响，几乎不能单独修改内核。Xen和KVM为完全虚拟化技术，各VPS之间互相独立，基本互不影响，而且可以任意修改内核。<br>这三种架构对我们搭建shadowsocks服务器来讲最直观的区别就是，Xen和KVM可通过系统内核修改来优化服务器，大幅度提升shadowsocks的连接速度，尤其体现在晚高峰的时候。</p>
+</blockquote>
+<h3 id="在VPS中搭建Shadowsocks服务器端程序"><a href="#在VPS中搭建Shadowsocks服务器端程序" class="headerlink" title="在VPS中搭建Shadowsocks服务器端程序"></a>在VPS中搭建Shadowsocks服务器端程序</h3><p>充值完毕后，就可以通过网页操作创建对应的虚拟机映像，开启虚拟机映像后，根据其IP、SSH端口、root密码，就可以在任意一台电脑上远程登录VPS。<br>windows推荐使用putty登录, Linux直接通过命令行ssh工具登录:</p>
+<pre><code>$ ssh root@192.168.1.100 -p 22
+</code></pre>
+<ul>
+<li>Shadowsocks Server下载地址: <a target="_blank" rel="noopener" href="https://shadowsocks.org/en/download/servers.html">https://shadowsocks.org/en/download/servers.html</a></li>
+<li>Shadowsocks Server <a target="_blank" rel="noopener" href="https://github.com/shadowsocks/shadowsocks/blob/master/README.md">README.md</a></li>
+</ul>
+<h4 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h4><p>2017/02/18 更新：<a target="_blank" rel="noopener" href="https://doub.io/ss-jc5/">Shadowsocks libev一键安装脚本</a> 可以一键快速安装 shadowsocks libev。</p>
+<p>Debian / Ubuntu:</p>
+<pre><code>apt-get install python-pip
+pip install shadowsocks
+</code></pre>
+<p>CentOS:</p>
+<pre><code>yum install python-setuptools &amp;&amp; easy_install pip
+pip install shadowsocks
+</code></pre>
+<h4 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h4><pre><code>ssserver -p 443 -k password -m aes-256-cfb
+</code></pre>
+<p>To run in the background:</p>
+<pre><code>sudo ssserver -p 443 -k password -m aes-256-cfb --user nobody -d start
+</code></pre>
+<p>To stop:</p>
+<pre><code>sudo ssserver -d stop
+</code></pre>
+<p>To check the log:</p>
+<pre><code>sudo less /var/log/shadowsocks.log
+</code></pre>
+<h4 id="Arch-Linux-Install-Shadowsocks-Server"><a href="#Arch-Linux-Install-Shadowsocks-Server" class="headerlink" title="Arch Linux - Install Shadowsocks Server"></a>Arch Linux - Install Shadowsocks Server</h4><pre><code>$ sudo pacman -S git python2
+$ python2 --version
+Python 2.7.11
+$ git clone -b master https://github.com/shadowsocks/shadowsocks
+$ cd shadowsocks/shadowsocks
+$ sudo python server.py -p 8388 -k password -m aes-256-cfb
+</code></pre>
+<ul>
+<li><code>-p</code>, 设定server_port;</li>
+<li><code>-k</code>, password;</li>
+<li><code>-m</code>, 加密方式;</li>
+</ul>
+<h4 id="Ubuntu-Install-Shadowsocks-Server"><a href="#Ubuntu-Install-Shadowsocks-Server" class="headerlink" title="Ubuntu - Install Shadowsocks Server"></a>Ubuntu - Install Shadowsocks Server</h4><p>shadowsocks-python is the initial version written by @clowwindy. It aims to provide a simple-to-use and easy-to-deploy implementation with basic features of shadowsocks.<br>First, make sure you have Python 2.6 or 2.7.</p>
+<pre><code>$ python --version
+Python 2.7.6
+$ sudo pip install shadowsocks
+$ ssserver -p 8388 -k password -m aes-256-cfb
+</code></pre>
+<h4 id="添加配置文件-shadowsocks-json"><a href="#添加配置文件-shadowsocks-json" class="headerlink" title="添加配置文件 shadowsocks.json"></a>添加配置文件 shadowsocks.json</h4><pre><code>$ sudo vim /etc/shadowsocks.json
+</code></pre>
+<p><code>/etc/shadowsocks.json</code>:</p>
+<pre><code>&#123;
+    &quot;server&quot;:&quot;0.0.0.0&quot;,
+    &quot;server_port&quot;:8388,
+    &quot;local_port&quot;:1080,
+    &quot;password&quot;:&quot;barfoo!&quot;,
+    &quot;timeout&quot;:600,
+    &quot;method&quot;:&quot;aes-256-cfb&quot;,
+    &quot;auth&quot;: true
+&#125;
+</code></pre>
+<p>Shadowsocks Server配置信息:</p>
+<ul>
+<li><code>server</code>:       Shadowsocks Server IP, VPS的IP或Shadowsocks服务器IP;</li>
+<li><code>server_port</code>:  Shadowsocks Server Port;</li>
+<li><code>local_port</code>:   Local Proxy Port, 本地代理地址，其他应用程序想要通过SOCKS 5通道上网，就在其他应用程序的代理设置该端口，一般为<code>(127.0.0.1:1080)</code>;</li>
+<li><code>password</code>:     Shadowsocks Server Encrypt Transfer Password;</li>
+<li><code>timeout</code>:      Connections timeout in seconds;</li>
+<li><code>method</code>:       encryption method, “bf-cfb”, “aes-256-cfb”, “des-cfb”, “rc4”, etc.<br>  Default is table, which is not secure. “aes-256-cfb” is recommended.</li>
+<li><code>auth</code>:         one-time authentication, set true to enable one-time authentication feature.</li>
+</ul>
+<p>Linux - Shadowsocks Server:</p>
+<pre><code># 通过pip install安装shadowsocks, 则:
+$ /usr/bin/python /usr/bin/ssserver -c /etc/shadowsocks.json
+
+# 或者, 通过git clone下在shadowsocks, 则:
+$ sudo python2 /home/sean/shadowsocks/shadowsocks/server.py -c /etc/shadowsocks.json
+</code></pre>
+<h4 id="用supervisord管理python进程，实现开机自动启动Shadowsocks服务器程序"><a href="#用supervisord管理python进程，实现开机自动启动Shadowsocks服务器程序" class="headerlink" title="用supervisord管理python进程，实现开机自动启动Shadowsocks服务器程序"></a>用supervisord管理python进程，实现开机自动启动Shadowsocks服务器程序</h4><p>Supervisor 是基于 Python 的进程管理工具，只能运行在 Unix-Like 的系统上，也就是无法运行在 Windows 上。Supervisor 官方版目前只能运行在 Python 2.4 以上版本，但是还无法运行在 Python 3 上，不过已经有一个 Python 3 的移植版 supervisor-py3k。</p>
+<pre><code># Arch Linux
+$ sudo pacman -S supervisor
+$ sudo su - root -c &quot;echo_supervisord_conf &gt; /etc/supervisord.conf&quot;
+
+# Ubuntu
+$ sudo pip install supervisor
+$ sudo su - root -c &quot;echo_supervisord_conf &gt; /etc/supervisord.conf&quot;
+</code></pre>
+<p>并在<code>/etc/supervisord.conf</code>下添加:</p>
+<pre><code>[program:shadowsocks]
+command=ssserver -c /etc/shadowsocks.json
+autostart=true
+autorestart=true
+user=root
+log_stderr=true
+logfile=/var/log/shadowsocks.log
+</code></pre>
+<p>配置开机启动supervisord, 如果是Ubuntu/CentOS, 则在<code>/etc/rc.local</code>里添加:</p>
+<pre><code># 如果是 Ubuntu 添加以下内容
+/usr/local/bin/supervisord -c /etc/supervisord.conf
+
+# 如果是 Centos 添加以下内容
+/usr/bin/supervisord -c /etc/supervisord.conf
+</code></pre>
+<p>若为Arch Linux, 则在Shell运行:</p>
+<pre><code>$ sudo systemctl enable supervisord
+</code></pre>
+<p>参考: <a target="_blank" rel="noopener" href="https://www.restran.net/2015/10/04/supervisord-tutorial/">Python 进程管理工具 Supervisor 使用教程</a></p>
+<h3 id="shadowsocks-公共代理的必要设置"><a href="#shadowsocks-公共代理的必要设置" class="headerlink" title="shadowsocks 公共代理的必要设置"></a>shadowsocks 公共代理的必要设置</h3><p>参考: <a target="_blank" rel="noopener" href="https://www.atgfw.org/2015/02/shadowsocks_10.html">shadowsocks 公共代理的必要设置</a><br>建议不要把自己的Shadowsocks帐号共享给太多人。「不要把人想得太好，但也不要把人想得太坏，都是凡人。」<br>个人租用VPS并部署shadowsocks服务器端，个人流量较小，也不易被GFW注意到。很多翻墙软件的特点是公共代理，很多人使用，当很多墙内客户端都在短时间内（或者说同时）长时间连接到一个或几个国外远程服务器上时，就会引起GFW的注意并被很快封杀。VPS的IP被封杀的话，就需要重新创建一个虚拟机镜像或切换机房。<br>如果非要作为公共代理，建议设置以下几点：</p>
+<ul>
+<li><p>超时时间越长，连接被保持得也就越长，导致并发的tcp的连接数也就越多。对于公共代理，这个值应该调整得小一些。推荐60秒。</p>
+</li>
+<li><p>在VPS上检查最大文件描述符数量<code>$ ulimit -n</code>, 公共代理需要更多并发的TCP连接数，<code># ulimit -n 8000</code>提高限制。ulimit的设置是一次性的，每次启动ss-server之前都要设置一下。</p>
+</li>
+<li><p>只要shadowsocks被公开出去，肯定会有人拿代理用于暴力破解ssh的密码。推荐你把shadowsocks限制为只允许访问443和80两个端口。如果你不添加这样的限制，很多vps商都会因为ssh连接开得太多而暂停对你的服务。<br>具体做法: 让ss-server以特定的用户启动</p>
+<pre><code>  $ sudo adduser http-ss
+  $ su http-ss -c &quot;ssserver -s 0.0.0.0 -p 443 -k password -m aes-256-cfb -d&quot;
+
+  # 对于http-ss用户，限制其不能访问80,443之外的端口
+  $ sudo iptables -t filter -A OUTPUT -d 127.0.0.1 -j ACCEPT
+  $ sudo iptables -t filter -m owner --uid-owner http-ss -A OUTPUT -p tcp --sport 1080 -j ACCEPT
+  $ sudo iptables -t filter -m owner --uid-owner http-ss -A OUTPUT -p tcp --dport 80 -j ACCEPT
+  $ sudo iptables -t filter -m owner --uid-owner http-ss -A OUTPUT -p tcp --dport 443 -j ACCEPT
+  $ sudo iptables -t filter -m owner --uid-owner http-ss -A OUTPUT -p tcp -j REJECT --reject-with tcp-reset
+</code></pre>
+</li>
+<li><p>避免shadowsocks帐号被用于bt下载（美国的DMCA版权法律），对80端口的流量再进一步进行限制（下载nginx并限制流量）。</p>
+</li>
+</ul>
+<h2 id="购买Shadowsocks服务器帐号"><a href="#购买Shadowsocks服务器帐号" class="headerlink" title="购买Shadowsocks服务器帐号"></a>购买Shadowsocks服务器帐号</h2><p>除了自己选购VPS(需要一定的Linux运维能力)，也可以直接使用别人搭建好的VPS与Shadowsocks服务器。<br>我个人使用过<a target="_blank" rel="noopener" href="https://portal.shadowsocks.com/aff.php?aff=2104">shadowsocks.com</a>的服务器，提供有：</p>
+<ul>
+<li>Shadowsocks.com 普通版 - $15.95USD (同一时间同一个账号仅限一个终端使用)</li>
+<li>Shadowsocks.com 高级版 - $63.95USD (同一个账号同时支持 5 个终端使用)</li>
+</ul>
+<p>注意，shadowsocks.com不是官方网址，而是一个帐号提供商，不具有权威性，官方网址为<a target="_blank" rel="noopener" href="https://shadowsocks.org/">shadowsocks.org</a>;<br>类似的帐号提供商还有很多，其他我没用过的就不发布评论，大家可以自行Google搜索。</p>
+<h2 id="配置Shadowsocks客户端"><a href="#配置Shadowsocks客户端" class="headerlink" title="配置Shadowsocks客户端"></a>配置Shadowsocks客户端</h2><p>Shadowsocks Client下载地址: <a target="_blank" rel="noopener" href="https://shadowsocks.org/en/download/clients.html">https://shadowsocks.org/en/download/clients.html</a><br>无论是自己搭建Shadowsocks服务器，还是使用别人提供的服务器，最后都还需要在自己的电脑上运行Shadowsocks客户端，连接服务器，才可以科学上网。</p>
+<ul>
+<li>客户端可以使用不同平台的GUI版本，优点是使用方便，可以随时启动关闭，随时切换服务器。</li>
+<li>也可以使用通用的命令行版本，优点是同一个程序在各个平台编译后就可以使用，占用资源更小，软件更新速度快。</li>
+</ul>
+<h3 id="客户端-GUI版"><a href="#客户端-GUI版" class="headerlink" title="客户端 - GUI版"></a>客户端 - GUI版</h3><p>下载对于平台的GUI客户端，运行之后，要添加server相关信息(server, server_port, password, method…);</p>
+<pre><code>    服务器：你的VPS IP地址（非0.0.0.0）
+    远程端口：8388
+    本地端口：1080
+    密码：yourpassword
+    加密方法：AES-256-CFB
+    路由：绕过局域网及中国大陆地址
+    全局代理：勾选
+    UDP转发：建议勾选，如有问题则取消勾选
+    自动连接：勾选
+</code></pre>
+<h4 id="Shadowsocks-for-OSX"><a href="#Shadowsocks-for-OSX" class="headerlink" title="Shadowsocks for OSX"></a>Shadowsocks for OSX</h4><p>For OS X, use <a target="_blank" rel="noopener" href="https://brew.sh/">Homebrew</a> to install or build.<br>Install Homebrew:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ruby -e <span class="string">&quot;<span class="subst">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>&quot;</span></span><br></pre></td></tr></table></figure>
+<p>Install Shadowsocks:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew cask install shadowsocksx</span><br></pre></td></tr></table></figure>
+<p>Shadowsocks for OSX可以正常使用，但是已经一年多没有维护了（<a target="_blank" rel="noopener" href="https://github.com/clowwindy">@clowwind</a> 由于政策原因不再维护）。</p>
+<h3 id="客户端-CLI版"><a href="#客户端-CLI版" class="headerlink" title="客户端 - CLI版"></a>客户端 - CLI版</h3><h4 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h4><p><a target="_blank" rel="noopener" href="https://github.com/shadowsocks/shadowsocks-libev">shadowsocks-libev</a> is a lightweight secured SOCKS5 proxy for embedded devices and low-end boxes.<br>It is a port of <a target="_blank" rel="noopener" href="https://github.com/shadowsocks/shadowsocks">Shadowsocks</a> created by <a target="_blank" rel="noopener" href="https://github.com/clowwindy">@clowwindy</a>, which is maintained by <a target="_blank" rel="noopener" href="https://github.com/madeye">@madeye</a> and <a target="_blank" rel="noopener" href="https://github.com/linusyang">@linusyang</a>.</p>
+<h4 id="Features"><a href="#Features" class="headerlink" title="Features"></a>Features</h4><p>Shadowsocks-libev is written in pure C and only depends on <a target="_blank" rel="noopener" href="https://software.schmorp.de/pkg/libev.html">libev</a> and <a target="_blank" rel="noopener" href="https://www.openssl.org/">OpenSSL</a> or <a target="_blank" rel="noopener" href="https://polarssl.org/">PolarSSL</a>. The use of <a target="_blank" rel="noopener" href="https://tls.mbed.org/">mbedTLS</a> is added but still for testing, and it is not officially supported yet.<br>In normal usage, the memory footprint is about 600KB and the CPU utilization is no more than 5% on a low-end router (Buffalo WHR-G300N V2 with a 400MHz MIPS CPU, 32MB memory and 4MB flash).<br>For a full list of feature comparison between different versions of shadowsocks, refer to the <a target="_blank" rel="noopener" href="https://github.com/shadowsocks/shadowsocks/wiki/Feature-Comparison-across-Different-Versions">Wiki page</a>.</p>
+<h4 id="Usage-1"><a href="#Usage-1" class="headerlink" title="Usage"></a>Usage</h4><p>由于 Shadowsocks-libev 良好的通用性，建议使用 Shadowsocks-libev ，任何平台都可以使用。Shadowsocks-libev提供的命令行工具：<code>ss-[local|redir|server|tunnel]</code>，其中<code>ss-server</code>用于搭建shadowsocks服务器，<code>ss-local</code>用于连接服务器。命令的使用与上面的<code>ssserver</code>相同，不过这个是C语言版本实现的。<br><code>shadowsocks.json</code>的格式同服务器的配置文件，需要修改的就是<code>server</code>部分，不再是<code>0.0.0.0</code>，而是一个可以ping通的IP地址。</p>
+<pre><code>ss-local -c shadowsocks.json
+</code></pre>
+<h3 id="本地SOCKS-5代理（必须配置！）"><a href="#本地SOCKS-5代理（必须配置！）" class="headerlink" title="本地SOCKS 5代理（必须配置！）"></a>本地SOCKS 5代理（必须配置！）</h3><p><strong>打开客户端并不意味着就可以翻墙？！</strong><br>shadowsocks client只是打开本地的<code>local_port</code>开始监听，发往<code>local_port</code>的数据会发往<code>server</code>，以实现翻墙代理。没有发往<code>local_port</code>的数据，是无法翻墙的。<br>因此，对于本地需要翻墙的应用，例如Chrome，Dropbox等，必须要在各自应用的配置选项中，找到代理<code>Proxy</code>选项，选择<code>SOCKS 5</code>代理选项，并填写:<code>代理IP 127.0.0.1</code>, <code>端口 1080</code>。</p>
+<h2 id="TCP-BBR"><a href="#TCP-BBR" class="headerlink" title="TCP BBR"></a>TCP BBR</h2><p><a target="_blank" rel="noopener" href="https://github.com/iMeiji/shadowsocks_install/wiki/%E5%BC%80%E5%90%AFTCP-BBR%E6%8B%A5%E5%A1%9E%E6%8E%A7%E5%88%B6%E7%AE%97%E6%B3%95">开启TCP BBR拥塞控制算法</a><br><a target="_blank" rel="noopener" href="https://doub.io/wlzy-16/">Debian/Ubuntu TCP拥塞控制技术 ——TCP-BBR 一键安装脚本</a><br>BBR 目的是要尽量跑满带宽, 并且尽量不要有排队的情况, 效果并不比速锐差。最新 4.9 内核已支持 tcp_bbr，需要将 VPS linux kernel 更新至 4.9 以上版本才可。<br>开启前后可通过 youtube 视频（右键：详细统计信息）检测网速前后的改善效果。</p>
+<h1 id="匿名与信息安全"><a href="#匿名与信息安全" class="headerlink" title="匿名与信息安全"></a>匿名与信息安全</h1><p><a target="_blank" rel="noopener" href="https://www.chinagfw.org/2015/02/ghost-assassin_10.html">翻墙与匿名与信息安全科普文链接集合</a></p>
+<h2 id="翻墙手段-安全度有高到低"><a href="#翻墙手段-安全度有高到低" class="headerlink" title="翻墙手段(安全度有高到低)"></a>翻墙手段(安全度有高到低)</h2><ol>
+<li>I2P： 安全性最强的匿名软件，没有之一，但是速度极慢，基本上不是人能忍受的，<a target="_blank" rel="noopener" href="https://program-think.blogspot.com/2012/06/gfw-i2p.html">配置教程</a>。</li>
+<li>TOR：大名鼎鼎的洋葱路由，令NSA头大，实质是动态三重代理，推荐<a target="_blank" rel="noopener" href="https://plus.google.com/109790703964908675921/posts/QqZ1z7akz6Q">TOR+前置代理组合</a>。</li>
+<li>shadowsocks：一个轻量级socks加密代理，全主流平台支持。<br>简单来说，shadowsocks就是一个一重加密socks代理，本机上的客户端先与远程服务器（配置了shadowsocks服务端程序的VPS）端建立连接，远程服务器再与目标网站连接从而成功翻墙。<br>首先，VPN无法进行远程DNS解析，所以很多时候在使用VPN的同时还要设定好一个国外的DNS服务器才能正常翻墙（很多人反映很多时候挂着VPN都无法正常打开FB，推特等网站，其实就是因为没有设定国外DNS服务器而遇到了DNS污染）；<br>而shadowsocks默认就支持远程DNS解析（因为socks5代理支持远程DNS解析），这样就省去了配置国外DNS服务器的麻烦，同时还防止了信息泄露：DNS查询直接递给远程代理服务器，然后通过墙外DNS服务器查询得到结果再传回客户端，这样ISP就无法通过DNS查询知道你访问了哪个网站了（而不支持远程DNS解析的VPN就留下了泄露访问信息的隐患），同时也避开了DNS污染。</li>
+<li>VPN：VPN启动后一直是全局代理，不方便浏览墙内网站。不要相信墙内存活的VPN服务商。一旦涉及到付费这一环节，你就很容易被追踪到。所有的VPN都能成为TOR的前置代理。</li>
+<li>Lantern：<ul>
+<li>1.X版本）建立在脆弱的Gtalk服务上，以对等网络P2P的形式翻墙，提供了一种用户可信赖的节点绕过互联网封锁，安全性没有保障(加密机制较弱, 固定端口的传输模式极易受到 GFW 的判定后遭到封杀, Lantern客户端在运行时还会公布出连接服务器的具体IP地址，这一做法会直接招致GFW的封杀和屏蔽)。有了 Lantern，每一台电脑都可以变成服务器。通过运行 Lantern，每一个拥有不受审查的网络的用户可以为那些没有条件的用户提供连接，以此来提供连接到被审查网站（如 Twitter、Facebook 和YouTube）的途径。Lantern的P2P结构抵抗审查是建立在用户信任链基础上的。如果你邀请的朋友不小心邀请了GFW工作人员，你的代理节点也被封锁。</li>
+<li>2.X版本）2015年，蓝灯推出2.0版，用户不再需要通过邀请来连接，且使用网页UI代替客户端式的设置方式。2.X版本不再使用1.X版时的P2P模式，而是使用代理服务器的模式。</li>
+<li><a target="_blank" rel="noopener" href="https://bitinn.net/10629/">初窥万花筒，浅析Lantern背后的Kaleidoscope设计</a> Lantern的定位是P2P网络封锁突破工具，以其“通过信任圈子”传播服务信息的特色作为主要卖点，对抗见洞插针（probing）的防火墙系统。核心技术Kaleidoscope是一个P2P中继系统，主要用途是让被封锁网络域内的用户能访问到被封锁的内容。换而言之，Kaleidoscope的主要目的就是突破网络内容封锁，而非匿名或传输安全性。后者分别是Tor与VPN的主要特性。</li>
+</ul>
+</li>
+<li>GAE类翻墙工具, 不原生支持HTTPS（也就是说无法成为TOR的前置代理），无法防范中间人攻击，加密程度不高（早期无加密），安全性很低，建议只用来浏览网页。<a target="_blank" rel="noopener" href="https://plus.google.com/109790703964908675921/posts/QqZTB5EdLEV">GAE类翻墙软件的风险</a></li>
+<li>修改hosts与躲避DNS污染：毫无安全性可言，目标网站可以看到你的真实公网IP，但速度最快。</li>
+</ol>
+<p>推荐：<a target="_blank" rel="noopener" href="https://plus.google.com/109790703964908675921/posts/LyWo2agoau3">TOR+前置代理</a></p>
+<h2 id="保护和慎用匿名、假名的权利"><a href="#保护和慎用匿名、假名的权利" class="headerlink" title="保护和慎用匿名、假名的权利"></a>保护和慎用匿名、假名的权利</h2><p><a target="_blank" rel="noopener" href="https://blog.sina.com.cn/s/blog_4cacf1f30102ecwu.html">保护和慎用匿名、假名的权利 - 徐贲</a></p>
+<ul>
+<li>在你失去匿名之前，你不会知道它有多么可贵。匿名是一种个人的隐私权，是不想让人知道你是谁的时候，有法律在保护你不让别人知道。</li>
+<li>目前网络上的言论发表，使用的大多是匿名和假名，允许使用匿名和假名应该成为维护互联网言论自由空间的一个重要条件。从平衡个人隐私、公众言论责任和公民伦理着眼，网络实行“有限实名制”，即“后台实名，前台匿名”，要比强制性禁止匿名或假名更符合白皮书的精神。</li>
+<li>有必要区别网络上的匿名和假名（用笔名），匿名和假名与实名（真名）的关系是不同的。“匿名”（anonymity）一词原意是“没有名字”或“无名”。 匿名是把真实姓名藏匿起来，变得“无名”。</li>
+<li>在一个正常的公共社会里，匿名和假名与实名（真名）一样，有它们的身份标志功能，需要具体地看待，不可一概而论地偏废。</li>
+</ul>
+<h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><p>之所以写这篇博客，有以下几点：</p>
+<ul>
+<li>一是整理之前看到的科学上网攻略；作为一名互联网爱好者，热衷于获取自由的互联网信息并将其实践到实际生活中。</li>
+<li>二是帮助需要科学上网的同学梳理思路，简介科学上网的大致流程。科学上网并不难，墙也并不可怕。热爱自由的思想是不怕子弹的，可怕的是一个国家的人民固步自封而又妄自尊大，可怕的是人民无知而又对其“无知”而无知。古有百家争鸣亦有焚书坑儒，近有闭关自守又有戊戌变法。书犹药也，善读之可以医愚，以史为鉴，自强不息。</li>
+<li>三是悼念一位学弟(<a target="_blank" rel="noopener" href="https://www.ifanr.com/651797">青年魏则西之死</a>)，天下熙熙皆为利来，天下攘攘皆为利往，我也不想评论百度、医院、监管、政策的是非曲直，历史自有定论。我只是希望作为当代大学生，可以在喧嚣的互联网时代学会保护自己，扩大知识普及，减少信息不对称，避免下一个因为无知而再次发成的悲剧，并且尽我所能去帮助他人(To grow and to help others grow. To live and to help others live.)。</li>
+</ul>
+<blockquote class="blockquote-center">
+我向来是不惮以最坏的恶意，来推测中国人的，然而我还不料，也不信竟会下劣凶残到这地步。况且始终微笑着的和蔼的刘和珍君，更何至于无端在府门前喋血呢？
+惨象，已使我目不忍视了；流言，尤使我耳不忍闻。我还有什么话可说呢？我懂得衰亡民族之所以默无声息的缘由了。沉默呵，沉默呵！不在沉默中爆发，就在沉默中灭亡。
+苟活者在淡红的血色中，会依稀看见微茫的希望；真的猛士，将更奋然而前行。
+鲁迅《记念刘和珍君》
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>SeanXP
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="http://seanxp.com/2016/05/08/shadowsocks/" title="shadowsocks">http://seanxp.com/2016/05/08/shadowsocks/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Tutorial/" rel="tag"># Tutorial</a>
+              <a href="/tags/Internet/" rel="tag"># Internet</a>
+              <a href="/tags/Software/" rel="tag"># Software</a>
+              <a href="/tags/Efficiency/" rel="tag"># Efficiency</a>
+              <a href="/tags/Linux/" rel="tag"># Linux</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2016/05/06/reading-need-book/" rel="prev" title="电子时代深度阅读离不开书籍">
+                  <i class="fa fa-chevron-left"></i> 电子时代深度阅读离不开书籍
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2016/05/08/samba/" rel="next" title="samba服务器配置">
+                  samba服务器配置 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2015 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">SeanXP</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

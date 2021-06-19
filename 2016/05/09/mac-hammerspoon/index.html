@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="mask-icon" href="/images/avatar.png" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;seanxp.com&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Mist&quot;,&quot;version&quot;:&quot;8.5.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;display&quot;:&quot;post&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:true,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;Searching...&quot;,&quot;empty&quot;:&quot;We didn&#39;t find any results for the search: ${query}&quot;,&quot;hits_time&quot;:&quot;${hits} results found in ${time} ms&quot;,&quot;hits&quot;:&quot;${hits} results found&quot;}}</script><script src="/js/config.js"></script>
+<meta name="description" content="一键切换常用应用，一键调整桌面布局，Love Mac，Love Hammerspoon。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mac神器hammerspoon">
+<meta property="og:url" content="http://seanxp.com/2016/05/09/mac-hammerspoon/index.html">
+<meta property="og:site_name" content="SeanXP">
+<meta property="og:description" content="一键切换常用应用，一键调整桌面布局，Love Mac，Love Hammerspoon。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://raw.githubusercontent.com/Hammerspoon/hammerspoon.github.io/master/images/hammerspoon.png">
+<meta property="article:published_time" content="2016-05-08T23:41:58.000Z">
+<meta property="article:modified_time" content="2021-06-18T23:27:35.187Z">
+<meta property="article:author" content="SeanXP">
+<meta property="article:tag" content="Tutorial">
+<meta property="article:tag" content="Mac">
+<meta property="article:tag" content="Software">
+<meta property="article:tag" content="Efficiency">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/Hammerspoon/hammerspoon.github.io/master/images/hammerspoon.png">
+
+
+<link rel="canonical" href="http://seanxp.com/2016/05/09/mac-hammerspoon/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;en&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;http:&#x2F;&#x2F;seanxp.com&#x2F;2016&#x2F;05&#x2F;09&#x2F;mac-hammerspoon&#x2F;&quot;,&quot;path&quot;:&quot;2016&#x2F;05&#x2F;09&#x2F;mac-hammerspoon&#x2F;&quot;,&quot;title&quot;:&quot;Mac神器hammerspoon&quot;}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
+<title>Mac神器hammerspoon | SeanXP</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-77366457-1"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{&quot;tracking_id&quot;:&quot;UA-77366457-1&quot;,&quot;only_pageview&quot;:false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">SeanXP</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Download"><span class="nav-number">1.</span> <span class="nav-text">Download</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Getting-Started-Guide"><span class="nav-number">2.</span> <span class="nav-text">Getting Started Guide</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hello-World"><span class="nav-number">2.1.</span> <span class="nav-text">Hello World</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Fancier-Hello-World"><span class="nav-number">2.2.</span> <span class="nav-text">Fancier Hello World</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E7%A4%BA%E4%BE%8B"><span class="nav-number">3.</span> <span class="nav-text">配置示例</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E5%9D%97%E5%8C%96%E8%AE%BE%E8%AE%A1"><span class="nav-number">3.1.</span> <span class="nav-text">模块化设计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BF%AB%E6%8D%B7%E9%94%AE%E8%AE%BE%E5%AE%9A"><span class="nav-number">3.2.</span> <span class="nav-text">快捷键设定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BF%AB%E9%80%9F%E5%90%AF%E5%8A%A8Applications"><span class="nav-number">3.3.</span> <span class="nav-text">快速启动Applications</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AA%97%E5%8F%A3%E7%AE%A1%E7%90%86"><span class="nav-number">3.4.</span> <span class="nav-text">窗口管理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%8F%82%E8%80%83-SeanXP"><span class="nav-number">4.</span> <span class="nav-text">配置文件参考 - SeanXP</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BF%AB%E6%8D%B7%E9%94%AE%E9%85%8D%E7%BD%AE"><span class="nav-number">4.1.</span> <span class="nav-text">快捷键配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Focus-Application-modules-launch-lua"><span class="nav-number">4.2.</span> <span class="nav-text">Focus Application - modules&#x2F;launch.lua</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#auto-reload-modules-auto-reload-lua"><span class="nav-number">4.3.</span> <span class="nav-text">auto reload - modules&#x2F;auto_reload.lua</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Window-Layouts-modules-windows-lua"><span class="nav-number">4.4.</span> <span class="nav-text">Window Layouts - modules&#x2F;windows.lua</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Move-between-displays-modules-screens-lua"><span class="nav-number">4.5.</span> <span class="nav-text">Move between displays - modules&#x2F;screens.lua</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#System-hotkey-modules-system-lua"><span class="nav-number">4.6.</span> <span class="nav-text">System hotkey - modules&#x2F;system.lua</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E6%95%99%E7%A8%8B%E5%8F%82%E8%80%83"><span class="nav-number">5.</span> <span class="nav-text">其他教程参考</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="SeanXP"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">SeanXP</p>
+  <div class="site-description" itemprop="description">为学日益，为道日损，损之又损，以至于无为，无为而无不为。</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">65</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">53</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/seanxp" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;seanxp" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:aXNlYW54cCtibG9nQGdtYWlsLmNvbQ==?subject=Hello" title="E-Mail → mailto:aXNlYW54cCtibG9nQGdtYWlsLmNvbQ&#x3D;&#x3D;?subject&#x3D;Hello" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://pgp.mit.edu/pks/lookup?op=get&search=0x5655CA935F09337F" title="GPG → https:&#x2F;&#x2F;pgp.mit.edu&#x2F;pks&#x2F;lookup?op&#x3D;get&amp;search&#x3D;0x5655CA935F09337F" rel="noopener" target="_blank"><i class="fa fa-key fa-fw"></i>GPG</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://seanxp.com/2016/05/09/mac-hammerspoon/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="SeanXP">
+      <meta itemprop="description" content="为学日益，为道日损，损之又损，以至于无为，无为而无不为。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SeanXP">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Mac神器hammerspoon
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2016-05-09 07:41:58" itemprop="dateCreated datePublished" datetime="2016-05-09T07:41:58+08:00">2016-05-09</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-06-19 07:27:35" itemprop="dateModified" datetime="2021-06-19T07:27:35+08:00">2021-06-19</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Mac/" itemprop="url" rel="index"><span itemprop="name">Mac</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <div align=center>
+<img src="https://raw.githubusercontent.com/Hammerspoon/hammerspoon.github.io/master/images/hammerspoon.png" width="100" height="100" alt='Hammerspoon'/>
+一键切换常用应用，一键调整桌面布局，Love Mac，Love Hammerspoon。
+</div>
+<span id="more"></span>
+# What is Hammerspoon?
+This is a tool for powerful automation of OS X. At its core, Hammerspoon is just a bridge between the operating system and a Lua scripting engine.
+What gives Hammerspoon its power is a set of extensions that expose specific pieces of system functionality, to the user.
+Hammerspoon可以自定义Mac OS X的快捷键（例如`Command`+`Shift`+`h`）以实现多类操作，我个人主要将其用于窗口管理（比moom for mac更加高效）与应用启动（比alfred for mac更加高效）。
+
+<ul>
+<li>Hammerspoon:  <a target="_blank" rel="noopener" href="https://www.hammerspoon.org/">https://www.hammerspoon.org/</a></li>
+<li>Github:       <a target="_blank" rel="noopener" href="https://github.com/Hammerspoon/hammerspoon">https://github.com/Hammerspoon/hammerspoon</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.hammerspoon.org/docs/index.html">Hammerspoon API Documentation</a></li>
+</ul>
+<h1 id="Download"><a href="#Download" class="headerlink" title="Download"></a>Download</h1><ol>
+<li><p>Download the <a target="_blank" rel="noopener" href="https://github.com/Hammerspoon/hammerspoon/releases/">latest release</a>, Drag <code>Hammerspoon.app</code> from your <code>Downloads</code> folder to <code>Applications</code>;</p>
+</li>
+<li><p>use <a target="_blank" rel="noopener" href="https://brew.sh/">Homebrew</a> tool(recommend)</p>
+<pre><code> $ brew cask install hammerspoon
+</code></pre>
+</li>
+</ol>
+<h1 id="Getting-Started-Guide"><a href="#Getting-Started-Guide" class="headerlink" title="Getting Started Guide"></a>Getting Started Guide</h1><p>参考：<a target="_blank" rel="noopener" href="https://www.hammerspoon.org/go/">Getting Started Guide</a><br><code>~/.hammerspoon</code>为hammerspoon的配置目录，配置文件<code>init.lua</code>基于Lua脚本语言编写。</p>
+<pre><code>$ mkdir -p ~/.hammerspoon
+$ cd ~/.hammerspoon
+$ touch init.lua
+</code></pre>
+<p>之后的配置就是往<code>init.lua</code>中添加配置，修改完配置后hammerspoon.app需要重新加载(<code>Menu -&gt; hammerspoon.app -&gt; Reload Config</code>)；</p>
+<h2 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World"></a>Hello World</h2><p>参考：<a target="_blank" rel="noopener" href="https://www.hammerspoon.org/go/#helloworld">https://www.hammerspoon.org/go/#helloworld</a></p>
+<pre><code>$ vim init.lua
+# 添加:
+
+hs.hotkey.bind(&#123;&#39;cmd&#39;, &#39;shift&#39;&#125;, &#39;h&#39;, function()
+    hs.alert(&#39;Hello World&#39;)
+end)
+</code></pre>
+<p>保存配置文件，<code>Reload Config</code>，配置文件成效！<br>按<code>Command</code>+<code>Shift</code>+<code>h</code>，屏幕上就会出现一行文本<code>Hello World</code>，几秒后自动消失。</p>
+<blockquote>
+<p>Hammerspoon 是一个插件化的程序，像 hs.hotkey 和 hs.alert 这些都是 Hammerspoon 所集成的插件。</p>
+</blockquote>
+<h2 id="Fancier-Hello-World"><a href="#Fancier-Hello-World" class="headerlink" title="Fancier Hello World"></a>Fancier Hello World</h2><p>参考：<a target="_blank" rel="noopener" href="https://www.hammerspoon.org/go/#fancyhelloworld">https://www.hammerspoon.org/go/#fancyhelloworld</a></p>
+<pre><code>hs.hotkey.bind(&#123;&quot;cmd&quot;, &quot;alt&quot;, &quot;ctrl&quot;&#125;, &quot;W&quot;, function()
+    hs.notify.new(&#123;title=&quot;Hammerspoon&quot;, informativeText=&quot;Hello World&quot;&#125;):send()
+end)
+</code></pre>
+<p>使用Mac OS X系统自带的提示(notifications)，右上角弹窗显示<code>Hello World</code>；</p>
+<h1 id="配置示例"><a href="#配置示例" class="headerlink" title="配置示例"></a>配置示例</h1><h2 id="模块化设计"><a href="#模块化设计" class="headerlink" title="模块化设计"></a>模块化设计</h2><p>所以配置都放在<code>init.lua</code>里未免太过繁琐，修改起来也比较麻烦，因此在配置前设计一套模块化的脚本配置文件是很有必要的。<br>具体做法：不同配置写在不同文件里（例如有关启动应用的配置写在<code>launch.lua</code>中），在主配置文件<code>init.lua</code>中包含模块配置文件（可以类比C语言的include）。<br>配置文件的目录框架：</p>
+<pre><code>├── init.lua
+└── modules
+    ├── auto_reload.lua
+    ├── hotkey.lua
+    ├── launch.lua
+    ├── screens.lua
+    ├── system.lua
+    └── windows.lua
+</code></pre>
+<p><code>init.lua</code>:</p>
+<pre><code>require &quot;modules/hotkey&quot;
+require &quot;modules/screens&quot;
+require &quot;modules/windows&quot;
+require &quot;modules/launch&quot;
+require &quot;modules/system&quot;
+require &quot;modules/auto_reload&quot;
+</code></pre>
+<h2 id="快捷键设定"><a href="#快捷键设定" class="headerlink" title="快捷键设定"></a>快捷键设定</h2><p><code>~/.hammerspoon/modules/hotkey.lua</code>:</p>
+<pre><code>hyper = &#123;&#39;ctrl&#39;, &#39;cmd&#39;&#125;
+hyperShift = &#123;&#39;ctrl&#39;, &#39;cmd&#39;, &#39;shift&#39;&#125;
+</code></pre>
+<p>配置快捷键前缀，其他配置文件会用到该变量<code>hyper</code>与<code>hyperShift</code>。这样配置的好处是，想要更换快捷键，只需要修改这一处即可。</p>
+<h2 id="快速启动Applications"><a href="#快速启动Applications" class="headerlink" title="快速启动Applications"></a>快速启动Applications</h2><p><code>~/.hammerspoon/modules/launch.lua</code>:</p>
+<pre><code>local hotkey = require &#39;hs.hotkey&#39;
+local window = require &#39;hs.window&#39;
+local application = require &#39;hs.application&#39;
+
+local key2App = &#123;
+    a = &#39;AppCleaner&#39;,
+    e = &#39;Evernote&#39;,
+    f = &#39;Finder&#39;,
+    g = &#39;Mail&#39;,
+    j = &#39;Google Chrome&#39;,
+    k = &#39;Preview&#39;,
+    m = &#39;MacDown&#39;,
+    p = &#39;1Password&#39;,
+    r = &#39;Reeder&#39;,
+    s = &#39;System Preferences&#39;,
+    z = &#39;Dictionary&#39;
+&#125;
+
+for key, app in pairs(key2App) do
+    hotkey.bind(hyper, key, function()
+        --application.launchOrFocus(app)
+        toggle_application(app)
+    end)
+end
+
+-- reload
+hotkey.bind(hyper, &#39;escape&#39;, function() hs.reload() end )
+
+-- Toggle an application between being the frontmost app, and being hidden
+function toggle_application(_app)
+    -- finds a running applications
+    local app = application.find(_app)
+
+    if not app then
+        -- application not running, launch app
+        application.launchOrFocus(_app)
+        return
+    end
+
+    -- application running, toggle hide/unhide
+    local mainwin = app:mainWindow()
+    if mainwin then
+        if true == app:isFrontmost() then
+            mainwin:application():hide()
+        else
+            mainwin:application():activate(true)
+            mainwin:application():unhide()
+            mainwin:focus()
+        end
+    else
+        -- no windows, maybe hide
+        if true == app:hide() then
+            -- focus app
+            application.launchOrFocus(_app)
+        else
+            -- nothing to do
+        end
+    end
+end
+</code></pre>
+<p><code>key2App</code>指定快捷键后缀与应用的对应关系，通过<code>hotkey.bind</code>函数实现快捷键绑定，例如按<code>hyper</code>+<code>e</code>就是启动<code>Evernote</code>，按<code>hyper</code>+<code>p</code>就是启动<code>1Password</code>。<br><code>toggle_application</code>函数是启动应用的具体实现，首先<code>application.find()</code>查找正在运行的app中是否有相同名称的app，没有找到则调用<code>application.launchOrFocus()</code>直接启动，找到则检查应用是否显示在最前(<code>app:isFrontmost()</code>)，在<code>focus</code>与<code>hide</code>之间切换。这样，按<code>hyper</code>+<code>e</code>就是启动<code>Evernote</code>，再次按<code>hyper</code>+<code>e</code>就是隐藏<code>Evernote</code>。</p>
+<h2 id="窗口管理"><a href="#窗口管理" class="headerlink" title="窗口管理"></a>窗口管理</h2><p><code>~/.hammerspoon/modules/windows.lua</code>:</p>
+<pre><code>require &quot;hs.application&quot;
+local hotkey = require &#39;hs.hotkey&#39;
+local window = require &#39;hs.window&#39;
+local layout = require &#39;hs.layout&#39;
+local alert = require &#39;hs.alert&#39;
+local hints = require &#39;hs.hints&#39;
+local grid = require &#39;hs.grid&#39;
+local geometry = require &#39;hs.geometry&#39;
+
+---- hyper [ for left one half window
+hotkey.bind(hyper, &#39;[&#39;, function() window.focusedWindow():moveToUnit(layout.left50) end)
+
+-- hyper ] for right one half window
+hotkey.bind(hyper, &#39;]&#39;, function() window.focusedWindow():moveToUnit(layout.right50) end)
+
+-- Hyper / to show window hints
+hotkey.bind(hyper, &#39;/&#39;, function()
+    hints.windowHints()
+end)
+
+-- Hotkeys to interact with the window grid
+hotkey.bind(hyper, &#39;,&#39;, grid.show)
+hotkey.bind(hyper, &#39;Left&#39;, grid.pushWindowLeft)
+hotkey.bind(hyper, &#39;Right&#39;, grid.pushWindowRight)
+hotkey.bind(hyper, &#39;Up&#39;, grid.pushWindowUp)
+hotkey.bind(hyper, &#39;Down&#39;, grid.pushWindowDown)
+</code></pre>
+<p>hammerspoon提供的窗口管理API十分丰富，一行配置，就可以实现<code>hyper</code>+<code>[</code>使得窗口左半屏。<br><code>window.focusedWindow():moveToUnit(layout.right50)</code>，使得当前focused的窗口移动到左半屏(<code>latest.right50</code>)，右半屏则为(<code>latest.right50</code>)；</p>
+<p>三七分屏(<code>layout.left30</code>, <code>layout.right70</code>):</p>
+<pre><code>-- Hotkeys to resize windows absolutely
+--hotkey.bind(hyper, &#39;[&#39;, function() window.focusedWindow():moveToUnit(layout.left30) end)
+--hotkey.bind(hyper, &#39;]&#39;, function() window.focusedWindow():moveToUnit(layout.right70) end)
+</code></pre>
+<p>按<code>hyper</code>+<code>/</code>显示窗口提示<code>hints.windowHints()</code>;<br>按<code>hyper</code>+<code>,</code>显示窗口珊格<code>grid.show</code>，可以将屏幕布局划分为九宫格，用户可以自定义当前窗口所占的空间大小。<br><code>grid.pushWindowLeft</code>,<code>grid.pushWindowRight</code>实现窗口的移动，例如左半屏的窗口，通过<code>hyper</code>+<code>left</code>实现移动到右半屏，等价于<code>hyper</code>+<code>]</code>的效果。</p>
+<h1 id="配置文件参考-SeanXP"><a href="#配置文件参考-SeanXP" class="headerlink" title="配置文件参考 - SeanXP"></a>配置文件参考 - SeanXP</h1><p><a href="/static/hammerspoon-config-seanxp.tar.xz">SeanXP-Hammerspoon</a></p>
+<h2 id="快捷键配置"><a href="#快捷键配置" class="headerlink" title="快捷键配置"></a>快捷键配置</h2><p><code>hyper</code> = <code>ctrl</code> + <code>cmd</code><br><code>hyperShift</code> = <code>ctrl</code> + <code>cmd</code> + <code>Shift</code></p>
+<h2 id="Focus-Application-modules-launch-lua"><a href="#Focus-Application-modules-launch-lua" class="headerlink" title="Focus Application - modules/launch.lua"></a>Focus Application - modules/launch.lua</h2><table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>hyper</code>+<code>a</code></td>
+<td>Toggle AppCleaner</td>
+</tr>
+<tr>
+<td><code>hyper</code>+<code>b</code></td>
+<td>Toggle Notes</td>
+</tr>
+<tr>
+<td><code>hyper</code>+<code>c</code></td>
+<td>Toggle Calendar</td>
+</tr>
+<tr>
+<td><code>hyper</code>+<code>d</code></td>
+<td>(System hotkey) Define word</td>
+</tr>
+<tr>
+<td><code>hyper</code>+<code>e</code></td>
+<td>Toggle Evernote</td>
+</tr>
+<tr>
+<td><code>hyper</code>+<code>f</code></td>
+<td>Toggle Finder</td>
+</tr>
+<tr>
+<td><code>hyper</code>+<code>g</code></td>
+<td>Toggle Mail</td>
+</tr>
+<tr>
+<td><code>hyper</code>+<code>h</code></td>
+<td>Toggle Dash</td>
+</tr>
+<tr>
+<td><code>hyper</code>+<code>j</code></td>
+<td>Toggle Google Chrome</td>
+</tr>
+<tr>
+<td><code>hyper</code>+<code>k</code></td>
+<td>Toggle Preview</td>
+</tr>
+<tr>
+<td><code>hyper</code>+<code>m</code></td>
+<td>Toggle MacDown</td>
+</tr>
+<tr>
+<td><code>hyper</code>+<code>n</code></td>
+<td>Toggle NeteaseMusic</td>
+</tr>
+<tr>
+<td><code>hyper</code>+<code>o</code></td>
+<td>Toggle OmniToggle</td>
+</tr>
+<tr>
+<td><code>hyper</code>+<code>p</code></td>
+<td>Toggle 1Password</td>
+</tr>
+<tr>
+<td><code>hyper</code>+<code>r</code></td>
+<td>Toggle Reeder</td>
+</tr>
+<tr>
+<td><code>hyper</code>+<code>s</code></td>
+<td>Toggle System Preferences</td>
+</tr>
+<tr>
+<td><code>hyper</code>+<code>t</code></td>
+<td>Toggle Tweetbot</td>
+</tr>
+<tr>
+<td><code>hyper</code>+<code>u</code></td>
+<td>Toggle Ulysses</td>
+</tr>
+<tr>
+<td><code>hyper</code>+<code>w</code></td>
+<td>Toggle WeChat</td>
+</tr>
+<tr>
+<td><code>hyper</code>+<code>z</code></td>
+<td>Toggle Dictionary</td>
+</tr>
+<tr>
+<td><code>hyper</code>+<code>;</code></td>
+<td>Toggle iTerm</td>
+</tr>
+<tr>
+<td><code>hyper</code>+<code>ESC</code></td>
+<td>Reload Hammerspoon Config</td>
+</tr>
+</tbody></table>
+<h2 id="auto-reload-modules-auto-reload-lua"><a href="#auto-reload-modules-auto-reload-lua" class="headerlink" title="auto reload - modules/auto_reload.lua"></a>auto reload - modules/auto_reload.lua</h2><p>automatically reload the configuration whenever the file changes.</p>
+<h2 id="Window-Layouts-modules-windows-lua"><a href="#Window-Layouts-modules-windows-lua" class="headerlink" title="Window Layouts - modules/windows.lua"></a>Window Layouts - modules/windows.lua</h2><table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>hyper</code>+<code>[</code></td>
+<td>Set the current app to left layout</td>
+</tr>
+<tr>
+<td><code>hyper</code>+<code>tab</code></td>
+<td>Toggle the current app to fullscreen layout or normal layout</td>
+</tr>
+<tr>
+<td><code>hyper</code>+<code>]</code></td>
+<td>Set the current app to right layout</td>
+</tr>
+<tr>
+<td><code>hyper</code>+<code>,</code></td>
+<td>Show the window grid</td>
+</tr>
+<tr>
+<td><code>hyper</code>+<code>Left</code></td>
+<td>Push the current app to the left screen</td>
+</tr>
+<tr>
+<td><code>hyper</code>+<code>Right</code></td>
+<td>Push the current app to the right screen</td>
+</tr>
+<tr>
+<td><code>hyper</code>+<code>Up</code></td>
+<td>Push the current app to the up screen</td>
+</tr>
+<tr>
+<td><code>hyper</code>+<code>Down</code></td>
+<td>Push the current app to the down screen</td>
+</tr>
+<tr>
+<td><code>hyper</code>+<code>/</code></td>
+<td>Show Window Hints</td>
+</tr>
+</tbody></table>
+<h2 id="Move-between-displays-modules-screens-lua"><a href="#Move-between-displays-modules-screens-lua" class="headerlink" title="Move between displays - modules/screens.lua"></a>Move between displays - modules/screens.lua</h2><table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>hyper</code>+ <code>.</code></td>
+<td>Move to next display</td>
+</tr>
+<tr>
+<td><code>hyperShift</code>+ <code>.</code></td>
+<td>Move to previous display</td>
+</tr>
+</tbody></table>
+<h2 id="System-hotkey-modules-system-lua"><a href="#System-hotkey-modules-system-lua" class="headerlink" title="System hotkey - modules/system.lua"></a>System hotkey - modules/system.lua</h2><table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>hyper</code>+ <strong>`</strong></td>
+<td>lock screen</td>
+</tr>
+</tbody></table>
+<h1 id="其他教程参考"><a href="#其他教程参考" class="headerlink" title="其他教程参考"></a>其他教程参考</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://www.hammerspoon.org/go/">Getting Started Guide</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/Hammerspoon/hammerspoon/wiki/Sample-Configurations">https://github.com/Hammerspoon/hammerspoon/wiki/Sample-Configurations</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/cmsj/hammerspoon-config">https://github.com/cmsj/hammerspoon-config</a></li>
+<li><a target="_blank" rel="noopener" href="https://bezhermoso.github.io/2016/01/20/making-perfect-ramen-lua-os-x-automation-with-hammerspoon/">https://bezhermoso.github.io/2016/01/20/making-perfect-ramen-lua-os-x-automation-with-hammerspoon/</a></li>
+<li><a target="_blank" rel="noopener" href="https://songchenwen.com/tech/2015/04/02/hammerspoon-mac-window-manager/">Hammerspoon, OS X 上的全能窗口管理器</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>SeanXP
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="http://seanxp.com/2016/05/09/mac-hammerspoon/" title="Mac神器hammerspoon">http://seanxp.com/2016/05/09/mac-hammerspoon/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Tutorial/" rel="tag"># Tutorial</a>
+              <a href="/tags/Mac/" rel="tag"># Mac</a>
+              <a href="/tags/Software/" rel="tag"># Software</a>
+              <a href="/tags/Efficiency/" rel="tag"># Efficiency</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2016/05/08/samba/" rel="prev" title="samba服务器配置">
+                  <i class="fa fa-chevron-left"></i> samba服务器配置
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2016/05/10/Khan-Finance-1/" rel="next" title="Khan Academy - Finance and capital markets (1)">
+                  Khan Academy - Finance and capital markets (1) <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2015 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">SeanXP</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

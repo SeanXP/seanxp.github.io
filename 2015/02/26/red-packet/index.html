@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="mask-icon" href="/images/avatar.png" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;seanxp.com&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Mist&quot;,&quot;version&quot;:&quot;8.5.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;display&quot;:&quot;post&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:true,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;Searching...&quot;,&quot;empty&quot;:&quot;We didn&#39;t find any results for the search: ${query}&quot;,&quot;hits_time&quot;:&quot;${hits} results found in ${time} ms&quot;,&quot;hits&quot;:&quot;${hits} results found&quot;}}</script><script src="/js/config.js"></script>
+<meta name="description" content="2015新年的最大亮点，大概就是互联网公司举办的各种抢红包活动吧。尤其是还没到大年初一，微信和支付宝就已经斗得你死我活了，继支付宝红包分享到微信的功能仅几个小时就遭到微信封杀之后，支付宝又推出安全度不怎么高的红包口令（不知道有多人尝试过随便打口令领红包）。支付宝屏蔽来自微信的链接请求，微信又屏蔽支付宝的支付方式，京东压根没有支付宝支付的选项，互联网巨头间的相互屏蔽已经屡见不鲜了。微信和支付宝真的就">
+<meta property="og:type" content="article">
+<meta property="og:title" content="谈今年的红包现象">
+<meta property="og:url" content="http://seanxp.com/2015/02/26/red-packet/index.html">
+<meta property="og:site_name" content="SeanXP">
+<meta property="og:description" content="2015新年的最大亮点，大概就是互联网公司举办的各种抢红包活动吧。尤其是还没到大年初一，微信和支付宝就已经斗得你死我活了，继支付宝红包分享到微信的功能仅几个小时就遭到微信封杀之后，支付宝又推出安全度不怎么高的红包口令（不知道有多人尝试过随便打口令领红包）。支付宝屏蔽来自微信的链接请求，微信又屏蔽支付宝的支付方式，京东压根没有支付宝支付的选项，互联网巨头间的相互屏蔽已经屡见不鲜了。微信和支付宝真的就">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2015-02-26T00:35:33.000Z">
+<meta property="article:modified_time" content="2021-06-18T23:27:35.201Z">
+<meta property="article:author" content="SeanXP">
+<meta property="article:tag" content="Social">
+<meta property="article:tag" content="Analysis">
+<meta property="article:tag" content="Math">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://seanxp.com/2015/02/26/red-packet/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;en&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;http:&#x2F;&#x2F;seanxp.com&#x2F;2015&#x2F;02&#x2F;26&#x2F;red-packet&#x2F;&quot;,&quot;path&quot;:&quot;2015&#x2F;02&#x2F;26&#x2F;red-packet&#x2F;&quot;,&quot;title&quot;:&quot;谈今年的红包现象&quot;}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
+<title>谈今年的红包现象 | SeanXP</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-77366457-1"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{&quot;tracking_id&quot;:&quot;UA-77366457-1&quot;,&quot;only_pageview&quot;:false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">SeanXP</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B0%E5%B9%B4%E6%8A%A2%E7%BA%A2%E5%8C%85%E7%8E%B0%E8%B1%A1"><span class="nav-number">1.</span> <span class="nav-text">新年抢红包现象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%A2%E5%8C%85%E5%8F%91%E6%94%BE%E6%A8%A1%E5%9E%8B%E7%A0%94%E7%A9%B6"><span class="nav-number">2.</span> <span class="nav-text">红包发放模型研究</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%A2%E5%8C%85%E6%94%B6%E5%8F%96%E6%A8%A1%E5%9E%8B%E7%A0%94%E7%A9%B6"><span class="nav-number">3.</span> <span class="nav-text">红包收取模型研究</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E6%8B%9F%E6%8E%A5%E5%8A%9B%E6%B8%B8%E6%88%8F"><span class="nav-number">4.</span> <span class="nav-text">模拟接力游戏</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%A2%E5%8C%85%E7%8E%B0%E8%B1%A1%E8%83%8C%E5%90%8E%E7%9A%84%E6%80%9D%E7%B4%A2"><span class="nav-number">5.</span> <span class="nav-text">红包现象背后的思索</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="SeanXP"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">SeanXP</p>
+  <div class="site-description" itemprop="description">为学日益，为道日损，损之又损，以至于无为，无为而无不为。</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">65</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">53</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/seanxp" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;seanxp" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:aXNlYW54cCtibG9nQGdtYWlsLmNvbQ==?subject=Hello" title="E-Mail → mailto:aXNlYW54cCtibG9nQGdtYWlsLmNvbQ&#x3D;&#x3D;?subject&#x3D;Hello" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://pgp.mit.edu/pks/lookup?op=get&search=0x5655CA935F09337F" title="GPG → https:&#x2F;&#x2F;pgp.mit.edu&#x2F;pks&#x2F;lookup?op&#x3D;get&amp;search&#x3D;0x5655CA935F09337F" rel="noopener" target="_blank"><i class="fa fa-key fa-fw"></i>GPG</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://seanxp.com/2015/02/26/red-packet/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="SeanXP">
+      <meta itemprop="description" content="为学日益，为道日损，损之又损，以至于无为，无为而无不为。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SeanXP">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          谈今年的红包现象
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2015-02-26 08:35:33" itemprop="dateCreated datePublished" datetime="2015-02-26T08:35:33+08:00">2015-02-26</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-06-19 07:27:35" itemprop="dateModified" datetime="2021-06-19T07:27:35+08:00">2021-06-19</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Analysis/" itemprop="url" rel="index"><span itemprop="name">Analysis</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>2015新年的最大亮点，大概就是互联网公司举办的各种抢红包活动吧。<br>尤其是还没到大年初一，微信和支付宝就已经斗得你死我活了，继支付宝红包分享到微信的功能仅几个小时就遭到微信封杀之后，支付宝又推出安全度不怎么高的红包口令（不知道有多人尝试过随便打口令领红包）。<br>支付宝屏蔽来自微信的链接请求，微信又屏蔽支付宝的支付方式，京东压根没有支付宝支付的选项，互联网巨头间的相互屏蔽已经屡见不鲜了。<br>微信和支付宝真的就没有共赢的方式吗？<br>有是有，不过对于移动支付这块大蛋糕，双方都想独吞（微信社交优势大过阿里系来往，阿里系支付宝大过微信支付），根本没有考虑过如何利用自身特点来划分市场。<br>在打车大战中曾经斗得你死我活的滴滴和快的，如今已经烧不起钱，开始尝试坐在同一张谈判桌上商讨合并事宜喽。不过后面还有一个易到用车在虎视眈眈着打车市场。<br>不说这些互联网公司了，谈谈抢红包的我们。</p>
+<span id="more"></span>
+
+<h2 id="新年抢红包现象"><a href="#新年抢红包现象" class="headerlink" title="新年抢红包现象"></a>新年抢红包现象</h2><p>继支付宝推出“讨红包”这个功能后，我的支付宝时不时就有几个朋友来讨红包。</p>
+<ul>
+<li>你说给吧，给多少合适？难道还要我根据彼此间的感情程度建一个红包分发模型？或者不管是谁统一666顺顺，888发发发？</li>
+<li>你说不给吧，又感觉社交上过不去，朋友可能大呼“一毛钱都不给我，以后不能在一起愉快的玩耍了”。</li>
+</ul>
+<p>当我还在为红包分发模型头疼时，发现支付宝又一次默默的使用了我的通讯录，红包中心列出两个大大的“红包放排行榜”与“红包收排行榜”。<br>我给支付宝通讯录权限是为了转账方便，不是为了坑爹的过年还要攀比下红包。<br>不过比起微信红包，支付宝红包的社交功能实在有些生硬了。一讨一收，随手感谢，连感谢词都自动生成了，彼此间的交流仅剩下“红果果”的金钱交易了。<br>还有就是那场搬起石头没砸着微信，反而把自己砸到的“支付宝抢红包大战”了。支付宝通过官方微博宣布，在 2 月 11 日到 19 日将派送总价值高达 6 亿的无门槛红包。与此同时，微信也随后更新版本增加春节摇红包功能，腾讯宣布派发 65 亿红包。不过其实现金很大，更多的是各种优惠券。</p>
+<p>希望越大，失望越大，于是就有了下面强烈反差的一幕：</p>
+<ul>
+<li>马云发红包前都在喊“马云爸爸”、“什么都别说，先叫声干爹”；</li>
+<li>马云发完红包都在骂“骗子”、“有钱人还这么小气”；</li>
+</ul>
+<p>这个是偶然吗？不，这是支付宝发放红包的必然下场。支付宝拥有几亿的用户基数，即使发放几亿平摊到每个用户身上也都只是九牛一毛。可偏偏用户不这么想，用户从来不考虑分母，只想着你这么大的分子，为啥分到我这里连一块都不到。<br>于是就有了过年之前几日，每日上午10点，断断续续传来戳屏幕抢支付宝红包的声音。戳戳戳，戳戳戳，戳到在群里炫耀一番，没戳到黑支付宝一句，大家都乐了。<br>第一次支付宝抢红包，我关注了一下支付宝钱包的微博，一片嘲讽。还好支付宝的公关团队处理的很及时，找了一个合理的借口“用户太多，服务器触发过流保护”，给了一个台阶“红包没有发放完毕，下午加大发放力度，且均为现金红包”。其实也就第一天后两场抢的钱多，支付宝赔血本赚吆喝，我个人分别抢到一块、两块。之后…支付宝就再没这么豪爽过，基本就是0.58，0.88的发。</p>
+<p>这些雷声大雨点小的抢红包活动，在微信朋友圈中传出了这样的段子：</p>
+<blockquote>
+<p>凡是春节前给我卡里存500元的人，满40个我随机抽取一个人奖励10000元！比福彩更诚信，比体彩更透明！ 500变1万超划算！ 博一博，单车变摩托！ 拼一拼，拥有土豪金！ 赌一赌，吉利变陆虎！ 诚信第一！绝不作弊！！联系我，向我索取卡号！！！ 玩的就是诚信，赌的就是透明。</p>
+</blockquote>
+<p>支付宝红包其实很快就玩腻了，社交功能很鸡肋，我周围的朋友，没到大年初一，都已经纷纷转向微信红包了，因为至少抢到微信红包还能再聊上两句。微信红包还在一些聊天群里衍生出红包接龙游戏，每次发放一个微信红包，群里好友纷纷抢，抢到金额最多的（最佳手气）负责发放下一轮微信红包。</p>
+<blockquote>
+<p>抢红包的火爆，就是因为迎合了用户的这种需求。在任何时候，人类都渴望与他人产生更深层的联结。可是在网上的关系中，我们不能传递体温，传递眼神，传递关心（非口头的），我们能传递的只有冷冰冰的数据。那么好吧，我们让这个数据更有诚意一点。最终，我们找到了一种最可能带有温度的数据，就是钱。</p>
+</blockquote>
+<blockquote>
+<p>微信群的发红包抢红包，利用的人性弱点包括但不限于：基于熟人交际圈的“信任”和“大方”心理；基于抢红包金额不确定性的“悬念”和“赌徒”心理；基于春节期间有闲情逸致的“简单操作”模式和“娱乐”心理；基于“失去带来的痛苦远比得到带来的快乐多”的“欲望”和“不满足”心理（比如一个晚上发出去100元红包，抢了105元红包回来依然会怅然有失，不信您试试看~）；基于发红包和抢红包之后的炫耀或落寞心理，从而主动成为商家的免费广告者……</p>
+</blockquote>
+<blockquote>
+<p>在“我们”成为腾讯阿里们的用户（产品）时，“我们”的消费习惯和路径依赖、品牌认知和个人信息（包括一直在抵制的各种实名制），都由于上文所述的各种人性弱点，免费且主动送给了腾讯阿里们，而这些带有隐私和秘密性质的信息，往往是除了自己连家人都未必清楚的极有价值的信息。所以，尽管我们未支付分文，却付出了高昂代价。</p>
+</blockquote>
+<blockquote>
+<p>白领版本的卖场里抢特价食用油、鸡蛋。和大爷大妈的游戏差不多。大妈大爷背后是超市，红包背后是支付宝、微信低成本获取了大量用户的实名和支付信息。</p>
+</blockquote>
+<blockquote>
+<p>当日新月异的科技浪潮像海啸一般袭来，当免费的红包从天而降，最有价值的应该始终是“我们”。</p>
+</blockquote>
+<p>以上引用来自 <a target="_blank" rel="noopener" href="https://www.zhihu.com/question/28112483">知乎 “如何看待新年抢红包的用户心理？”</a></p>
+<h2 id="红包发放模型研究"><a href="#红包发放模型研究" class="headerlink" title="红包发放模型研究"></a>红包发放模型研究</h2><p>那么红包应该如何发呢？春节果壳网有一篇文章：<a target="_blank" rel="noopener" href="https://www.guokr.com/article/439966/">压岁钱得而复失，为何比干脆不得还痛苦？</a> 以下内容节选自此文章。</p>
+<blockquote>
+<p>损失厌恶：丢钱比赢钱带来的心理影响更大</p>
+</blockquote>
+<p>在回答之间，我们先来玩一个游戏：游戏中，你有50%的概率赢100元，还有50%的概率输100元。请问你愿意参加这个游戏吗？<br>如果你拒绝参加，那么你和大部分人的选择是一样的。作为行为经济学开创者的丹尼尔·卡尼曼（Daniel Kahneman）和阿莫斯·特维尔斯基（Amos Tversky）教授，通过研究这一游戏，在1979年的论文中提出了**损失厌恶(loss aversion)**这一概念。</p>
+<blockquote>
+<p>人们讨厌损失，由损失引发的负效用，要大于由等量收益引发的正效用，这意味着损失的心理价值要大于收益的心理价值。</p>
+</blockquote>
+<p>我们为什么会拒绝上面的游戏呢？因为输赢的概率都是50%，而输100元的痛苦程度要大于赢100元的开心程度。也就是说，这个游戏的预期效用是负数，所以我们拒绝了它。<br>试着问自己一个问题：想要平衡可能损失的100元，你需要得到最少多少元的收益呢？卡尼曼在之后的研究中发现，大部分人的答案是约200元，也就是损失的2倍。这个倍数也被定义为<strong>损失厌恶系数</strong>。还有几个实验也对这个系数做过估计，它们大多落在1.5-2.5之间。这意味着，损失在心理中所占的权重约是收益的2倍。<br>所以回到开头收压岁钱那个情景中。收到压岁钱固然是一件开心的事，可之后失去等量的压岁钱，其造成的痛苦是收到它时带来的快乐的2倍。因此得而复失，比干脆不得还痛苦。在面对一个许诺时，你种下了一个希望，可之后希望破灭带来的痛苦，与之前的开心程度相比要翻一番，这也就暗合了“希望越大，失望越大”。<br>收红包也是同样的道理，给一个人发100元的红包，不如今天发50元，明天发50元，让人的快乐更持久。</p>
+<blockquote>
+<p>作为发红包的一方，最好的方式就是“少额多次”。</p>
+</blockquote>
+<p>一口气直接发完，春节的后面几天怎么办？人家收到红包兴奋一天，之后的几天又去找新的小伙伴玩耍了。多次可以在整个春节期间，和朋友间持续保持活跃的互动与社交来往。</p>
+<blockquote>
+<p>发放红包的金额，要依据自己的经济能力与朋友圈的经济能力来决定。红包发的大，没有抢到红包的人，其损失厌恶心理，需要双倍的红包金额才能平复。</p>
+</blockquote>
+<p>发大额红包，难免被冠以“炫耀”的高帽子。所以发放红包的金额最好与朋友圈平均金额持平左右，切勿做枪头鸟，散尽家财落个坏名声。</p>
+<h2 id="红包收取模型研究"><a href="#红包收取模型研究" class="headerlink" title="红包收取模型研究"></a>红包收取模型研究</h2><p>有发红包的，就有收红包的。尤其是在微信群里，可是存在有很多“闷声发大财”(蛤?)的小伙伴们。所以就有了最佳手气进行红包接龙的游戏规则。<br>这种接龙红包，其发放的金额一般都很小，低至1块钱掰成10份发，高的也有（微信的红包金额上限很人性化，也让发放红包更持久）。<br>群里经常有人喊，自己辛辛苦苦闷声抢红包这么久，还是没攒够多少钱，这是为什么呢？<br>果壳网有这样一篇文章：<a target="_blank" rel="noopener" href="https://www.guokr.com/article/439983/">红包统计学：为何有些人盆钵满盈，有些人入不敷出？</a>，其中假设了几个红包收取模型：</p>
+<p><strong>红包初级模型——切面条法</strong></p>
+<p>一开始就把所有的钱一次性分成几个包，每人抓一个，每个包都是等同的，里面的钱数期望都是总金额的几分之一。满足这个要求的做法当然不止一个，但我们先考虑最符合直觉的办法——切面条。<br>以下就是切面条法分红包的一个实例，总金额为1元，分成5个：<br>0.02669467, 0.248426309, 0.23745777, 0.35864430, 0.12877695;<br>对于这种分法，我们可以数学上证明，当1块钱（或者长度为1的面条）分成n份儿的时候，而最小值的期望为 <code>1/n^2</code>。<br>在抢红包过程中，我们也遇到过，明明人家发了10块钱的红包，为什么就我抢了0.01分钱，楼上却抢了两块甚至三块！</p>
+<p><strong>红包进阶模型——狄利克雷分布</strong></p>
+<p>复习一下刚才的切面条模型要点。</p>
+<ul>
+<li>一次可以生成n个随机数，且总和为1，这样每个数乘以红包总金额就是每个人分得的钱；</li>
+<li>每个随机数的期望应该均等，即n分之一，这是为了保证大家抢红包机会平等；</li>
+</ul>
+<p>现在我们为它增加一个第三条：</p>
+<ul>
+<li>有一个参数可以用来调节红包的“公平”程度。</li>
+</ul>
+<p>这里的公平不是指机会公平，而是说每次发红包大家实际拿到手的钱是不是相近，即金额分配的波动性是大还是小。<br>比如100元的红包发给10个人，如果每人都是10元左右，我们认为这种分配更公平些；如果最少的才0.8元，最多的有20元，显然就有失公允了（不幸的是作者好几次碰到这种情况…）。</p>
+<p>幸运的是，在众多的随机变量分布中，有一个“狄利克雷分布”非常适合上面列出的这些情况。狄利克雷分布本身有n个参数，但为了满足条件2，我们可以只用一个参数系数来决定它的具体形式。系数越大，每人分得的金额比例就越倾向于平均，反之则波动性越大。<br>更幸运的是，我们开始提出的切面条分法，恰恰就是当为1的时候，狄利克雷分布的最简单状态。</p>
+<h2 id="模拟接力游戏"><a href="#模拟接力游戏" class="headerlink" title="模拟接力游戏"></a>模拟接力游戏</h2><p>有了这个假想的红包分配机制,我们就可以来模拟红包接力的游戏.<br>首先假设我们有一个50人的群,每人初始手头上的可用金额为50元(这里是为了产生”破产”现象而故意放低的,土豪们请忽略此设定).<br>根据规则，每次红包的总金额是20元，发放给10个人，其中抢得最大红包金额的人将发出下一轮的红包。如果某人发完红包后余额变成了负值，就不能再继续抢红包, 因为他/她已经发不起下轮红包了，但允许现在其余额为负。<br>在我们的模拟中，依然对实际情况做了很多简化，比如假设抢到红包的人是在参与游戏的人中间均匀分布的（排除了资产为负的人）。在实际情况中，大家可能会根据自己余额的多少来决定是否继续参加，但在此我们忽略了这种可能。<br>经过模拟,有两位朋友不幸破产了,而最后资产最多的有92.20元,几乎翻了一倍.</p>
+<blockquote>
+<p>一个很明显的事实是，破产的玩家都是因为“中头奖”中得太多了， 导致入不敷出。相反，最终收得92.20元的这位玩家属于“闷声发大财”。<br>经统计，他/她获得第一名0次，第二名3次，第三名2次，第四名2次，第五名4次等等</p>
+</blockquote>
+<p>我们注意到，在游戏最开始的时候，大家的资金都是一样的（50元），而在100次接力之后，几家欢喜几家愁，贫富差距被拉大了。于是我们有两个很自然的问题:</p>
+<ol>
+<li>如何量化这种贫富差距</li>
+<li>随着游戏的进程，贫富差距会有怎样的变化</li>
+</ol>
+<p>对于第一个问题，我们可以借用经济学中的一个概念来予以回答，那就是所谓的**”基尼系数”(Gini Coefficient)**.<br>基尼系数通常被用来衡量一个国家居民收入的公平性，其取值在0到1之间，越大表示贫富差距越大，即少部分的人掌握了这个经济体大部分的收入。<br>基尼系数的计算公式可以在它的维基页面中找到，对于之前的模拟游戏结果，计算出的基尼系数是0.2551。</p>
+<blockquote>
+<p>随着接力的进行，基尼系数的整体趋势是在不断变大的，意味着贫富差距会随着游戏的进行变得越来越大。这其实很好理解：总是会有人因为拿了太多头奖而破产，这样财富会在越来越少的人中间进行分配，所以相应地贫富差距就拉大了。</p>
+</blockquote>
+<h2 id="红包现象背后的思索"><a href="#红包现象背后的思索" class="headerlink" title="红包现象背后的思索"></a>红包现象背后的思索</h2><p>今年过节有个很独特的现象，很多人随手接过长辈发过来的几百元红包，却一直低着头盯着微信群里的红包动态。<br>好像在这些人眼里，亲戚长辈发红包已经是绝对不变的，而微信群红包才是凭自己真实本事抢来的。不劳而获，从古代的守株待兔到现代的永动机理论，永远对人类有着吸引力。<br>过年时我也在群里抢过一段时间红包，当时凭着4G网络经常以手速第一抢得红包，不过玩过一段时间，发现自己的微信钱包竟然瘪了（很不幸，我是贫富差距拉开下的淘汰者）。<br>其实我没想靠抢红包发家致富，不过是借着新年红包，和一群好友聊聊天罢了，相信很多朋友也是这样吧，平时死气沉沉的群，因为红包的原因，各路潜水者都浮出来冒泡了。</p>
+<p>新春佳节，由于红包引发以上一连串的思索。<br>希望朋友们多多珍惜眼前，同时可以通过网络红包这一新型的社交方式，与朋友分享彼此间的快乐。</p>
+<p>顺颂<br>春祺！</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>SeanXP
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="http://seanxp.com/2015/02/26/red-packet/" title="谈今年的红包现象">http://seanxp.com/2015/02/26/red-packet/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Social/" rel="tag"># Social</a>
+              <a href="/tags/Analysis/" rel="tag"># Analysis</a>
+              <a href="/tags/Math/" rel="tag"># Math</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2015/02/25/tic-tac-toe/" rel="prev" title="井字棋优胜策略">
+                  <i class="fa fa-chevron-left"></i> 井字棋优胜策略
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2015/03/25/yesenin/" rel="next" title="不惋惜，不呼唤，我也不啼哭">
+                  不惋惜，不呼唤，我也不啼哭 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2015 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">SeanXP</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

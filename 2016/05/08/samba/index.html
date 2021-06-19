@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="mask-icon" href="/images/avatar.png" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;seanxp.com&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Mist&quot;,&quot;version&quot;:&quot;8.5.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;display&quot;:&quot;post&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:true,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;Searching...&quot;,&quot;empty&quot;:&quot;We didn&#39;t find any results for the search: ${query}&quot;,&quot;hits_time&quot;:&quot;${hits} results found in ${time} ms&quot;,&quot;hits&quot;:&quot;${hits} results found&quot;}}</script><script src="/js/config.js"></script>
+<meta name="description" content="Samba最大的功能就是可以用于Linux与windows系统直接的文件共享和打印共享，Samba既可以用于windows与Linux之间的文件共享，也可以用于Linux与Linux之间的资源共享，由于NFS(网络文件系统）可以很好的完成Linux与Linux之间的数据共享，因而 Samba较多的用在了Linux与windows之间的数据共享上面。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="samba服务器配置">
+<meta property="og:url" content="http://seanxp.com/2016/05/08/samba/index.html">
+<meta property="og:site_name" content="SeanXP">
+<meta property="og:description" content="Samba最大的功能就是可以用于Linux与windows系统直接的文件共享和打印共享，Samba既可以用于windows与Linux之间的文件共享，也可以用于Linux与Linux之间的资源共享，由于NFS(网络文件系统）可以很好的完成Linux与Linux之间的数据共享，因而 Samba较多的用在了Linux与windows之间的数据共享上面。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2016-05-08T06:18:21.000Z">
+<meta property="article:modified_time" content="2021-06-18T23:27:35.203Z">
+<meta property="article:author" content="SeanXP">
+<meta property="article:tag" content="Tutorial">
+<meta property="article:tag" content="Server">
+<meta property="article:tag" content="Linux">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://seanxp.com/2016/05/08/samba/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;en&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;http:&#x2F;&#x2F;seanxp.com&#x2F;2016&#x2F;05&#x2F;08&#x2F;samba&#x2F;&quot;,&quot;path&quot;:&quot;2016&#x2F;05&#x2F;08&#x2F;samba&#x2F;&quot;,&quot;title&quot;:&quot;samba服务器配置&quot;}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
+<title>samba服务器配置 | SeanXP</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-77366457-1"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{&quot;tracking_id&quot;:&quot;UA-77366457-1&quot;,&quot;only_pageview&quot;:false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">SeanXP</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Samba%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">Samba简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%AE%89%E8%A3%85Samba%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-number">1.1.</span> <span class="nav-text">1. 安装Samba服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%88%9B%E5%BB%BA%E5%85%B1%E4%BA%AB%E7%9B%AE%E5%BD%95"><span class="nav-number">1.2.</span> <span class="nav-text">2. 创建共享目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-number">1.3.</span> <span class="nav-text">3. 修改配置文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%AC%E5%85%B1%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9-%E6%94%AF%E6%8C%81%E6%B8%B8%E5%AE%A2%E7%99%BB%E5%BD%95%EF%BC%89"><span class="nav-number">1.3.1.</span> <span class="nav-text">公共共享文件夹 (支持游客登录）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9-samba%E5%B8%90%E5%8F%B7%E7%99%BB%E5%BD%95%EF%BC%89"><span class="nav-number">1.3.2.</span> <span class="nav-text">用户共享文件夹 (samba帐号登录）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E5%88%9B%E5%BB%BAsamba%E7%94%A8%E6%88%B7-%E5%85%AC%E5%85%B1%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9%E5%88%99%E6%97%A0%E9%9C%80%E5%88%9B%E5%BB%BA%E5%B8%90%E5%8F%B7"><span class="nav-number">1.4.</span> <span class="nav-text">4. 创建samba用户(公共共享文件夹则无需创建帐号)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E9%87%8D%E5%90%AFsamba%E6%9C%8D%E5%8A%A1"><span class="nav-number">1.5.</span> <span class="nav-text">5. 重启samba服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%AE%BF%E9%97%AE"><span class="nav-number">1.6.</span> <span class="nav-text">6. 客户端访问</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux-smbclient"><span class="nav-number">1.6.1.</span> <span class="nav-text">Linux - smbclient</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux-mount-cifs%E6%8C%82%E8%BD%BD"><span class="nav-number">1.6.2.</span> <span class="nav-text">Linux - mount.cifs挂载</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%A6%E7%BB%86%E9%85%8D%E7%BD%AE"><span class="nav-number">1.7.</span> <span class="nav-text">配置文件详细配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E9%85%8D%E7%BD%AE"><span class="nav-number">1.7.1.</span> <span class="nav-text">其他配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%98%B2%E6%AD%A2%E5%87%BA%E7%8E%B0%E4%B8%AD%E6%96%87%E7%9B%AE%E5%BD%95%E4%B9%B1%E7%A0%81"><span class="nav-number">1.7.2.</span> <span class="nav-text">防止出现中文目录乱码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tip-%E8%BF%90%E8%A1%8C-testparm-%E6%A3%80%E6%9F%A5-samba-%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E6%98%AF%E5%90%A6%E5%90%88%E6%B3%95%E3%80%82"><span class="nav-number">1.8.</span> <span class="nav-text">Tip: 运行 testparm 检查 samba 的配置文件是否合法。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-%E7%AB%AF%E5%8F%A3%E6%98%A0%E5%B0%84"><span class="nav-number">1.9.</span> <span class="nav-text">7. 端口映射</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="SeanXP"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">SeanXP</p>
+  <div class="site-description" itemprop="description">为学日益，为道日损，损之又损，以至于无为，无为而无不为。</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">65</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">53</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/seanxp" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;seanxp" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:aXNlYW54cCtibG9nQGdtYWlsLmNvbQ==?subject=Hello" title="E-Mail → mailto:aXNlYW54cCtibG9nQGdtYWlsLmNvbQ&#x3D;&#x3D;?subject&#x3D;Hello" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://pgp.mit.edu/pks/lookup?op=get&search=0x5655CA935F09337F" title="GPG → https:&#x2F;&#x2F;pgp.mit.edu&#x2F;pks&#x2F;lookup?op&#x3D;get&amp;search&#x3D;0x5655CA935F09337F" rel="noopener" target="_blank"><i class="fa fa-key fa-fw"></i>GPG</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://seanxp.com/2016/05/08/samba/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="SeanXP">
+      <meta itemprop="description" content="为学日益，为道日损，损之又损，以至于无为，无为而无不为。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SeanXP">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          samba服务器配置
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2016-05-08 14:18:21" itemprop="dateCreated datePublished" datetime="2016-05-08T14:18:21+08:00">2016-05-08</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-06-19 07:27:35" itemprop="dateModified" datetime="2021-06-19T07:27:35+08:00">2021-06-19</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Tutorial/" itemprop="url" rel="index"><span itemprop="name">Tutorial</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>Samba最大的功能就是可以用于Linux与windows系统直接的文件共享和打印共享，Samba既可以用于windows与Linux之间的文件共享，也可以用于Linux与Linux之间的资源共享，由于NFS(网络文件系统）可以很好的完成Linux与Linux之间的数据共享，因而 Samba较多的用在了Linux与windows之间的数据共享上面。</p>
+<span id="more"></span>
+
+<h1 id="Samba简介"><a href="#Samba简介" class="headerlink" title="Samba简介"></a>Samba简介</h1><p>Samba是一个能让Linux系统应用Microsoft网络通讯协议的软件，而SMB是<code>Server Message Block</code>的缩写，即为服务器消息块 ，SMB主要是作为Microsoft的网络通讯协议，后来Samba将SMB通信协议应用到了Linux系统上，就形成了现在的Samba软件。后来微软又把 SMB 改名为 <code>CIFS（Common Internet File System）</code>，即公共 Internet 文件系统，并且加入了许多新的功能，这样一来，使得Samba具有了更强大的功能。<br><font color=red>Samba最大的功能就是可以用于Linux与windows系统直接的文件共享和打印共享</font>，Samba既可以用于windows与Linux之间的文件共享，也可以用于Linux与Linux之间的资源共享，由于NFS(网络文件系统）可以很好的完成Linux与Linux之间的数据共享，因而 Samba较多的用在了Linux与windows之间的数据共享上面。<br>Samba 是 SMB/CIFS 网络协议的重新实现, 它作为 NFS 的补充使得在 Linux 和 Windows 系统中进行文件共享、打印机共享更容易实现。</p>
+<p>参考：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://wiki.ubuntu.org.cn/Samba">https://wiki.ubuntu.org.cn/Samba</a></li>
+<li><a target="_blank" rel="noopener" href="https://wiki.archlinux.org/index.php/Samba">https://wiki.archlinux.org/index.php/Samba</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/mchina/archive/2012/12/18/2816717.html">https://www.cnblogs.com/mchina/archive/2012/12/18/2816717.html</a></li>
+</ul>
+<h2 id="1-安装Samba服务器"><a href="#1-安装Samba服务器" class="headerlink" title="1. 安装Samba服务器"></a>1. 安装Samba服务器</h2><p>Ubuntu:</p>
+<pre><code>$ sudo apt-get install samba
+</code></pre>
+<p>Arch Linux:</p>
+<pre><code>$ sudo pacman -S samba
+</code></pre>
+<h2 id="2-创建共享目录"><a href="#2-创建共享目录" class="headerlink" title="2. 创建共享目录"></a>2. 创建共享目录</h2><p>假设共享目录为: <code>/home/Share</code>, 设置该文件夹的权限777使其让所有用户可读可写可运行。</p>
+<pre><code>$ sudo mkdir -p /home/Share
+$ sudo chmod 777 /home/Share
+</code></pre>
+<h2 id="3-修改配置文件"><a href="#3-修改配置文件" class="headerlink" title="3. 修改配置文件"></a>3. 修改配置文件</h2><p>备份（编辑系统文件前养成备份的好习惯，避免编辑错误后系统工作不正常）并编辑<code>/etc/samba/smb.conf</code>允许网络用户访问：</p>
+<pre><code>$ sudo cp /etc/samba/smb.conf /etc/samba/smb.conf_backup
+$ sudo vim /etc/samba/smb.conf
+</code></pre>
+<h3 id="公共共享文件夹-支持游客登录）"><a href="#公共共享文件夹-支持游客登录）" class="headerlink" title="公共共享文件夹 (支持游客登录）"></a>公共共享文件夹 (支持游客登录）</h3><p><code>/etc/samba/smb.conf</code>文件末尾添加:</p>
+<pre><code>[Public-Share]
+    comment = shared folder for public
+    path = /home/Share
+    # 是否游客访问
+    # guest ok = yes # 等价 &#39;public = yes&#39;
+    public = yes
+    # 是否可写
+    writable = yes
+    # 是否可浏览
+    browseable = yes
+    # 是否可用
+    available = yes
+</code></pre>
+<h3 id="用户共享文件夹-samba帐号登录）"><a href="#用户共享文件夹-samba帐号登录）" class="headerlink" title="用户共享文件夹 (samba帐号登录）"></a>用户共享文件夹 (samba帐号登录）</h3><p><code>/etc/samba/smb.conf</code>文件末尾添加:</p>
+<pre><code>[Private-Share]
+    comment = Shared Folder with username and password
+    path = /home/Share
+    # 指定能够使用该共享资源的用户和组
+    valid users = user1
+    # 是否可写
+    writable = yes
+    # 是否可浏览
+    browseable = yes
+    # 是否可用
+    available = yes
+</code></pre>
+<h2 id="4-创建samba用户-公共共享文件夹则无需创建帐号"><a href="#4-创建samba用户-公共共享文件夹则无需创建帐号" class="headerlink" title="4. 创建samba用户(公共共享文件夹则无需创建帐号)"></a>4. 创建samba用户(公共共享文件夹则无需创建帐号)</h2><p>注意：创建samba用户之前，必须先确保有一个同名的Linux用户，否则samba用户会创建失败。</p>
+<pre><code>$ sudo useradd user1
+</code></pre>
+<p>上面只是增加了user1这个用户，却没有给用户赋予本机登录密码。所以这个用户将只能从远程访问，不能从本机登录(当然，root可以修改user1用户的密码，这样user1就可以登录本机了)。<br>而且samba的登录密码可以和本机登录密码不一样。smb用户密码与unix帐号密码可以一样或不同，它们之间不存在连接关系。<br>现在要新增网络使用者的帐号，设置user1用户的samba密码，这个密码不是开机登录，而是用于samba登录：</p>
+<pre><code>$ sudo smbpasswd -a user1
+</code></pre>
+<p>删除samba密码:</p>
+<pre><code>$ sudo smbpasswd -x user1
+</code></pre>
+<p>同样，也可以使用pdbedit设置samba密码;</p>
+<pre><code>$ sudo pdbedit -a -u user1
+</code></pre>
+<p>查看:</p>
+<pre><code>$ sudo pdbedit -L
+</code></pre>
+<p>删除:</p>
+<pre><code>$ sudo pdbedit -x user1
+</code></pre>
+<h2 id="5-重启samba服务"><a href="#5-重启samba服务" class="headerlink" title="5. 重启samba服务"></a>5. 重启samba服务</h2><pre><code>$ sudo service smbd restart
+$ sudo /etc/init.d/samba restart
+</code></pre>
+<h2 id="6-客户端访问"><a href="#6-客户端访问" class="headerlink" title="6. 客户端访问"></a>6. 客户端访问</h2><h3 id="Linux-smbclient"><a href="#Linux-smbclient" class="headerlink" title="Linux - smbclient"></a>Linux - smbclient</h3><pre><code>$ sudo apt-get install smbclient
+</code></pre>
+<p>匿名(-N) 查看(-L):</p>
+<pre><code>$ smbclient -L 10.42.1.100 -N
+</code></pre>
+<p>实名(-U) 查看(-L):</p>
+<pre><code>$ smbclient -L 10.42.1.100 -U user%password
+$ smbclient -L 10.42.1.100 -U user1 (推荐，避免保存明文密码）
+</code></pre>
+<p>这里的password是smbpasswd, 与linux登录密码不等价。<br>进入smbclient命令行进行交互:</p>
+<pre><code>$ smbclient //10.42.1.100/Share -N
+$ smbclient //10.42.1.100/Share -U user1
+</code></pre>
+<h3 id="Linux-mount-cifs挂载"><a href="#Linux-mount-cifs挂载" class="headerlink" title="Linux - mount.cifs挂载"></a>Linux - mount.cifs挂载</h3><ol>
+<li><p>安装cifs-utils组件</p>
+<pre><code> $ sudo apt-get install cifs-utils
+</code></pre>
+</li>
+<li><p>挂载samba目录</p>
+<pre><code> $ sudo mount -t cifs //10.42.1.100/Share /mnt -o guest
+ $ sudo mount -t cifs //10.42.1.100/Share /mnt -o username=user1,password=xxxxxx
+ $ sudo mount -t cifs //10.42.1.100/Share /mnt -o username=user1
+ $ sudo mount.cifs //10.42.1.100/Share /mnt -o username=user1
+</code></pre>
+</li>
+</ol>
+<h2 id="配置文件详细配置"><a href="#配置文件详细配置" class="headerlink" title="配置文件详细配置"></a>配置文件详细配置</h2><pre><code>### [global]
+# 定义工作组, 建议修改为”WORKGROUP”（windows默认的工作组名字）
+workgroup = WORKGROUP
+# samba server名称
+server string = %h server (Samba, Ubuntu)
+dns proxy = no
+#定义samba的日志，这里的%m是上面的netbios name
+log file = /var/log/samba/log.%m
+max log size = 1000
+panic action = /usr/share/samba/panic-action %d
+# samba的安全等级。关于安全等级有四种：
+#         share：用户不需要账户及密码即可登录samba服务器
+#        user：由提供服务的samba服务器负责检查账户及密码（默认）
+#        server：检查账户及密码的工作由另一台windows或samba服务器负责
+#        domain：指定windows域控制服务器来验证用户的账户及密码。
+security = user
+# passdb backend （用户后台），samba有三种用户后台：smbpasswd, tdbsam和ldapsam;
+#        smbpasswd：该方式是使用smb工具smbpasswd给系统用户（真实用户或者虚拟用户）设置一个Samba 密码；
+#                客户端就用此密码访问Samba资源。smbpasswd在/etc/samba中，有时需要手工创建该文件。
+#        tdbsam：使用数据库文件创建用户数据库。数据库文件叫passdb.tdb，在/etc/samba中。
+#                passdb.tdb用户数据库可使用smbpasswd -a创建Samba用户，要创建的Samba用户必须先是系统用户。
+#                也可使用pdbedit创建Samba账户。
+#        ldapsam：基于LDAP账户管理方式验证用户。首先要建立LDAP服务。
+passdb backend = tdbsam
+
+# 用来设置允许的主机，如果在前面加”;”则为注释，表示允许所有主机
+hosts allow = 127.  192.168.12.  192.168.13.
+</code></pre>
+<h3 id="其他配置"><a href="#其他配置" class="headerlink" title="其他配置"></a>其他配置</h3><pre><code>    # 指明新建立的文件的属性，一般是0755
+    create mask = 0755
+    # 指明新建立的目录的属性，一般是0755
+    directory mask = 0755
+    comment = smb share test # 该共享的备注
+    path = /home/share # 共享路径
+    allow hosts = host(subnet) # 设置该Samba服务器允许的工作组或者域
+    deny hosts = host(subnet) # 设置该Samba服务器拒绝的工作组或者域
+    available = yes|no # 设置该共享目录是否可用
+    browseable = yes|no # 设置该共享目录是否可显示
+    writable = yes|no # 指定了这个目录缺省是否可写，也可以用readonly = no来设置可写
+    public = yes|no # 指明该共享资源是否能给游客帐号访问，guest ok = yes其实和public = yes是一样的
+    user = user, @group # user设置所有可能使用该共享资源的用户，也可以用@group代表group这个组的所有成员，不同的项目之间用空格或者逗号隔开
+    valid users = user, @group # 指定能够使用该共享资源的用户和组
+    invalid users = user, @group # 指定不能够使用该共享资源的用户和组
+    read list = user, @group # 指定只能读取该共享资源的用户和组
+    write list = user, @group # 指定能读取和写该共享资源的用户和组
+    admin list = user, @group # 指定能管理该共享资源（包括读写和权限赋予等）的用户和组
+    hide dot files = yes|no # 指明是否像UNIX那样隐藏以“.”号开头的文件
+    create mode = 0755 # 指明新建立的文件的属性，一般是0755
+    directory mode = 0755 # 指明新建立的目录的属性，一般是0755
+    sync always = yes|no # 指明对该共享资源进行写操作后是否进行同步操作
+    short preserve case = yes|no # 指明是否区分文件名大小写
+    preserve case = yes|no # 指明是否保持大小写
+    case sensitive = yes|no # 指明是否对大小写敏感，一般选no，不然可能引起错误
+    mangle case = yes|no # 指明混合大小写
+    default case = upper|lower # 指明缺省的文件名是全部大写还是小写
+    force user = testuser # 强制把建立文件的属主是谁。如果我有一个目录，让guest可以写，那么guest就可以删除，如果我用force user= testuser强制建立文件的属主是testuser，同时限制create mask = 0755，这样guest就不能删除了
+    wide links = yes|no # 指明是否允许共享外符号连接，比如共享资源里面有个连接指向非共享资源里面的文件或者目录，如果设置wide links = no将使该连接不可用
+    max connections = 100 # 设定最大同时连接数
+    delete readonly = yes|no # 指明能否删除共享资源里面已经被定义为只读的文件
+</code></pre>
+<h3 id="防止出现中文目录乱码"><a href="#防止出现中文目录乱码" class="headerlink" title="防止出现中文目录乱码"></a>防止出现中文目录乱码</h3><pre><code>$ export LC_ALL=zh_CN.UTF-8
+</code></pre>
+<p>在 /etc/samba/smb.conf 中的 [global] 段加上：:</p>
+<pre><code>    display charset = UTF-8
+    unix charset = UTF-8
+    dos charset = cp936
+</code></pre>
+<h2 id="Tip-运行-testparm-检查-samba-的配置文件是否合法。"><a href="#Tip-运行-testparm-检查-samba-的配置文件是否合法。" class="headerlink" title="Tip: 运行 testparm 检查 samba 的配置文件是否合法。"></a>Tip: 运行 testparm 检查 samba 的配置文件是否合法。</h2><pre><code>$ sudo testparm
+</code></pre>
+<h2 id="7-端口映射"><a href="#7-端口映射" class="headerlink" title="7. 端口映射"></a>7. 端口映射</h2><p>当由于网络问题，需要将内网的 Samba 服务器（假设 IP 为192.168.1.100）映射到外网（假设 IP 为 10.42.1.200）供公网 IP 用户访问，可以使用 iptables 进行端口映射；</p>
+<p>Samba服务所使用的端口和协议：</p>
+<ol>
+<li>Port 137 (UDP) - NetBIOS 名字服务；nmbd</li>
+<li>Port 138 (UDP) - NetBIOS 数据报服务；</li>
+<li><font color=red>Port 139 (TCP) - 文件和打印共享；smbd （基于SMB(Server Message Block)协议，主要在局域网中使用，文件共享协议）</font></li>
+<li>Port 389 (TCP) - 用于 LDAP (Active Directory Mode)；</li>
+<li>Port 445 (TCP) - NetBIOS服务在windos 2000及以后版本使用此端口， (Common Internet File System，CIFS，它是SMB协议扩展到Internet后，实现Internet文件共享）；</li>
+<li>Port 901 (TCP) - 用于 SWAT，用于网页管理Samba；</li>
+</ol>
+<p>这里用于文件共享，只需要端口转发 TCP Port 139 即可。</p>
+<pre><code>iptables -t nat -A PREROUTING -d 10.42.1.200/32 -p tcp --dport 139 -j DNAT --to-destination 192.168.1.100:139
+</code></pre>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>SeanXP
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="http://seanxp.com/2016/05/08/samba/" title="samba服务器配置">http://seanxp.com/2016/05/08/samba/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Tutorial/" rel="tag"># Tutorial</a>
+              <a href="/tags/Server/" rel="tag"># Server</a>
+              <a href="/tags/Linux/" rel="tag"># Linux</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2016/05/08/shadowsocks/" rel="prev" title="shadowsocks">
+                  <i class="fa fa-chevron-left"></i> shadowsocks
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2016/05/09/mac-hammerspoon/" rel="next" title="Mac神器hammerspoon">
+                  Mac神器hammerspoon <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2015 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">SeanXP</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

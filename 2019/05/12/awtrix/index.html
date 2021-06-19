@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="mask-icon" href="/images/avatar.png" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;seanxp.com&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Mist&quot;,&quot;version&quot;:&quot;8.5.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;display&quot;:&quot;post&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:true,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;Searching...&quot;,&quot;empty&quot;:&quot;We didn&#39;t find any results for the search: ${query}&quot;,&quot;hits_time&quot;:&quot;${hits} results found in ${time} ms&quot;,&quot;hits&quot;:&quot;${hits} results found&quot;}}</script><script src="/js/config.js"></script>
+<meta name="description" content="小明在用 $200 买来的 Lametric Time，我在用 ￥200 DIY 的 AWTRIX Clock：     我们都有着光明的未来。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DIY Awtrix WiFi Clock">
+<meta property="og:url" content="http://seanxp.com/2019/05/12/awtrix/index.html">
+<meta property="og:site_name" content="SeanXP">
+<meta property="og:description" content="小明在用 $200 买来的 Lametric Time，我在用 ￥200 DIY 的 AWTRIX Clock：     我们都有着光明的未来。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://seanxpcom-1252122045.cos.ap-nanjing.myqcloud.com/awtrix/0.jpg">
+<meta property="og:image" content="https://seanxpcom-1252122045.cos.ap-nanjing.myqcloud.com/awtrix/3.png">
+<meta property="article:published_time" content="2019-05-11T22:28:09.000Z">
+<meta property="article:modified_time" content="2021-06-18T23:27:35.175Z">
+<meta property="article:author" content="SeanXP">
+<meta property="article:tag" content="DIY">
+<meta property="article:tag" content="Clock">
+<meta property="article:tag" content="Embedded">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://seanxpcom-1252122045.cos.ap-nanjing.myqcloud.com/awtrix/0.jpg">
+
+
+<link rel="canonical" href="http://seanxp.com/2019/05/12/awtrix/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;en&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;http:&#x2F;&#x2F;seanxp.com&#x2F;2019&#x2F;05&#x2F;12&#x2F;awtrix&#x2F;&quot;,&quot;path&quot;:&quot;2019&#x2F;05&#x2F;12&#x2F;awtrix&#x2F;&quot;,&quot;title&quot;:&quot;DIY Awtrix WiFi Clock&quot;}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
+<title>DIY Awtrix WiFi Clock | SeanXP</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-77366457-1"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{&quot;tracking_id&quot;:&quot;UA-77366457-1&quot;,&quot;only_pageview&quot;:false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">SeanXP</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E6%9D%90%E6%96%99"><span class="nav-number">1.</span> <span class="nav-text">相关材料</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DIY%E6%B5%81%E7%A8%8B"><span class="nav-number">2.</span> <span class="nav-text">DIY流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9C%E7%A8%8B%E6%8E%A7%E5%88%B6"><span class="nav-number">3.</span> <span class="nav-text">远程控制</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="SeanXP"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">SeanXP</p>
+  <div class="site-description" itemprop="description">为学日益，为道日损，损之又损，以至于无为，无为而无不为。</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">65</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">53</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/seanxp" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;seanxp" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:aXNlYW54cCtibG9nQGdtYWlsLmNvbQ==?subject=Hello" title="E-Mail → mailto:aXNlYW54cCtibG9nQGdtYWlsLmNvbQ&#x3D;&#x3D;?subject&#x3D;Hello" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://pgp.mit.edu/pks/lookup?op=get&search=0x5655CA935F09337F" title="GPG → https:&#x2F;&#x2F;pgp.mit.edu&#x2F;pks&#x2F;lookup?op&#x3D;get&amp;search&#x3D;0x5655CA935F09337F" rel="noopener" target="_blank"><i class="fa fa-key fa-fw"></i>GPG</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://seanxp.com/2019/05/12/awtrix/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="SeanXP">
+      <meta itemprop="description" content="为学日益，为道日损，损之又损，以至于无为，无为而无不为。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SeanXP">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          DIY Awtrix WiFi Clock
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-05-12 06:28:09" itemprop="dateCreated datePublished" datetime="2019-05-12T06:28:09+08:00">2019-05-12</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-06-19 07:27:35" itemprop="dateModified" datetime="2021-06-19T07:27:35+08:00">2021-06-19</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/DIY/" itemprop="url" rel="index"><span itemprop="name">DIY</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <div align=center>
+<img src="https://seanxpcom-1252122045.cos.ap-nanjing.myqcloud.com/awtrix/0.jpg" alt='shut up and take my money'/>
+<blockquote class="blockquote-center">小明在用 $200 买来的 Lametric Time，我在用 ￥200 DIY 的 AWTRIX Clock：
+    我们都有着光明的未来。
+</blockquote>
+</div>
+<span id="more"></span>
+![Awtrix-SeanXP](https://seanxpcom-1252122045.cos.ap-nanjing.myqcloud.com/awtrix/1.jpg)
+![Awtrix-matrix](https://seanxpcom-1252122045.cos.ap-nanjing.myqcloud.com/awtrix/2.jpg)
+
+<h2 id="相关材料"><a href="#相关材料" class="headerlink" title="相关材料"></a>相关材料</h2><ol>
+<li>WS2812B 8x32 全彩可编程像素软屏（淘宝115元）</li>
+<li>ESP8266 WIFI 模块 CP2102 ESP-12E （淘宝27.83元）</li>
+<li>杜邦线，公对母，一排即可，连接 ESP8266 模块与WS2812B 的 DIN侧端口（淘宝3.58元）</li>
+<li><a target="_blank" rel="noopener" href="https://www.thingiverse.com/thing:2791276">Smart RGB Matrix 3D</a><ul>
+<li>LEDGrid2x.stl（8 x 16），光栅（光栅的作用是让圆的光点变成四方的像素，看起来更大更舒服），必选打印，材料黑色不透光，需打印2份拼装成 8 x 32；（70元透光材料效果不佳，170元不透光材料效果佳）</li>
+<li>frontFrame2x.stl（8 x 16），前壳，可选打印，需打印2份拼装成 8 x 32；（50.10 元）</li>
+<li>Housing.stl，后壳，可选打印；</li>
+</ul>
+</li>
+<li>A3 打印白纸一张（A4 纸长度不够）</li>
+<li>micro usb 线（连接 WIFI 模块）</li>
+<li>一台 Linux Server，需安装 Awtrix Server</li>
+<li>502胶水、美工刀等工具</li>
+</ol>
+<p><img src="https://seanxpcom-1252122045.cos.ap-nanjing.myqcloud.com/awtrix/3.png" alt="3d打印"><br>实际成本：硬件部分（115+27.83+3.58），3D打印部分（246.04元），成本在400元左右。</p>
+<h2 id="DIY流程"><a href="#DIY流程" class="headerlink" title="DIY流程"></a>DIY流程</h2><p>网络教程一致，都基于官方文档，不再赘述，参考：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://pengchujin.github.io/post/a46d7696.html">如何制作一个 WIFI 像素时钟</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/av49768953">DIY媲美LaMetric的可编程电子钟</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.blueforcer.de/#/v2/README">blueforcer</a></li>
+</ul>
+<ol>
+<li>3D 打印精度较差，需要 502 胶水拼装，无法粘合可进一步使用胶枪（淘宝10元）；</li>
+<li>公对母杜邦线连接 WS2812B、ESP8266，可进一步使用电烙铁直接焊接端口固定；</li>
+<li>线路连接验证后，可使用黑色绝缘胶带或胶枪包裹像素屏背后的各个焊点，避免意外短路；</li>
+<li>可多预备几张 A3 打印纸，前端可考虑包裹一层塑料纸，防脏防水；</li>
+<li>后端可连接充电宝，脱离电源插座的束缚；</li>
+<li><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/20045402/answer/16456670">502胶水沾到手上如何处理？</a>，使用肥皂洗手；</li>
+<li>如果使用 VPS 搭建 Awtrix Server，需开通网络端口 7000/7001，建议修改端口再烧写到客户端；</li>
+</ol>
+<h2 id="远程控制"><a href="#远程控制" class="headerlink" title="远程控制"></a>远程控制</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://docs.blueforcer.de/#/v2/api">api</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/av51122911">Telegram-Bot</a></li>
+</ul>
+<p>示例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl --header &quot;Content-Type: application/json&quot; --request POST --data &#123;&quot;msgEndless&quot;:&quot;Hello World&quot;&#125; http://[AWTRIX-SERVER_IP]:7000/api/v3/basics</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>SeanXP
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="http://seanxp.com/2019/05/12/awtrix/" title="DIY Awtrix WiFi Clock">http://seanxp.com/2019/05/12/awtrix/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/DIY/" rel="tag"># DIY</a>
+              <a href="/tags/Clock/" rel="tag"># Clock</a>
+              <a href="/tags/Embedded/" rel="tag"># Embedded</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2019/05/04/Khan-Microeconomics-2/" rel="prev" title="Khan-Microeconomics-2">
+                  <i class="fa fa-chevron-left"></i> Khan-Microeconomics-2
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2019/05/29/go-module-note/" rel="next" title="Go Module Notes">
+                  Go Module Notes <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2015 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">SeanXP</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

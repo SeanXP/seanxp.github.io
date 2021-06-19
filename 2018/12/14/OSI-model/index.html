@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="mask-icon" href="/images/avatar.png" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;seanxp.com&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Mist&quot;,&quot;version&quot;:&quot;8.5.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;display&quot;:&quot;post&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:true,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;Searching...&quot;,&quot;empty&quot;:&quot;We didn&#39;t find any results for the search: ${query}&quot;,&quot;hits_time&quot;:&quot;${hits} results found in ${time} ms&quot;,&quot;hits&quot;:&quot;${hits} results found&quot;}}</script><script src="/js/config.js"></script>
+<meta name="description" content="All problems in computer science can be solved by another level of indirection. - David Wheeler 计算机科学领域的任何问题都可以通过增加一个间接的中间层来解决。—— 鲁迅">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OSI七层模型 &amp; 交换负载均衡策略研究">
+<meta property="og:url" content="http://seanxp.com/2018/12/14/OSI-model/index.html">
+<meta property="og:site_name" content="SeanXP">
+<meta property="og:description" content="All problems in computer science can be solved by another level of indirection. - David Wheeler 计算机科学领域的任何问题都可以通过增加一个间接的中间层来解决。—— 鲁迅">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://seanxpcom-1252122045.cos.ap-nanjing.myqcloud.com/OSI-model/0.jpg">
+<meta property="og:image" content="https://seanxpcom-1252122045.cos.ap-nanjing.myqcloud.com/OSI-model/1.jpg">
+<meta property="og:image" content="https://seanxpcom-1252122045.cos.ap-nanjing.myqcloud.com/OSI-model/2.jpg">
+<meta property="og:image" content="https://seanxpcom-1252122045.cos.ap-nanjing.myqcloud.com/OSI-model/3.jpg">
+<meta property="og:image" content="https://seanxpcom-1252122045.cos.ap-nanjing.myqcloud.com/OSI-model/4.jpg">
+<meta property="og:image" content="https://seanxpcom-1252122045.cos.ap-nanjing.myqcloud.com/OSI-model/5.jpg">
+<meta property="og:image" content="https://seanxpcom-1252122045.cos.ap-nanjing.myqcloud.com/OSI-model/6.jpg">
+<meta property="article:published_time" content="2018-12-14T00:11:53.000Z">
+<meta property="article:modified_time" content="2021-06-18T23:27:35.164Z">
+<meta property="article:author" content="SeanXP">
+<meta property="article:tag" content="Internet">
+<meta property="article:tag" content="Network">
+<meta property="article:tag" content="Router">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://seanxpcom-1252122045.cos.ap-nanjing.myqcloud.com/OSI-model/0.jpg">
+
+
+<link rel="canonical" href="http://seanxp.com/2018/12/14/OSI-model/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;en&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;http:&#x2F;&#x2F;seanxp.com&#x2F;2018&#x2F;12&#x2F;14&#x2F;OSI-model&#x2F;&quot;,&quot;path&quot;:&quot;2018&#x2F;12&#x2F;14&#x2F;OSI-model&#x2F;&quot;,&quot;title&quot;:&quot;OSI七层模型 &amp; 交换负载均衡策略研究&quot;}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
+<title>OSI七层模型 & 交换负载均衡策略研究 | SeanXP</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-77366457-1"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{&quot;tracking_id&quot;:&quot;UA-77366457-1&quot;,&quot;only_pageview&quot;:false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">SeanXP</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#OSI%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.</span> <span class="nav-text">OSI模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP-IP%E5%8D%8F%E8%AE%AE%E6%A0%88"><span class="nav-number">2.</span> <span class="nav-text">TCP&#x2F;IP协议栈</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88OSI%E5%8D%8F%E8%AE%AE%E6%B2%A1%E6%9C%89%E6%99%AE%E5%8F%8A"><span class="nav-number">2.1.</span> <span class="nav-text">为什么OSI协议没有普及?</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%8F%E8%AE%AE%E5%B1%82%E4%BA%A4%E6%8D%A2%E6%8A%80%E6%9C%AF"><span class="nav-number">3.</span> <span class="nav-text">协议层交换技术</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E5%B1%82%E4%BA%A4%E6%8D%A2%E6%8A%80%E6%9C%AF%EF%BC%88%E7%89%A9%E7%90%86%E5%B1%82%EF%BC%89%EF%BC%88%E4%B8%AD%E7%BB%A7%E6%94%BE%E5%A4%A7%E7%89%A9%E7%90%86%E4%BF%A1%E5%8F%B7%EF%BC%89"><span class="nav-number">3.1.</span> <span class="nav-text">一层交换技术（物理层）（中继放大物理信号）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E5%B1%82%E4%BA%A4%E6%8D%A2%E6%8A%80%E6%9C%AF%EF%BC%88%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82%EF%BC%89%EF%BC%88MAC%E5%9C%B0%E5%9D%80%E8%A1%A8-%E4%BA%A4%E6%8D%A2%E6%9C%BA%E7%AB%AF%E5%8F%A3%EF%BC%89"><span class="nav-number">3.2.</span> <span class="nav-text">二层交换技术（数据链路层）（MAC地址表-交换机端口）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E5%B1%82%E4%BA%A4%E6%8D%A2%E6%8A%80%E6%9C%AF%EF%BC%88%E7%BD%91%E7%BB%9C%E5%B1%82%EF%BC%89%EF%BC%88IP%E5%9C%B0%E5%9D%80%E8%B7%AF%E7%94%B1%E8%A1%A8%EF%BC%89"><span class="nav-number">3.3.</span> <span class="nav-text">三层交换技术（网络层）（IP地址路由表）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8C%E5%B1%82%E4%BA%A4%E6%8D%A2%E6%9C%BA%E4%B8%8E%E4%B8%89%E5%B1%82%E4%BA%A4%E6%8D%A2%E6%9C%BA%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">3.3.1.</span> <span class="nav-text">二层交换机与三层交换机的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%89%E5%B1%82%E4%BA%A4%E6%8D%A2%E6%9C%BA%E4%B8%8E%E8%B7%AF%E7%94%B1%E5%99%A8%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">3.3.2.</span> <span class="nav-text">三层交换机与路由器的区别</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9B%E5%B1%82%E4%BA%A4%E6%8D%A2%E6%8A%80%E6%9C%AF%EF%BC%88%E4%BC%A0%E8%BE%93%E5%B1%82%EF%BC%89%EF%BC%88IP-PORT%EF%BC%89"><span class="nav-number">3.4.</span> <span class="nav-text">四层交换技术（传输层）（IP:PORT）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%83%E5%B1%82%E4%BA%A4%E6%8D%A2%E6%8A%80%E6%9C%AF%EF%BC%88%E5%BA%94%E7%94%A8%E5%B1%82%EF%BC%89%EF%BC%88%E5%BA%94%E7%94%A8%E5%B1%82%E6%95%B0%E6%8D%AE%EF%BC%89"><span class="nav-number">3.5.</span> <span class="nav-text">七层交换技术（应用层）（应用层数据）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%8F%E8%AE%AE%E5%B1%82%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1"><span class="nav-number">4.</span> <span class="nav-text">协议层负载均衡</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9B%E5%B1%82%E4%BA%A4%E6%8D%A2%E4%B8%8E%E4%B8%83%E5%B1%82%E4%BA%A4%E6%8D%A2%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">4.1.</span> <span class="nav-text">四层交换与七层交换的区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="nav-number">5.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="SeanXP"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">SeanXP</p>
+  <div class="site-description" itemprop="description">为学日益，为道日损，损之又损，以至于无为，无为而无不为。</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">65</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">53</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/seanxp" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;seanxp" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:aXNlYW54cCtibG9nQGdtYWlsLmNvbQ==?subject=Hello" title="E-Mail → mailto:aXNlYW54cCtibG9nQGdtYWlsLmNvbQ&#x3D;&#x3D;?subject&#x3D;Hello" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://pgp.mit.edu/pks/lookup?op=get&search=0x5655CA935F09337F" title="GPG → https:&#x2F;&#x2F;pgp.mit.edu&#x2F;pks&#x2F;lookup?op&#x3D;get&amp;search&#x3D;0x5655CA935F09337F" rel="noopener" target="_blank"><i class="fa fa-key fa-fw"></i>GPG</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://seanxp.com/2018/12/14/OSI-model/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="SeanXP">
+      <meta itemprop="description" content="为学日益，为道日损，损之又损，以至于无为，无为而无不为。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SeanXP">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          OSI七层模型 & 交换负载均衡策略研究
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2018-12-14 08:11:53" itemprop="dateCreated datePublished" datetime="2018-12-14T08:11:53+08:00">2018-12-14</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-06-19 07:27:35" itemprop="dateModified" datetime="2021-06-19T07:27:35+08:00">2021-06-19</time>
+      </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <blockquote class="blockquote-center">All problems in computer science can be solved by another level of indirection. - David Wheeler
+计算机科学领域的任何问题都可以通过增加一个间接的中间层来解决。—— 鲁迅
+</blockquote>
+<span id="more"></span>
+
+<p>计算机科学领域的任何问题都可以通过增加一个间接的中间层来解决。<br>如果还不能解决，那就加两层，加四层，加七层。OSI七层模型虽然没有得到普及应用，但是其抽象的设计理念及其失败原因有利于我们更加深入地了解互联网底层通信机制以及 TCP/IP 协议簇。<br>不管是四层还是七层，能通信的就是好模型！</p>
+<h2 id="OSI模型"><a href="#OSI模型" class="headerlink" title="OSI模型"></a>OSI模型</h2><!--![OSI模型架构图](https://ws4.sinaimg.cn/large/006tNbRwgy1fy4sxgx3q2g314r0u0dih.gif)-->
+<p><img src="https://seanxpcom-1252122045.cos.ap-nanjing.myqcloud.com/OSI-model/0.jpg" alt="OSI模型架构图"><br><a target="_blank" rel="noopener" href="https://www.wikiwand.com/zh-hans/OSI%E6%A8%A1%E5%9E%8B">开放式系统互联通信参考模型</a>（英语：Open System Interconnection Reference Model，缩写为 OSI），简称为<font color=red>OSI模型（OSI model）</font>，一种概念模型，由国际标准化组织提出，一个试图使各种计算机在世界范围内互连为网络的标准框架。1984年，ISO发布了著名的ISO/IEC 7498标准，它定义了网络互联的7层框架，也就是开放式系统互联参考模型。</p>
+<ul>
+<li><font color=red><strong>第7层 应用层（Application Layer）</strong></font>提供为应用软件而设的接口，以设定与另一应用软件之间的通讯。例如: HTTP，HTTPS，FTP，TELNET，SSH，SMTP，POP3等。</li>
+<li><strong>第6层 表达层（Presentation Layer）</strong>把数据转换为能与接收者的系统格式兼容并适合传输的格式。表示层(Presentation)为不同终端的上层用户提供数据和信息正确的语法表示变换方法。该层被弃用。应用层的HTTP、FTP、Telnet等协议有类似的功能。传输层的TLS/SSL也有类似功能。<ul>
+<li>数据语法转换</li>
+<li>语法表示</li>
+<li>数据处理（数据加密和解密、数据压缩和解压、数据编码和解码）</li>
+</ul>
+</li>
+<li><strong>第5层 会议层（Session Layer）</strong>主要为两个会话层实体进行会话（Session），而进行的对话连接的管理服务。会话层为用户端的应用程序提供了开启、关闭和管理会话的机制，亦即半永久的对话。该层被弃用。应用层的HTTP、RPC、SDP、RTCP等协议有类似的功能。<ul>
+<li>认证（Authentication）</li>
+<li>权限（Permissions）</li>
+<li>会话恢复（Session restoration）</li>
+</ul>
+</li>
+<li><font color=red><strong>第4层 传输层（Transport Layer）</strong></font>把传输表头（TH）加至数据以形成数据包。传输表头包含了所使用的协定等传送资讯。提供面向连接的数据流（data stream）支持、可靠性、流量控制、多路复用等服务。TCP、UDP、TLS/SSL；<ul>
+<li>连接导向式通讯，把连接解读为数据流而非处理底层的无连接模型。</li>
+<li>相同次序交付（报文段编号）</li>
+<li>可靠性（Reliability）（数据校验）</li>
+<li>流量控制（Flow control）</li>
+<li>拥塞避免（Network congestion）</li>
+<li>多路复用，端口可以在单个节点上提供多个端点。</li>
+</ul>
+</li>
+<li><strong>第3层 网路层（Network Layer）</strong>是OSI模型中的第三层（TCP/IP模型中的网际层）。网络层提供路由和寻址的功能，使两终端系统能够互连且决定最佳路径，并具有一定的拥塞控制和流量控制的能力。由于TCP/IP协议体系中的网络层功能由IP协议规定和实现，故又称IP层。IPV4，IPV6，ICMP，RIP；<ul>
+<li>寻址，使用IP地址来唯一标识互联网上的设备；</li>
+<li>路由，在同一个网络中的内部通信并不需要网络层设备，仅仅靠数据链路层就可以完成相互通信，对于不同的网络之间相互通信则必须借助路由器等三层设备（三层交换机）。</li>
+</ul>
+</li>
+<li><strong>第2层 数据链路层（Data Link Layer）</strong>负责网络寻址、错误侦测和改错。位于物理层与网络层之间。在广播式多路访问链路中（局域网），由于可能存在介质争用，它还可以细分成介质访问控制（MAC）子层和逻辑链路控制（LLC）子层，介质访问控制（MAC）子层专职处理介质访问的争用与冲突问题。Wi-Fi（IEEE 802.11） ，ARP，异步传输模式（ATM），令牌环，以太网，PPPoE，L2TP。</li>
+<li><strong>第1层 物理层（Physical Layer）</strong>是计算机网络OSI模型中最低的一层。物理层规定:为传输数据所需要的物理链路建立、维持、拆除，而提供具有机械的，电子的，功能的和规范的特性。</li>
+</ul>
+<!--![OSI模型示意图](https://ws3.sinaimg.cn/large/006tNbRwgy1fy4t1mgndhj30jq0k2ad6.jpg)-->
+<p><img src="https://seanxpcom-1252122045.cos.ap-nanjing.myqcloud.com/OSI-model/1.jpg" alt="OSI模型示意图"></p>
+<!--![OSI模型概览图](https://ws3.sinaimg.cn/large/006tNbRwgy1fy4t2g0dhfj30f60n60ur.jpg)-->
+<p><img src="https://seanxpcom-1252122045.cos.ap-nanjing.myqcloud.com/OSI-model/2.jpg" alt="OSI模型概览图"></p>
+<h2 id="TCP-IP协议栈"><a href="#TCP-IP协议栈" class="headerlink" title="TCP/IP协议栈"></a>TCP/IP协议栈</h2><p><a target="_blank" rel="noopener" href="https://www.wikiwand.com/zh-hans/TCP/IP%E5%8D%8F%E8%AE%AE%E6%97%8F">互联网协议族</a>（英语：Internet Protocol Suite，缩写IPS）是一个网路通讯模型，以及一整个网络传输协议家族，为网际网路的基础通讯架构。它常被通称为<font color=red><strong>TCP/IP协议族（TCP/IP Protocol Suite，TCP/IP Protocols）</strong></font>，简称TCP/IP。<br>由于在网络通讯协议普遍采用分层的结构，当多个层次的协议共同工作时，类似计算机科学中的堆栈，因此又被称为TCP/IP协议栈（英语：TCP/IP Protocol Stack）。<br>它将软体通信过程抽象化为四个抽象层，采取协定堆叠的方式，分别实作出不同通信协定。协定套组下的各种协定，依其功能不同，被分别归属到这四个阶层之中，常被视为是简化的七层OSI模型。</p>
+<!--![OSI模型与TCP/IP模型对比示意图](https://ws1.sinaimg.cn/large/006tNbRwgy1fy4t55fc87j30jq0ci407.jpg)-->
+<p><img src="https://seanxpcom-1252122045.cos.ap-nanjing.myqcloud.com/OSI-model/3.jpg" alt="OSI模型与TCP/IP模型对比示意图"></p>
+<h3 id="为什么OSI协议没有普及"><a href="#为什么OSI协议没有普及" class="headerlink" title="为什么OSI协议没有普及?"></a>为什么OSI协议没有普及?</h3><p><font color=red>因为OSI协议研发太慢，严重落后于工程实践。</font>现代互联网形成之前，并非只有ARPANET一家在做早期研究。如今我们谈到OSI往往是指“OSI参考模型”。实际上ISO当初计划用“OSI协议族”统一全球网络，但项目以失败告终。<br>而TCP/IP则进展顺利，连硬件产品都升级了好几轮，已经积累了军方、大学、民间大批用户。<font color=red>主流企业等不及OSI协议族完善，纷纷直接使用TCP/IP协议族。最后OSI研究项目大部分不了了之，几乎只剩下参考模型。</font></p>
+<p>共同点：</p>
+<ol>
+<li>OSI 参考模型和 TCP/IP 参考模型都采用了层次结构的概念。</li>
+<li>都能够提供面向连接和无连接两种通信服务机制。</li>
+</ol>
+<p>不同点：</p>
+<ol>
+<li>OSI 采用的七层模型，而 TCP/IP 是四层结构。</li>
+<li>TCP/IP 参考模型的网络接口层实际上并没有真正的定义，只是一些概念性的描述。而 OSI 参考模型不仅分了两层，而且每一层的功能都很详尽，甚至在数据链路层又分出一个介质访问子层，专门解决局域网的共享介质问题。</li>
+<li>OSI 模型是在协议开发前设计的，具有通用性。TCP/IP 是先有协议集然后建立模型，不适用于非 TCP/IP 网络。</li>
+<li>实际应用不同，OSI 模型只是理论上的模型，并没有成熟的产品；而 TCP/IP 已经成为国际上的标准。</li>
+</ol>
+<h2 id="协议层交换技术"><a href="#协议层交换技术" class="headerlink" title="协议层交换技术"></a>协议层交换技术</h2><!--![协议层交换示意图](https://ws2.sinaimg.cn/large/006tNbRwgy1fy4t81xhkcj30f60cs0tv.jpg)-->
+<p><img src="https://seanxpcom-1252122045.cos.ap-nanjing.myqcloud.com/OSI-model/4.jpg" alt="协议层交换示意图"></p>
+<ul>
+<li><strong>集线器（Hub）、中继器（Repeater）</strong>：工作在物理层，集线器的主要功能是<strong>对接收到的信号进行再生整形放大</strong>，以扩大网络的传输距离，同时把所有节点集中在以它为中心的节点上。</li>
+<li><strong>网桥（Bridge）、交换机（Switch）</strong>：工作在数据链路层，用于连接不同的网络。网桥/交换机会在自身存储其硬件端口与MAC地址的映射关系。一般使用网桥/交换机隔离LAN。简单来说，网桥可以看做一个端口数少的交换机。网桥能够识别数据链路层中的数据帧，并将这些数据帧临时存储于内存，再重新生成信号作为一个全新的数据帧转发给相连的另一个网段（network segment）。网桥是早期的两端口数据链路层网络设备，用来连接不同网段的计算机网络设备同时它又可隔离冲突域。因为它的两个端口不是共享一条背板总线（分别有一条独立的交换信道），比当时的集线器性能更好（集线器上各端口都是共享同一条背板总线的）。后来，网桥被具有更多端口、同时也可隔离冲突域的交换机所取代。</li>
+<li>交换机（Switch）可以说同时是集线器和网桥的升级换代产品，因为交换机具有集线器一样的集中连接功能，同时它又具有网桥的数据交换功能。网络接口层设备进化路线：集线器（共享同一背板总线）====&gt; 网桥（两条独立交换信道） ====&gt; 交换机（具有多个隔离的交换信道）。</li>
+<li><strong>路由器（Router）</strong>：工作在网络层。用于连接不同网络，进行分组转发。区别在于，网桥/交换机根据MAC转发，路由器根据 IP 进行转发。</li>
+<li>**网关（Gateway)**：网关在网络层以上实现网络互连，是最复杂的网络互连设备，仅用于两个高层协议不同的网络互连，网关既可以用于广域网互连，也可以用于局域网互连。网关是用于连接网络层之上执行不同协议的子网，组成异构的互连网，网关能实现异构设备之间的通信，对不同的传输层、会话层、表示层、应用层协议进行翻译和变换。网关的主要功能：把一种协议变成另一种协议，把一种数据格式变成另一种数据格式，把一种速率变成另一种速率，以求两者的统一。</li>
+</ul>
+<h3 id="一层交换技术（物理层）（中继放大物理信号）"><a href="#一层交换技术（物理层）（中继放大物理信号）" class="headerlink" title="一层交换技术（物理层）（中继放大物理信号）"></a>一层交换技术（物理层）（中继放大物理信号）</h3><p>中继器（Repeater）是 OSI 模型的第 1 层 —— 物理层面延长网络的设备。</p>
+<ul>
+<li>中继器对减弱的信号进行放大并发送；</li>
+<li>中继器通过物理层的连接延长网络；</li>
+</ul>
+<h3 id="二层交换技术（数据链路层）（MAC地址表-交换机端口）"><a href="#二层交换技术（数据链路层）（MAC地址表-交换机端口）" class="headerlink" title="二层交换技术（数据链路层）（MAC地址表-交换机端口）"></a>二层交换技术（数据链路层）（MAC地址表-交换机端口）</h3><p>网桥 or 二层交换机，工作于 OSI 参考模型的第二层，即数据链路层，是数据链路层上连接两个网络的设备。<br>交换机内部的 CPU 会在每个交换机端口成功连接时，通过将 MAC 地址和交换机端口对应，形成一张 MAC 表。在今后的通讯中，发往该 MAC 地址的数据包将仅送往其对应的端口，而不是所有的端口。（交换机端口 Switch Port != TCP Port）</p>
+<ul>
+<li>网桥根据数据帧的内容转发数据给相邻的其他网络；</li>
+<li>网桥基本只用于连接相同类型的网络。但有时也可以连接传输速率不同的网络；</li>
+</ul>
+<h3 id="三层交换技术（网络层）（IP地址路由表）"><a href="#三层交换技术（网络层）（IP地址路由表）" class="headerlink" title="三层交换技术（网络层）（IP地址路由表）"></a>三层交换技术（网络层）（IP地址路由表）</h3><p>路由器 or 三层交换机，路由器在 OSI 模型的第 3 层——IP路由交换技术。路由器工作于OSI七层协议中的第三层，其主要任务是接收来自一个网络接口的数据包，根据其中所含的目的地址，决定转发到下一个目的地址。因此，路由器首先得在转发路由表中查找它的目的地址，若找到了目的地址，就在数据包的帧格前添加下一个MAC地址，同时IP数据包头的TTL（Time To Live）域也开始减数，并重新计算校验和。当数据包被送到输出端口时，它需要按顺序等待，以便被传送到输出链路上。</p>
+<ul>
+<li>路由器是连接网络与网络的设备；</li>
+<li>可以将分组报文发送给另一个目标路由器地址；<br>三层交换技术就是将路由技术与交换技术合二为一的技术。在对第一个数据流进行路由后，它将会产生一个MAC地址与IP地址的映射表，当同样的数据流再次通过时，将根据此表直接从二层通过而不是再次路由，从而消除了路由器进行路由选择而造成网络的延迟，提高了数据包转发的效率。三层交换机的最重要目的是加快大型局域网内部的数据交换，所具有的路由功能也是为这目的服务的，能够做到一次路由，多次转发。三层交换技术就是：二层交换技术＋三层转发技术。</li>
+</ul>
+<h4 id="二层交换机与三层交换机的区别"><a href="#二层交换机与三层交换机的区别" class="headerlink" title="二层交换机与三层交换机的区别"></a>二层交换机与三层交换机的区别</h4><p>网桥/二层交换机是根据物理地址（MAC) 进行处理，而路由器 /3 层交换机则是根据 IP 地址进行处理的。主要区别：二层交换机工作在数据链路层，三层交换机工作在网络层，路由器工作在网络层。</p>
+<h4 id="三层交换机与路由器的区别"><a href="#三层交换机与路由器的区别" class="headerlink" title="三层交换机与路由器的区别"></a>三层交换机与路由器的区别</h4><p>交换机和路由器是性能和功能的矛盾体，交换机交换速度快，但控制功能弱，路由器控制性能强，但报文转发速度慢。解决这个矛盾的最新技术是三层交换，既有交换机线速转发报文能力，又有路由器良好的控制功能。<br>第三层交换机与传统路由器相比有如下优点：</p>
+<ul>
+<li>子网间传输带宽可任意分配，传统路由器每个接口连接一个子网，子网通过路由器进行传输的速率被接口的带宽所限制。而三层交换机则不同，它可以把多个端口定义成一个虚拟网，由于端口数可任意指定，子网间传输带宽没有限制。</li>
+<li>合理配置信息资源：由于访问子网内资源速率和访问全局网中资源速率没有区别，子网设置单独服务器的意义不大，通过在全局网中设置服务器群不仅节省费用，更可以合理配置信息资源。</li>
+<li>降低成本：通常的网络设计用交换机构成子网，用路由器进行子网间互连。目前采用三层交换机进行网络设计，既可以进行任意虚拟子网划分，又可以通过交换机三层路由功能完成子网间通信，为此节省了价格昂贵的路由器。</li>
+<li>交换机之间连接灵活：作为交换机，它们之间不允许存在回路，作为路由器，又可有多条通路来提高可靠性、平衡负载。<br>虽然三层交换机与路由器都具有路由功能，但我们不能因此而把它们等同起来（三层交换机 != 路由器）。三层交换机也一样，它仍是交换机产品，只不过它是具备了一些基本的路由功能的交换机，它的主要功能仍是数据交换。三层交换机同时具备了数据交换和路由由发两种功能，但其主要功能还是数据交换；而路由器仅具有路由转发这一种主要功能。三层交换机的路由功能通常比较简单，因为它所面对的主要是简单的局域网连接。而路由器则不同，它的设计初哀就是为了满足不同类型的网络连接。</li>
+</ul>
+<h3 id="四层交换技术（传输层）（IP-PORT）"><a href="#四层交换技术（传输层）（IP-PORT）" class="headerlink" title="四层交换技术（传输层）（IP:PORT）"></a>四层交换技术（传输层）（IP:PORT）</h3><p>四层交换机不仅可以完成端到端交换，还能根据端口主机的应用特点，确定或限制它的交换流量。简单地说，四层交换机基于传输层数据包的交换过程，是一类基于 TCP/IP协议应用层的用户应用交换需求的新型局域网交换机。<br>四层交换机支持 TCP/UDP 第四层以下的所有协议，可识别至少80字节的数据包包头长度，可根据TCP/UDP端口号来区分数据包的应用类型，从而实现应用层的访问控制和服务质量的保证。所以，与其说四层交换机是硬件网络设备，还不如说它是软件网络管理系统。也就是说，四层交换机是一类以软件技术为主、以硬件技术为辅的网络管理交换设备。<br>TCP/UDP 端口号提供的附加信息可以为网络交换机利用，这是四层交换的基础。具有第四层功能的交换机能够起到与服务器相连接的“虚拟IP（VIP）”前端的作用。每台服务器和支持单一或通用应用的服务器组都配置一个VIP地址。这个VIP地址被发送出去，并在域名系统上注册。在第四层交换中为每个供搜寻使用的服务器组设立虚IP地址（VIP），每组服务器支持某种应用。在域名服务器（DNS）中存储的每个应用服务器地址是VIP，而不是真实的服务器地址。第四层交换的主要作用是提高服务器和服务器群的可靠性和可扩性。在发出一个服务请求时，四层交换机通过判定TCP来识别一次会话的开始。然后利用复杂的算法来确定处理这个请求的最佳服务器。一旦做出决定，交换机就将会话与一个具体的IP地址联系在一起，并用该服务器的真正IP地址来代替服务器上的VIP地址。<br>四层交换机的主要技术：</p>
+<ul>
+<li>包过滤/安全控制，包过滤防火墙；</li>
+<li>服务质量，TCP/UDP第四层信息往往用于建立应用级通信优先权限。</li>
+<li>服务器负载均衡（虚拟服务器 VIP），四层交换机所支持的服务器负载均衡方式是将附加有负载均衡服务的IP地址，通过不同的物理服务器组成一个集，共同提供相同的服务，并将其定义为一个单独的虚拟服务器。这个虚拟服务器是一个有单独IP地址的逻辑服务器，用户数据流只需指向虚拟服务器的IP地址，而不直接和物理服务器的真实IP地址进行通信。只有通过交换机执行的网络地址转换 （NAT）后，未被注册IP地址的服务器才能获得被访问的能力。</li>
+<li>主机备用连接，主机备用连接为端口设备提供了冗余连接，从而在交换机发生故障时能有效保护系统。</li>
+</ul>
+<h3 id="七层交换技术（应用层）（应用层数据）"><a href="#七层交换技术（应用层）（应用层数据）" class="headerlink" title="七层交换技术（应用层）（应用层数据）"></a>七层交换技术（应用层）（应用层数据）</h3><p>七层交换机的智能性能够对所有传输流和内容的控制。由于可以自由地完全打开传输流的应用层和表示层，仔细分析其中的内容，因此可根据应用的类型而非仅仅根据 IP和端口号做出更智能的负载均衡决定。这就可以不仅仅基于URL做出全面的负载均衡决策，而且还能根据实际的应用类型做出决策。<br>第7层负载均衡器与老式的第4层负载均衡器最本质的区别在于，直接利用HTTP头信息、SSL SESSION ID、cookie 以及 URI 这些第7层（应用层）数据。<br>第7层负载均衡器有2种配置模式：代理模式（Proxy）和透明模式（transparent）。代理模式是指负载均衡器作为两个或多个Web服务器间的服务中介，所有发向网站的服务请求首先来到负载均衡器，由负载均衡器决定如何分配这些请求。在透明模式下，负载均衡器不断侦听网络，只对事先指定的某些特定服务的请求做出处理。<br>七层负载均衡和四层负载均衡相比，最大的缺点就是没有四层的负载能力高，Haproxy 据说能跑到40万并发，LVS 有几百万，这些都是理论上的数据，真的跑到40万的时候，服务器网卡早就挂了。</p>
+<h2 id="协议层负载均衡"><a href="#协议层负载均衡" class="headerlink" title="协议层负载均衡"></a>协议层负载均衡</h2><p>负载均衡（Load Balance）建立在现有网络结构之上，它提供了一种廉价有效透明的方法扩展网络设备和服务器的带宽、增加吞吐量、加强网络数据处理能力、提高网络的灵活性和可用性。负载均衡有两方面的含义：</p>
+<ul>
+<li>首先，大量的并发访问或数据流量分担到多台节点设备上分别处理，减少用户等待响应的时间；（将大量的并发处理转发给后端多个节点处理，减少工作响应时间）</li>
+<li>其次，单个重负载的运算分担到多台节点设备上做并行处理，每个节点设备处理结束后，将结果汇总，返回给用户，系统处理能力得到大幅度提高。（将单个繁重的工作转发给后端多个节点处理，处理完再返回给负载均衡中心，再返回给用户。）</li>
+</ul>
+<ol>
+<li>二层负载均衡（虚拟mac），根据OSI模型分的二层负载，一般是用虚拟mac地址方式，外部对虚拟MAC地址请求，负载均衡接收后分配后端实际的MAC地址响应。</li>
+<li>三层负载均衡（虚拟ip），一般采用虚拟IP（VIP）地址方式，外部对虚拟的ip地址请求，负载均衡接收后分配后端实际的IP地址响应。</li>
+<li>L4 switch（四层交换机，VIP:VPORT），即在OSI第4层工作，就是TCP层。四层负载均衡（VIP + port），在三次负载均衡的基础上，用虚拟IP+端口接收请求，然后再转发到真实的服务器。四层交换不理解应用协议（如HTTP/FTP/MySQL等等）。<ul>
+<li>F5：硬件负载均衡器，功能很好，但是成本很高。</li>
+<li>lvs：重量级的四层负载软件（一般用来做四层负载均衡）</li>
+<li>nginx：轻量级的四层负载软件，带缓存功能，正则表达式较灵活（一般用来做七层负载均衡，URL 转发）</li>
+<li>haproxy：模拟四层转发，较灵活（四层、七层均可）</li>
+</ul>
+</li>
+<li>L7 switch（七层交换机，虚拟URL等），OSI的最高层，应用层。七层负载均衡，根据虚拟的url或IP，主机名接收请求，再转向相应的处理服务器。七层的负载均衡，就是在四层的基础上（没有四层是绝对不可能有七层的），再考虑应用层的特征，比如同一个Web服务器的负载均衡，除了根据VIP加80端口辨别是否需要处理的流量，还可根据七层的URL、浏览器类别、语言来决定是否要进行负载均衡。<ul>
+<li>haproxy：天生负载均衡技能，全面支持七层代理，会话保持，标记，路径转移；</li>
+<li>nginx：只在http协议和mail协议上功能比较好，性能与haproxy差不多；</li>
+<li>apache：功能较差</li>
+<li>Mysql proxy：功能尚可。</li>
+</ul>
+</li>
+</ol>
+<h3 id="四层交换与七层交换的区别"><a href="#四层交换与七层交换的区别" class="headerlink" title="四层交换与七层交换的区别"></a>四层交换与七层交换的区别</h3><!--![四层七层交换对比](https://ws3.sinaimg.cn/large/006tNbRwgy1fy5ycafe6sj30h3087dfp.jpg)-->
+<p><img src="https://seanxpcom-1252122045.cos.ap-nanjing.myqcloud.com/OSI-model/5.jpg" alt="四层七层交换对比"></p>
+<p>负载均衡器通常为四层交换机或七层交换机。四层交换机主要分析IP层及TCP/UDP层，实现四层流量负载均衡。七层交换机除了支持四层负载均衡以外，还有分析应用层的信息，如HTTP协议URI或Cookie信息。</p>
+<ul>
+<li>七层负载均衡基本都是基于http协议的，适用于web服务器的负载均衡。（nginx）  </li>
+<li>四层负载均衡主要是基于tcp协议报文，可以做任何基于tcp/ip协议的软件的负载均衡。(haproxy、LVS)  </li>
+</ul>
+<!--![TCP连接区别](https://ws4.sinaimg.cn/large/006tNbRwgy1fy5ycuu5ryj30bu07m74w.jpg)-->
+<p><img src="https://seanxpcom-1252122045.cos.ap-nanjing.myqcloud.com/OSI-model/6.jpg" alt="TCP连接区别"></p>
+<p>四层交换通过报文中的目标地址和端口，再加上负载均衡设备设置的服务器选择方式，决定最终选择的内部服务器。以常见的TCP为例，负载均衡设备在接收到第一个来自客户端的SYN 请求时，即通过上述方式选择一个最佳的服务器，并对报文中目标IP地址进行修改（改为后端服务器IP，RS(Real Server)），直接转发给该服务器。TCP的连接建立，即三次握手是客户端和服务器直接建立的，负载均衡设备只是起到一个类似路由器的转发动作。在某些部署情况下，为保证服务器回包可以正确返回给负载均衡设备，在转发报文的同时可能还会对报文原来的源地址进行修改。</p>
+<p>而七层负载均衡，也称为“内容交换”，也就是主要通过报文中的真正有意义的应用层内容，再加上负载均衡设备设置的服务器选择方式，决定最终选择的内部服务器。以常见的TCP为例，负载均衡设备如果要根据真正的应用层内容再选择服务器，只能先代理最终的服务器和客户端建立连接(三次握手)后，才可能接受到客户端发送的真正应用层内容的报文，然后再根据该报文中的特定字段，再加上负载均衡设备设置的服务器选择方式，决定最终选择的内部服务器。负载均衡设备在这种情况下，更类似于一个代理服务器。负载均衡和前端的客户端以及后端的服务器会分别建立TCP连接。所以从这个技术原理上来看，七层负载均衡明显的对负载均衡设备的要求更高，处理七层的能力也必然会低于四层模式的部署方式。</p>
+<p>七层应用负载的好处，是使得整个网络更”智能化“。例如访问一个网站的用户流量，可以通过七层的方式，将对图片类的请求转发到特定的图片服务器并可以使用缓存技术；将对文字类的请求可以转发到特定的文字服务器并可以使用压缩技术。现在的7层负载均衡，主要还是着重于应用HTTP协议，所以其应用范围主要是众多的网站或者内部信息平台等基于B/S开发的系统。 4层负载均衡则对应其他TCP应用，例如基于C/S开发的ERP等系统。</p>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/kevingrace/p/6137881.html">linux负载均衡总结性说明（四层负载/七层负载）</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/35792536">为什么OSI协议没有普及?</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.minhow.com/2017/01/07/protocol/tcp-osi/">TCP/IP四层模型和OSI七层模型</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.wikiwand.com/zh-hans/OSI%E6%A8%A1%E5%9E%8B">OSI模型</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.wikiwand.com/zh-hans/TCP/IP%E5%8D%8F%E8%AE%AE%E6%97%8F">TCP/IP协议族</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.wikiwand.com/zh-hans/%E6%A9%8B%E6%8E%A5%E5%99%A8">桥接器</a></li>
+<li><a target="_blank" rel="noopener" href="https://sunwgit.github.io/2018/01/05/%E5%9B%BE%E8%A7%A3TCP-IP/">图解TCP-IP笔记</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/shmily_cml0603/article/details/9334795">二层交换机、三层交换机和路由器的基本工作原理和三者之间的主要区别</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.linuxvirtualserver.org/zh/lvs3.html">LVS集群中的IP负载均衡技术</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.tianmaying.com/tutorial/NetWorkInstrument">集线器、网桥、交换机、路由器、网关大解析</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>SeanXP
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="http://seanxp.com/2018/12/14/OSI-model/" title="OSI七层模型 &amp; 交换负载均衡策略研究">http://seanxp.com/2018/12/14/OSI-model/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Internet/" rel="tag"># Internet</a>
+              <a href="/tags/Network/" rel="tag"># Network</a>
+              <a href="/tags/Router/" rel="tag"># Router</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2018/12/10/he-lived/" rel="prev" title="他曾活过啊">
+                  <i class="fa fa-chevron-left"></i> 他曾活过啊
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2019/02/25/insurance/" rel="next" title="朋友，你听说过保险吗？">
+                  朋友，你听说过保险吗？ <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2015 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">SeanXP</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

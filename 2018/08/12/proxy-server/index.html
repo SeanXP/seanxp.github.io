@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="mask-icon" href="/images/avatar.png" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;seanxp.com&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Mist&quot;,&quot;version&quot;:&quot;8.5.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;display&quot;:&quot;post&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:true,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;Searching...&quot;,&quot;empty&quot;:&quot;We didn&#39;t find any results for the search: ${query}&quot;,&quot;hits_time&quot;:&quot;${hits} results found in ${time} ms&quot;,&quot;hits&quot;:&quot;${hits} results found&quot;}}</script><script src="/js/config.js"></script>
+<meta name="description" content="剑阁峥嵘而崔嵬，一夫当关，万夫莫开。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网络代理服务器">
+<meta property="og:url" content="http://seanxp.com/2018/08/12/proxy-server/index.html">
+<meta property="og:site_name" content="SeanXP">
+<meta property="og:description" content="剑阁峥嵘而崔嵬，一夫当关，万夫莫开。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/0069RVTdgy1fu6qzkm6gmj30hs06fdgz.jpg">
+<meta property="og:image" content="https://seanxpcom-1252122045.cos.ap-nanjing.myqcloud.com/proxy-server/0.jpg">
+<meta property="og:image" content="https://seanxpcom-1252122045.cos.ap-nanjing.myqcloud.com/proxy-server/1.jpg">
+<meta property="og:image" content="https://seanxpcom-1252122045.cos.ap-nanjing.myqcloud.com/proxy-server/2.jpg">
+<meta property="og:image" content="https://seanxpcom-1252122045.cos.ap-nanjing.myqcloud.com/proxy-server/3.jpg">
+<meta property="og:image" content="https://seanxpcom-1252122045.cos.ap-nanjing.myqcloud.com/proxy-server/4.jpg">
+<meta property="article:published_time" content="2018-08-12T02:38:27.000Z">
+<meta property="article:modified_time" content="2021-06-18T23:27:35.195Z">
+<meta property="article:author" content="SeanXP">
+<meta property="article:tag" content="Internet">
+<meta property="article:tag" content="Network">
+<meta property="article:tag" content="Server">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ws3.sinaimg.cn/large/0069RVTdgy1fu6qzkm6gmj30hs06fdgz.jpg">
+
+
+<link rel="canonical" href="http://seanxp.com/2018/08/12/proxy-server/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;en&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;http:&#x2F;&#x2F;seanxp.com&#x2F;2018&#x2F;08&#x2F;12&#x2F;proxy-server&#x2F;&quot;,&quot;path&quot;:&quot;2018&#x2F;08&#x2F;12&#x2F;proxy-server&#x2F;&quot;,&quot;title&quot;:&quot;网络代理服务器&quot;}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
+<title>网络代理服务器 | SeanXP</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-77366457-1"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{&quot;tracking_id&quot;:&quot;UA-77366457-1&quot;,&quot;only_pageview&quot;:false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">SeanXP</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A3%E5%90%91%E4%BB%A3%E7%90%86%EF%BC%88Forward-Proxy%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">正向代理（Forward Proxy）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%EF%BC%88Reverse-Proxy%EF%BC%89"><span class="nav-number">2.</span> <span class="nav-text">反向代理（Reverse Proxy）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%8F%E6%98%8E%E4%BB%A3%E7%90%86%EF%BC%88Transparent-Proxy%EF%BC%89"><span class="nav-number">3.</span> <span class="nav-text">透明代理（Transparent Proxy）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8B%A6%E6%88%AA%E4%BB%A3%E7%90%86%EF%BC%88Intercepting-Proxy%EF%BC%89"><span class="nav-number">4.</span> <span class="nav-text">拦截代理（Intercepting Proxy）</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="SeanXP"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">SeanXP</p>
+  <div class="site-description" itemprop="description">为学日益，为道日损，损之又损，以至于无为，无为而无不为。</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">65</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">53</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/seanxp" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;seanxp" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:aXNlYW54cCtibG9nQGdtYWlsLmNvbQ==?subject=Hello" title="E-Mail → mailto:aXNlYW54cCtibG9nQGdtYWlsLmNvbQ&#x3D;&#x3D;?subject&#x3D;Hello" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://pgp.mit.edu/pks/lookup?op=get&search=0x5655CA935F09337F" title="GPG → https:&#x2F;&#x2F;pgp.mit.edu&#x2F;pks&#x2F;lookup?op&#x3D;get&amp;search&#x3D;0x5655CA935F09337F" rel="noopener" target="_blank"><i class="fa fa-key fa-fw"></i>GPG</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://seanxp.com/2018/08/12/proxy-server/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="SeanXP">
+      <meta itemprop="description" content="为学日益，为道日损，损之又损，以至于无为，无为而无不为。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SeanXP">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          网络代理服务器
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2018-08-12 10:38:27" itemprop="dateCreated datePublished" datetime="2018-08-12T10:38:27+08:00">2018-08-12</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-06-19 07:27:35" itemprop="dateModified" datetime="2021-06-19T07:27:35+08:00">2021-06-19</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Network/" itemprop="url" rel="index"><span itemprop="name">Network</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <div align=center>
+<!--<img src="https://ws3.sinaimg.cn/large/0069RVTdgy1fu6qzkm6gmj30hs06fdgz.jpg" alt='proxy'/>-->
+<img src="https://seanxpcom-1252122045.cos.ap-nanjing.myqcloud.com/proxy-server/0.jpg" alt='proxy'/>
+<blockquote class="blockquote-center">剑阁峥嵘而崔嵬，一夫当关，万夫莫开。
+</blockquote>
+</div>
+
+<span id="more"></span>
+
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.wikiwand.com/zh/%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8">wiki-代理服务器</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.mitmproxy.org/stable/concepts-modes/">proxy flow chart</a></li>
+</ul>
+<!--![代理选择](https://ws4.sinaimg.cn/large/0069RVTdgy1fu6rqoy6qtj312o0sgwg5.jpg)-->
+<p><img src="https://seanxpcom-1252122045.cos.ap-nanjing.myqcloud.com/proxy-server/1.jpg" alt="代理选择"></p>
+<h2 id="正向代理（Forward-Proxy）"><a href="#正向代理（Forward-Proxy）" class="headerlink" title="正向代理（Forward Proxy）"></a>正向代理（Forward Proxy）</h2><p>正向代理/客户端代理，<strong>隐藏了真实的请求客户端</strong>，服务端不知道真实的客户端是谁，客户端请求的服务都被代理服务器代替来请求。<br><strong>正向代理用于获取互联网资源</strong>，作为一个媒介，将互联网上获取的资源返回给相关联的客户端。某科学的超（fan）电（qiang）磁（gong）炮（ju）扮演的就是典型的正向代理角色。</p>
+<!--![正向代理示意图](https://ws2.sinaimg.cn/large/0069RVTdgy1fu6qazmkmhj30zk0dcwg2.jpg)-->
+<p><img src="https://seanxpcom-1252122045.cos.ap-nanjing.myqcloud.com/proxy-server/2.jpg" alt="正向代理示意图"></p>
+<p>根据代理服务器的部署位置，可分为以下两种用法：</p>
+<ol>
+<li>正向代理服务器处于防火墙内，正义的防火墙可以保护局域网，只留正向代理服务器一个入口为局域网内的客户端提供访问 nternet 的途径，且对外屏蔽客户端的细节。正向代理还可以使用缓冲特性减少网络使用率。</li>
+<li>正向代理服务器处于防火墙外，“正义”的防火墙可以阻止客户端“不合理”的请求，只留下发往正向代理服务器的“合理”请求。客户端和代理端往往通过加密混淆等方式，将“不合理”化为“合理”的请求。</li>
+</ol>
+<p>正向代理的主要作用为：</p>
+<ul>
+<li>作为跳板机，从另一条路由路径访问本无法直接访问的服务器；</li>
+<li>加速访问资源；（历史遗留，低带宽链路通过代理的高带宽链路加速访问）</li>
+<li>缓存，加速访问；（加速同一网络下的重复资源请求）</li>
+<li>对客户端访问授权，上网进行认证；未经过授权（没有配置代理）的客户端请求将被丢弃；</li>
+<li>代理可以记录用户访问记录（上网行为管理），对外隐藏用户信息；</li>
+</ul>
+<h2 id="反向代理（Reverse-Proxy）"><a href="#反向代理（Reverse-Proxy）" class="headerlink" title="反向代理（Reverse Proxy）"></a>反向代理（Reverse Proxy）</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://www.wikiwand.com/zh-hans/%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86">Wiki - 反向代理</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/24723688">反向代理为何叫反向代理？</a></li>
+</ul>
+<p>反向代理/服务端代理，<strong>隐藏了真实的响应服务端</strong>，客户端不知道真是的服务器是谁，客户端发出的请求都被反向代理服务器来代替请求。<br><strong>反向代理用于提供互联网资源</strong>，作为一个媒介，将后端的服务器资源返回给互联网上相关联的客户端。很多互联网提供商（BAT）都有对应的反向代理。</p>
+<!--![反向代理示意图](https://ws2.sinaimg.cn/large/0069RVTdgy1fu6qyf7scxj30xc0cijss.jpg)-->
+<p><img src="https://seanxpcom-1252122045.cos.ap-nanjing.myqcloud.com/proxy-server/3.jpg" alt="反向代理示意图"></p>
+<p>反向代理的典型用途是将防火墙后面的服务器提供给 Internet 用户访问，并提供服务器端的安全防护。反向代理还可以为后端的多台服务器提供负载平衡，或为后端较慢的服务器提供缓冲服务。Nginx 就是性能非常好的反向代理服务器，用来做负载均衡。</p>
+<p>反向代理的主要作用为：</p>
+<ul>
+<li>保护和隐藏原始资源服务器</li>
+<li>加密和SSL加速</li>
+<li>负载均衡</li>
+<li>缓存静态内容，减少服务器的访问压力。</li>
+<li>压缩</li>
+<li>减速上传</li>
+<li>安全</li>
+<li>外网发布</li>
+</ul>
+<h2 id="透明代理（Transparent-Proxy）"><a href="#透明代理（Transparent-Proxy）" class="headerlink" title="透明代理（Transparent Proxy）"></a>透明代理（Transparent Proxy）</h2><p>这个其实不能和正向、反向代理并列，因为<strong>透明代理是正向代理中的一种</strong>。透明代理的意思是<strong>客户端根本不需要知道有代理服务器的存在</strong>，它改变你的 request fields（报文），并会传送真实 IP，多用于路由器的 NAT 转发中。注意，加密的透明代理则是属于匿名代理，意思是不用设置使用代理了。<br><strong>透明代理不但改动了数据包，还会告诉服务器客户端的真实IP</strong>。它不会加密你的信息，而是明明白白的告诉目标站你是通过代理访问的。当然好处是可以通过缓存技术提高浏览速度，以及一些规则来让你的访问变得更加安全（典型应用就是内网硬件防火墙上的透明代理）。（不过，我们常说的 ss 透明代理与此定义不同，前者表示相对电脑访问，代理是透明的；后者表示相对目标站点，代理是透明的。）</p>
+<p>而在国内，透明代理有了其他一些用途：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.zfl9.com/ss-redir.html">ss-redir 透明代理</a></li>
+<li><a target="_blank" rel="noopener" href="https://gist.github.com/snakevil/8a34d6fbdf2a64f2c753">如何在路由器中实现透明代理？</a></li>
+<li>公司行为管理透明代理软件，客户端感知不到代理服务器的存在，透明代理设备根据自身策略拦截并修改报文，最后回传信息。但是发出的部分网络请求将会被拒绝掉。</li>
+</ul>
+<h2 id="拦截代理（Intercepting-Proxy）"><a href="#拦截代理（Intercepting-Proxy）" class="headerlink" title="拦截代理（Intercepting Proxy）"></a>拦截代理（Intercepting Proxy）</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://blog.wolfogre.com/posts/usage-of-mitmproxy/">使用 mitmproxy + python 做拦截代理</a></li>
+<li><a target="_blank" rel="noopener" href="https://mitmproxy.org/">mitmproxy</a></li>
+</ul>
+<p>拦截代理，用于拦截所有通过代理的网络流量，如客户端的请求数据、服务器端的返回信息等。常用于网络服务开发者的测试或安全评估。客户端主动通过代理访问并进行拦截处理，是为拦截代理；若客户端不知道是通过代理访问且被拦截请求，是为中间人攻击（MITM）。</p>
+<p>拦截代理软件：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.charlesproxy.com/">Charles(Mac)</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.telerik.com/fiddler">Fiddler(Windows)</a></li>
+<li><a target="_blank" rel="noopener" href="https://mitmproxy.org/">mitmproxy(HTTPS proxy)</a></li>
+</ul>
+<!--![手机https拦截代理](https://ws1.sinaimg.cn/large/0069RVTdgy1fu6sm9q0u3j30hq0dbgm7.jpg)-->
+<p><img src="https://seanxpcom-1252122045.cos.ap-nanjing.myqcloud.com/proxy-server/4.jpg" alt="手机https拦截代理"></p>
+<p>mitmproxy 是用 Python 和 C 开发的一个中间人代理软件（man-in-the-middle proxy），它可以用来拦截、修改、重放和保存 HTTP/HTTPS 请求。mitmproxy 就是用于 MITM 的 proxy。用于中间人攻击的代理首先会向正常的代理一样转发请求，保障服务端与客户端的通信，其次，会适时的查、记录其截获的数据，或篡改数据，引发服务端或客户端特定的行为。不同于 fiddler 或 wireshark 等抓包工具，mitmproxy 不仅可以截获请求帮助开发者查看、分析，更可以通过自定义脚本进行二次开发。</p>
+<p>但 mitmproxy 并不会真的对无辜的人发起中间人攻击，由于 mitmproxy 工作在 HTTP 层，而当前 HTTPS 的普及让客户端拥有了检测并规避中间人攻击的能力，所以<strong>要让 mitmproxy 能够正常工作，必须要让客户端（APP 或浏览器）主动信任 mitmproxy 的 SSL 证书，或忽略证书异常</strong>，这也就意味着 APP 或浏览器是属于开发者本人的——显而易见，这不是在做黑产，而是在做开发或测试。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>SeanXP
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="http://seanxp.com/2018/08/12/proxy-server/" title="网络代理服务器">http://seanxp.com/2018/08/12/proxy-server/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Internet/" rel="tag"># Internet</a>
+              <a href="/tags/Network/" rel="tag"># Network</a>
+              <a href="/tags/Server/" rel="tag"># Server</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2018/04/01/Xenoblade-Chronicles-2/" rel="prev" title="ゼノブレイド2 (Xenoblade 2)">
+                  <i class="fa fa-chevron-left"></i> ゼノブレイド2 (Xenoblade 2)
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2018/08/12/school-proxy/" rel="next" title="内网穿透校园网搭建 IPv6 代理">
+                  内网穿透校园网搭建 IPv6 代理 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2015 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">SeanXP</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

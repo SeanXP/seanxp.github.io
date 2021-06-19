@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="mask-icon" href="/images/avatar.png" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;seanxp.com&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Mist&quot;,&quot;version&quot;:&quot;8.5.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;display&quot;:&quot;post&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:true,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;Searching...&quot;,&quot;empty&quot;:&quot;We didn&#39;t find any results for the search: ${query}&quot;,&quot;hits_time&quot;:&quot;${hits} results found in ${time} ms&quot;,&quot;hits&quot;:&quot;${hits} results found&quot;}}</script><script src="/js/config.js"></script>
+<meta name="description" content="Reference The GNU Privacy Guard GPG 维基百科 GPG 入门教程 GPG Quick Start Gnu Privacy Guard Howto ArchLinux GunPG">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The GNU Privacy Guard">
+<meta property="og:url" content="http://seanxp.com/2017/02/03/gpg/index.html">
+<meta property="og:site_name" content="SeanXP">
+<meta property="og:description" content="Reference The GNU Privacy Guard GPG 维基百科 GPG 入门教程 GPG Quick Start Gnu Privacy Guard Howto ArchLinux GunPG">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/PGP_diagram.svg/1000px-PGP_diagram.svg.png">
+<meta property="article:published_time" content="2017-02-03T11:15:35.000Z">
+<meta property="article:modified_time" content="2021-06-18T23:27:35.181Z">
+<meta property="article:author" content="SeanXP">
+<meta property="article:tag" content="Tutorial">
+<meta property="article:tag" content="Internet">
+<meta property="article:tag" content="GitHub">
+<meta property="article:tag" content="Learning">
+<meta property="article:tag" content="Software">
+<meta property="article:tag" content="Linux">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/PGP_diagram.svg/1000px-PGP_diagram.svg.png">
+
+
+<link rel="canonical" href="http://seanxp.com/2017/02/03/gpg/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;en&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;http:&#x2F;&#x2F;seanxp.com&#x2F;2017&#x2F;02&#x2F;03&#x2F;gpg&#x2F;&quot;,&quot;path&quot;:&quot;2017&#x2F;02&#x2F;03&#x2F;gpg&#x2F;&quot;,&quot;title&quot;:&quot;The GNU Privacy Guard&quot;}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
+<title>The GNU Privacy Guard | SeanXP</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-77366457-1"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{&quot;tracking_id&quot;:&quot;UA-77366457-1&quot;,&quot;only_pageview&quot;:false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">SeanXP</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">1.</span> <span class="nav-text">Reference</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Why-Use-GnuPG"><span class="nav-number">2.</span> <span class="nav-text">Why Use GnuPG?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Usage"><span class="nav-number">3.</span> <span class="nav-text">Usage</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Generate-GPG-Keys"><span class="nav-number">3.1.</span> <span class="nav-text">Generate GPG Keys</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Export-Public-Key"><span class="nav-number">3.2.</span> <span class="nav-text">Export Public Key</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sends-Public-Key-to-Keyserver"><span class="nav-number">3.3.</span> <span class="nav-text">Sends Public Key to Keyserver</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Generate-Revocation-Key"><span class="nav-number">3.4.</span> <span class="nav-text">Generate Revocation Key</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Search-Public-Key"><span class="nav-number">3.5.</span> <span class="nav-text">Search Public Key</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#long-keyid-collision"><span class="nav-number">3.5.1.</span> <span class="nav-text">long-keyid collision</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Import-Public-Key"><span class="nav-number">3.6.</span> <span class="nav-text">Import Public Key</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sign-Key"><span class="nav-number">3.7.</span> <span class="nav-text">Sign Key</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Edit-Key"><span class="nav-number">3.8.</span> <span class="nav-text">Edit Key</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Encrypt"><span class="nav-number">3.9.</span> <span class="nav-text">Encrypt</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Decrypt"><span class="nav-number">3.10.</span> <span class="nav-text">Decrypt</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#signature"><span class="nav-number">3.11.</span> <span class="nav-text">signature</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#detached-signature"><span class="nav-number">3.11.1.</span> <span class="nav-text">detached signature</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#clear-text-signature"><span class="nav-number">3.11.2.</span> <span class="nav-text">clear text signature</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#binary-signature"><span class="nav-number">3.11.3.</span> <span class="nav-text">binary signature</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#summary"><span class="nav-number">3.11.4.</span> <span class="nav-text">summary</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#verify"><span class="nav-number">3.11.5.</span> <span class="nav-text">verify</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Encrypt-amp-Signature"><span class="nav-number">3.12.</span> <span class="nav-text">Encrypt &amp; Signature</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#GPG-Subkeys"><span class="nav-number">4.</span> <span class="nav-text">GPG Subkeys</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Backup-Keys"><span class="nav-number">5.</span> <span class="nav-text">Backup Keys</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#gpg-conf"><span class="nav-number">6.</span> <span class="nav-text">gpg.conf</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Other"><span class="nav-number">7.</span> <span class="nav-text">Other</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#RSA"><span class="nav-number">7.1.</span> <span class="nav-text">RSA</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PGP-Pretty-Good-Privacy"><span class="nav-number">7.2.</span> <span class="nav-text">PGP(Pretty Good Privacy)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Web-of-Trust"><span class="nav-number">7.3.</span> <span class="nav-text">Web of Trust</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Macbook-GPG-issue"><span class="nav-number">7.4.</span> <span class="nav-text">Macbook GPG issue</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="SeanXP"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">SeanXP</p>
+  <div class="site-description" itemprop="description">为学日益，为道日损，损之又损，以至于无为，无为而无不为。</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">65</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">53</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/seanxp" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;seanxp" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:aXNlYW54cCtibG9nQGdtYWlsLmNvbQ==?subject=Hello" title="E-Mail → mailto:aXNlYW54cCtibG9nQGdtYWlsLmNvbQ&#x3D;&#x3D;?subject&#x3D;Hello" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://pgp.mit.edu/pks/lookup?op=get&search=0x5655CA935F09337F" title="GPG → https:&#x2F;&#x2F;pgp.mit.edu&#x2F;pks&#x2F;lookup?op&#x3D;get&amp;search&#x3D;0x5655CA935F09337F" rel="noopener" target="_blank"><i class="fa fa-key fa-fw"></i>GPG</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://seanxp.com/2017/02/03/gpg/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="SeanXP">
+      <meta itemprop="description" content="为学日益，为道日损，损之又损，以至于无为，无为而无不为。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SeanXP">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          The GNU Privacy Guard
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2017-02-03 19:15:35" itemprop="dateCreated datePublished" datetime="2017-02-03T19:15:35+08:00">2017-02-03</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-06-19 07:27:35" itemprop="dateModified" datetime="2021-06-19T07:27:35+08:00">2021-06-19</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Tutorial/" itemprop="url" rel="index"><span itemprop="name">Tutorial</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://www.gnupg.org/">The GNU Privacy Guard</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.wikiwand.com/zh-hans/GnuPG">GPG 维基百科</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2013/07/gpg.html">GPG 入门教程</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.madboa.com/geek/gpg-quickstart/">GPG Quick Start</a></li>
+<li><a target="_blank" rel="noopener" href="https://help.ubuntu.com/community/GnuPrivacyGuardHowto">Gnu Privacy Guard Howto</a></li>
+<li><a target="_blank" rel="noopener" href="https://wiki.archlinux.org/index.php/GnuPG">ArchLinux GunPG</a></li>
+</ul>
+<span id="more"></span>
+
+<h1 id="Why-Use-GnuPG"><a href="#Why-Use-GnuPG" class="headerlink" title="Why Use GnuPG?"></a><a target="_blank" rel="noopener" href="https://www.phildev.net/pgp/gpgwhy.html">Why Use GnuPG?</a></h1><p>PGP is useful for two things:</p>
+<ol>
+<li>Privacy and Security</li>
+<li>Authenticity</li>
+</ol>
+<p>对比《连城诀》，第一步是「唐诗选辑」（不过用口水解密不够文雅），第二部是「唐诗剑法」（没有师傅认证亲传武功是不行的），最后才解密出「江陵城南偏西天宁寺大殿佛像向之虔诚膜拜通灵祝告如来赐福往生极乐」。<br>当然也有类似凌退思这样“密码字典暴力破解”的方法 :-)<br>所以我们的 GPG 钥匙长度要设置的长长长一些。</p>
+<h1 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h1><h2 id="Generate-GPG-Keys"><a href="#Generate-GPG-Keys" class="headerlink" title="Generate GPG Keys"></a>Generate GPG Keys</h2><pre><code>$ gpg --gen-key
+</code></pre>
+<p>细节参考<a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2013/07/gpg.html">GPG入门教程</a>，写的非常详细，这里不再赘述。</p>
+<p>查看本机公钥（<code>.gnupg/pubring.gpg</code>）：<code>$ gpg --list-keys</code><br>查看本机私钥（<code>.gnupg/secring.gpg</code>）：<code>$ gpg --list-secret-keys</code></p>
+<p>本文假设生成的 GPG Public Key ID 是 <code>0x5655CA935F09337F</code>。<br>生成公私钥后，可以进行下列配置：</p>
+<ol>
+<li><p>Set your key as the default key by entering this line in your ~/.bash_profile (along with any other environment variables to be exported):</p>
+<pre><code> export GPGKEY=0x5655CA935F09337F
+</code></pre>
+<p> 设置 shell 变量 <code>$GPGKEY</code> ，这样以后不再需要记住 Key ID ：</p>
+<pre><code> $ gpg --list-keys $GPGKEY
+ $ gpg --list-secret-keys $GPGKEY
+</code></pre>
+</li>
+<li><p>Now restart the gpg-agent and set the relevant environment variable:</p>
+<pre><code> $ killall -q gpg-agent
+ $ eval $(gpg-agent --daemon)
+ $ export GPGKEY=0x5655CA935F09337F
+</code></pre>
+<p> 启动<code>gpg-agent</code>（功能类似<code>ssh-agent</code>），输入一次 GPG 私钥密码以后，<code>gpg-agent</code> 自动将私钥密码拷贝到内存中供下次使用，下次不用再输入密码。<br> 注意：安全性与便捷性之间需要取舍。<code>gpg-agent / ssh-agent</code> 固然便捷许多，但是也为他人大开方便之门。如果他人连接进本机，也无需输入密码而使用 GPG / SSH 。</p>
+</li>
+</ol>
+<h2 id="Export-Public-Key"><a href="#Export-Public-Key" class="headerlink" title="Export Public Key"></a>Export Public Key</h2><pre><code>$ gpg --armor --output key.pub.asc --export $GPGKEY
+$ gpg --output key.pub --export $GPGKEY
+</code></pre>
+<p>导出本机的公钥，提供给他人。</p>
+<ul>
+<li><code>--armor</code>, create ASCII armored output; 导出文字版本的 GPG 公钥，故用后缀 <code>.asc</code> 表示，这种格式比较常用，可直接公布在网站页面中；</li>
+<li>无<code>--armor</code>参数，导出二进制格式的 GPG 公钥；</li>
+</ul>
+<h2 id="Sends-Public-Key-to-Keyserver"><a href="#Sends-Public-Key-to-Keyserver" class="headerlink" title="Sends Public Key to Keyserver"></a>Sends Public Key to Keyserver</h2><p>除了直接导出公钥提供给他人以外，也可以将公钥发布到钥匙服务器 keyserver，供他人搜索下载：</p>
+<pre><code>$ gpg --keyserver hkp://keys.gnupg.net --send-keys $GPGKEY
+gpg: sending key 5F09337F to hkp server keys.gnupg.net
+</code></pre>
+<p>服务 <code>keys.gnupg.net</code> 背后是一组服务器，它们之间的信息同步需要一定的时间，刚刚提交公钥可能不会立即搜索就有结果，只要过一段时间（最长可能要几小时或者几天）就好了。<br>公钥服务器会保存发布的公钥，直到其过期<code>expire</code>为止。建议不要发布永不过期的公钥，毕竟 <code>Shit happens</code> 。或者事前未雨绸缪，生成一份撤销证书线下保存好。</p>
+<p>注意：任何人都可以冒充你的名义上传公钥到 GPG 服务器，所以对方搜到以你的名义发布的公钥，不一定真的是你发布的。为了避免这个问题，你需要公布主钥的指纹。GPG 导入公钥后需要手动设置信任度。这时候对方就可以通过对比计算得到的主钥指纹和你提供的主钥指纹，来确定导入的主钥的合法性。</p>
+<pre><code>$ gpg --fingerprint &lt;key ID&gt; | perl -nE &#39;$.-2 or s/^\h+// and print&#39; | tee fingerprint
+</code></pre>
+<h2 id="Generate-Revocation-Key"><a href="#Generate-Revocation-Key" class="headerlink" title="Generate Revocation Key"></a>Generate Revocation Key</h2><p><strong>A revocation certificate must be generated to revoke your public key if your private key has been compromised in any way.</strong> It is recommended to create a revocation certificate when you create your key. Keep your revocation certificate on a medium that you can safely secure, like a thumb drive in a locked box.<br><strong>Anybody having access to your revocation certificate can revoke your key, rendering it useless.</strong><br><strong>For security purposes, there is no mechanism in place to revoke a key without a revocation certificate.</strong> As much as you might want to revoke a key, the revocation certificate prevents malicious revocations. Guard your revocation certificate with the same care you would use for your private key.</p>
+<p><code>Shit happens</code>，因此要做好防护措施。为自己的公钥设置一份撤销证书，用于将不再安全的公钥从服务器上撤回。<br>什么情况下公钥会变得“不再安全”？自然是对应的私钥可能已经泄露的情况下，此时别人再用这样的公钥对你发送加密文件，可能被私钥窃取者解密（此时私钥的解锁密码是最后一道防线）。<br>生成的撤销证书就是一段格式类似文本公钥的字符串，需要严密保存起来。因为任何人都可以拿着这份撤销证书发布到公钥服务器上来撤销你的公钥。然而即使是撤销的证书，也依然可以从公钥服务器中下载。</p>
+<ol>
+<li><p>To revoke your key you need to first create a revocation certificate.</p>
+<pre><code> $ gpg --output revoke.asc --gen-revoke $GPGKEY
+</code></pre>
+</li>
+<li><p>(第2步、第3步是将来撤销证书所需要执行的操作) Import your revocation certificate</p>
+<pre><code> $ gpg --import revoke.asc
+</code></pre>
+</li>
+<li><p>(<strong>不到万不得已，即确定私钥已不再安全的情况下，不要执行此操作</strong>) Upload the key to your keyserver of choice.</p>
+<pre><code> $ gpg --keyserver hkp://pgp.mit.edu --send-key [key-ID]
+</code></pre>
+</li>
+</ol>
+<h2 id="Search-Public-Key"><a href="#Search-Public-Key" class="headerlink" title="Search Public Key"></a>Search Public Key</h2><p>根据<code>用户名（UID）</code>或<code>用户邮箱（email）</code>，可以从公钥服务器中搜索其发布的 GPG Public Key。<br>注意：<strong>任何人都可以用 seanxp 的名义向服务器发布公钥，因此必须审核公钥的指纹是否一致。</strong></p>
+<pre><code>$ gpg --keyserver hkp://pgp.mit.edu --search-keys seanxp
+gpg: searching for &quot;seanxp&quot; from hkp server pgp.mit.edu
+(1)     seanxp &lt;seanxp.com&gt;
+          4096 bit RSA key 0x5655CA935F09337F, created: 2016-11-15, expires: 2026-11-13
+</code></pre>
+<p>这里搜索到一名号称「seanxp」的人发布的公钥（ID: 0x5655CA935F09337F），为了确认是否是「真•SeanXP」，在 <a href="https://seanxp.com/about/">SeanXP.com/about</a> 页面查看其公布的指纹为</p>
+<pre><code> Key fingerprint = 429D 47BB BDB0 AA92 B8B6  28F7 5655 CA93 5F09 337F
+</code></pre>
+<p>其中公钥 ID 就是指纹的后面几位数字，发现后16位十六位进制数字相同(<code>5655 CA93 5F09 337F</code>)，<strong>权且相信</strong>是「seanxp」的公钥。<br>为什么是<strong>权且相信</strong>？因为目前只是后16位数字相同，并不是指纹完全匹配。需要导入搜索到的公钥，打印其指纹，再进行匹配。添加公钥到主机后，打印此公钥的指纹：</p>
+<pre><code>$ gpg --fingerprint seanxp
+pub   4096R/0x5655CA935F09337F 2016-11-15
+      Key fingerprint = 429D 47BB BDB0 AA92 B8B6  28F7 5655 CA93 5F09 337F
+uid                 [ultimate] seanxp &lt;seanxp.com&gt;
+sub   4096R/0x406A8B31846FF748 2016-11-15 [expires: 2026-11-13]
+      Key fingerprint = 9723 3991 6C7B E775 08C4  38D3 406A 8B31 846F F748
+</code></pre>
+<p>指纹匹配成功，说明这是正确的公钥。</p>
+<p>注：如果像下面例子（centOS），可以在搜索时查看指纹，可以先匹配指纹再决定是否下载公钥，可以省去不少麻烦。</p>
+<pre><code>gpg: searching for &quot;seanxp&quot; from hkp server keys.gnupg.net
+(1)     seanxp &lt;seanxp.com&gt;
+          4096 bit RSA key 429D47BBBDB0AA92B8B628F75655CA935F09337F, created: 2016-11-15, expires: 2026-11-13
+</code></pre>
+<h3 id="long-keyid-collision"><a href="#long-keyid-collision" class="headerlink" title="long-keyid collision"></a>long-keyid collision</h3><p>有匹配成功的案例，自然有匹配不成功的案例。下面就是一个公钥后8位数字相同的攻击案例：<br>GPG 默认显示 Key ID 的后8位数字（即指纹的后8位），那么就有一些别有用心的人，可以暴力生成后8位相同的公钥来实现欺骗目的。 如下，搜索 <code>Linus Torvalds</code> 的 GPG 公钥，现在知其邮箱是 <code>torvalds@linux-foundation.org</code>，进行搜索：</p>
+<pre><code>$ gpg --search-keys torvalds@linux-foundation.org
+gpg: searching for &quot;torvalds@linux-foundation.org&quot; from hkps server hkps.pool.sks-keyservers.net
+(1)     Linus Torvalds &lt;torvalds@linux-foundation.org&gt;
+          2048 bit RSA key 00411886, created: 2014-07-21 (revoked)
+(2)     Linus Torvalds &lt;torvalds@linux-foundation.org&gt;
+          2048 bit RSA key 00411886, created: 2011-09-20
+Keys 1-2 of 2 for &quot;torvalds@linux-foundation.org&quot;.  Enter number(s), N)ext, or Q)uit &gt;
+</code></pre>
+<p>搜索到两个具有相同的 Key ID 的公钥！这里就需要进行指纹匹配。在网上搜索，发现<code>https://www.kernel.org/category/signatures.html</code>提供有<code>Linus Torvalds</code>的公钥指纹</p>
+<pre><code>Developer         Fingerprint
+Linus Torvalds    ABAF 11C6 5A29 70B1 30AB  E3C4 79BE 3E43 0041 1886
+</code></pre>
+<p>下面的例子体现出 <code>long Key ID</code> 的好处，更难进行<code>long-keyid collision</code>，后8位容易碰撞相同，后16位碰撞就难的多。</p>
+<pre><code>gpg: searching for &quot;torvalds@linux-foundation.org&quot; from hkps server hkps.pool.sks-keyservers.net
+(1)     Linus Torvalds &lt;torvalds@linux-foundation.org&gt;
+          2048 bit RSA key 0x6211AA3B00411886, created: 2014-07-21 (revoked)
+(2)     Linus Torvalds &lt;torvalds@linux-foundation.org&gt;
+          2048 bit RSA key 0x79BE3E4300411886, created: 2011-09-20
+Keys 1-2 of 2 for &quot;torvalds@linux-foundation.org&quot;.  Enter number(s), N)ext, or Q)uit &gt;
+</code></pre>
+<p>配置显示 <code>long Key ID</code> 是在 <code>~/.gnupg/gpg.conf</code> 中进行配置：</p>
+<pre><code>~/.gnupg/gpg.conf
+
+# short-keyids are trivially spoofed; it&#39;s easy to create a
+# long-keyid collision; if you care about strong key
+# identifiers, you always want to see the fingerprint.
+# Display long key IDs
+keyid-format 0xlong
+
+# List all keys (or the specified ones) along with their fingerprints
+with-fingerprint
+</code></pre>
+<h2 id="Import-Public-Key"><a href="#Import-Public-Key" class="headerlink" title="Import Public Key"></a>Import Public Key</h2><p>除了在 GPG 服务器上搜索对方的公钥以外，可以不经过搜索，直接获取指定 Key ID 的公钥：</p>
+<pre><code>$ gpg --recv-key 0x5F09337F
+$ gpg --keyserver hkp://pgp.mit.edu --recv-key 0x5655CA935F09337F
+</code></pre>
+<p>建议全部使用长 16 位的 Key ID，防止出现后八位碰撞的问题。<br>也可以直接导入他人的公钥文件，不再通过公钥服务器获取，尤其国内线路经常无法访问到公钥服务器：</p>
+<pre><code>$ wget https://seanxp.com/about/0x5655CA935F09337F-public.key
+
+$ file 0x5655CA935F09337F-public.key
+0x5655CA935F09337F-public.key: PGP public key block Public-Key (old)
+
+$ gpg --import 0x5655CA935F09337F-public.key
+</code></pre>
+<p>这里也需要再核对一下指纹，因为这里是通过 <code>http</code> 获取的公钥，可能出现<code>中间人攻击</code>。中间人既然能篡改你所获取到的公钥，也可能篡改 http 网页上的指纹，因此凡是 http 网页上的公钥和指纹，都要保持怀疑态度。最好是在可靠的源头（https 或 email 联系）确认公钥的合法性。而 <code>https</code> 也需要防范中间人攻击，要确保本机的 SSL 证书链的可靠性。</p>
+<h2 id="Sign-Key"><a href="#Sign-Key" class="headerlink" title="Sign Key"></a>Sign Key</h2><p>对于校验指纹无误的公钥，可以用本机私钥进行签名。签名公钥的流程：</p>
+<ol>
+<li><p>校验指纹（只有先确认可靠指纹的来源，才能校验本机获取到的公钥指纹的可靠性，再次提醒 http 页面是不可靠的）</p>
+<pre><code> $ gpg --fingerprint seanxp
+</code></pre>
+</li>
+<li><p>指纹校验成功，则用本机私钥对该公钥进行签名（需要本机私钥授权，即需要输入本机私钥的密码，可防止他人授权）</p>
+<pre><code> $ gpg --sign-key seanxp
+ $ gpg --local-user seanxp --sign-key torvalds@linux-foundation.org
+</code></pre>
+</li>
+<li><p>校验失败，则删除错误的公钥。</p>
+<pre><code> $ gpg --delete-keys seanxp
+</code></pre>
+</li>
+</ol>
+<p>为什么要用本机私钥对公钥进行签名呢？<br>防止他人篡改本机的可靠公钥，如果他人想用虚假公钥替换可靠公钥，下次使用该公钥，系统会提示公钥不可靠（所有未签名的公钥都会提示不可靠的信息）。<br>经过 <code>gpg --sign-key</code> 签名的公钥，成为了 <code>trust: unknown validity: full</code>，即现在确认该公钥是有效的（validity），但是还未信任该公钥。信任公钥需要用到交互命令<code>--edit-key</code>。</p>
+<h2 id="Edit-Key"><a href="#Edit-Key" class="headerlink" title="Edit Key"></a>Edit Key</h2><pre><code>$ gpg --edit-key seanxp
+</code></pre>
+<p>编辑公钥，有很多功能：</p>
+<ul>
+<li>fpr, show key fingerprint</li>
+<li>sign, sign selected user IDs</li>
+<li>trust, change the ownertrust</li>
+<li>enable, enable key</li>
+<li>disable, disable key</li>
+<li>passwd, change the passphrase</li>
+</ul>
+<p>对于已经校验指纹无误，并已经通过 <code>gpg --sign-key</code> 签名的公钥，可以在编辑公钥下设置其信任度：</p>
+<pre><code>$ gpg --edit-key torvalds@linux-foundation.org
+...
+gpg&gt; trust
+pub  2048R/0x79BE3E4300411886  created: 2011-09-20  expires: never       usage: SC
+                               trust: unknown       validity: full
+sub  2048R/0x88BCE80F012F54CA  created: 2011-09-20  expires: never       usage: E
+[  full  ] (1). Linus Torvalds &lt;torvalds@linux-foundation.org&gt;
+
+Please decide how far you trust this user to correctly verify other users&#39; keys
+(by looking at passports, checking fingerprints from different sources, etc.)
+
+  1 = I don&#39;t know or won&#39;t say
+  2 = I do NOT trust
+  3 = I trust marginally
+  4 = I trust fully
+  5 = I trust ultimately
+  m = back to the main menu
+
+Your decision? 4
+
+pub  2048R/0x79BE3E4300411886  created: 2011-09-20  expires: never       usage: SC
+                               trust: full          validity: full
+sub  2048R/0x88BCE80F012F54CA  created: 2011-09-20  expires: never       usage: E
+[  full  ] (1). Linus Torvalds &lt;torvalds@linux-foundation.org&gt;
+Please note that the shown key validity is not necessarily correct
+unless you restart the program.
+
+gpg&gt; quit
+</code></pre>
+<p>关于信任程度的设置，参考<a target="_blank" rel="noopener" href="https://www.reddit.com/r/GnuPG/comments/2knpbo/question_clarification_about_trustvalidity/">Reddit - Question: clarification about trust/validity</a>：</p>
+<ol>
+<li><p>If you want to privately mark a key as valid, you should use the <code>--lsign-key</code> command.</p>
+<pre><code> --lsign-key name
+ Signs a public key with your secret key but marks it as non-exportable. This is a shortcut  version  of the subcommand &quot;lsign&quot; from --edit-key.
+</code></pre>
+</li>
+<li><p>If you want to publicly attest that a key is valid, you should use the <code>--sign-key</code> command.</p>
+<pre><code> --sign-key name
+ Signs  a  public  key  with  your  secret key. This is a shortcut version of the subcommand &quot;sign&quot; from --edit.
+</code></pre>
+</li>
+<li><p>Use <code>gpg --edit-key &lt;keyid&gt;</code>, then enter the command “trust” then select the level of trust you have in the key’s owner.</p>
+<ul>
+<li>“Marginal” means that key is trusted to be part of a group of introducers.</li>
+<li>“fully” means a signature from that key is all it needs to make another key valid. (Typically, signatures from three marginal sources are needed to mark a key as valid.)</li>
+<li>“ultimately” means the key is your key.</li>
+</ul>
+</li>
+</ol>
+<p>还可以更改本机私钥的密码：</p>
+<pre><code>$ gpg --edit-key $GPGKEY
+...
+gpg&gt; passwd
+...
+gpg&gt; save
+</code></pre>
+<h2 id="Encrypt"><a href="#Encrypt" class="headerlink" title="Encrypt"></a>Encrypt</h2><p>GPG 的一大用处，就是用他人的公钥加密文件，通过不可靠的网络传输过去，由对方的私钥解密，完成通信任务。 这里用自己的公钥加密，模拟练习（自娱自乐），并用自己的私钥解密。</p>
+<pre><code>$ echo &quot;Hello world&quot; &gt; hello.txt
+$ cat -A hello.txt
+Hello world$
+$ md5 hello.txt
+f0ef7081e1539ac00ef5b761b4fb01b3 hello.txt
+
+usage: gpg [options] --encrypt [filename]
+$ gpg --armor --recipient seanxp --output He110.txt --encrypt hello.txt
+$ file He110.txt
+He110.txt: PGP message Public-Key Encrypted Session Key (old)
+</code></pre>
+<ul>
+<li><code>--armor</code>，表示输出文本文件格式。如果要加密二进制文件，则忽略此参数；</li>
+<li><code>--recipient</code>，指定信息的接收者（recipient）公钥的uid，可以是名字也可以是email地址；</li>
+<li><code>--output</code>，指定输出（即加密后）的文件名；</li>
+<li><code>--encrypt</code>，执行加密（encrypt）操作；</li>
+</ul>
+<p>除了这样的长选项，还有简单选项，对应的命令为：</p>
+<pre><code>usage: gpg [options] --encrypt [filename]
+$ gpg -a -r seanxp -o He110.txt -e hello.txt
+</code></pre>
+<p>这样就生成了一份用 seanxp 的公钥所加密的文件，GPG 的算法确保只有 seanxp 的私钥可以解密出正确的数据。<br>除了加密单个文件外，还可以对文件夹进行压缩后加密：</p>
+<pre><code>$ tar -cvz backup/ | gpg -e -r [key-ID] -o backup.tgz.gpg
+$ tar -cvj backup/ | gpg -e -r [key-ID] -o backup.tar.bz2.gpg
+$ file backup.tgz.gpg
+backup.tgz.gpg: PGP RSA encrypted session key - keyid: 318B6A40 48F76F84 RSA (Encrypt or Sign) 4096b .
+</code></pre>
+<p><code>keyid: 318B6A40 48F76F84 RSA (Encrypt or Sign) 4096b</code>，表示该文件是用公钥<code>0x406A8B31846FF748</code>（与keyid的字节序相反，但确实是同一个公钥）加密的。 该公钥是 seanxp 公钥<code>0x5655CA935F09337F</code>的从钥的公钥。</p>
+<pre><code>$ gpg --list-public-keys seanxp
+pub   4096R/0x5655CA935F09337F 2016-11-15
+      Key fingerprint = 429D 47BB BDB0 AA92 B8B6  28F7 5655 CA93 5F09 337F
+uid                 [ultimate] seanxp &lt;seanxp.com&gt;
+sub   4096R/0x406A8B31846FF748 2016-11-15 [expires: 2026-11-13]
+</code></pre>
+<p>生成 GPG 钥匙，会生成两对公私钥，即四把钥匙，用处不同，稍后详解。</p>
+<h2 id="Decrypt"><a href="#Decrypt" class="headerlink" title="Decrypt"></a>Decrypt</h2><p>用公钥加密的数据，可以用对应的私钥解密：</p>
+<pre><code>$ rm hello.txt
+$ gpg --output hello.txt --decrypt He110.txt
+
+You need a passphrase to unlock the secret key for
+user: &quot;seanxp &lt;seanxp.com&gt;&quot;
+4096-bit RSA key, ID 0x406A8B31846FF748, created 2016-11-15
+         (subkey on main key ID 0x5655CA935F09337F)
+
+gpg: encrypted with 4096-bit RSA key, ID 0x406A8B31846FF748, created 2016-11-15
+      &quot;seanxp &lt;seanxp.com&gt;&quot;
+
+$ file hello.txt
+hello.txt: ASCII text
+$ cat -A hello.txt
+Hello world$
+$ md5 hello.txt
+f0ef7081e1539ac00ef5b761b4fb01b3 hello.txt
+</code></pre>
+<p><code>He110.txt</code> 是用子公钥 <code>0x406A8B31846FF748</code> 加密，也是用子私钥解密的。<br>对于加密压缩文件夹的解密方法：</p>
+<pre><code>$ gpg --decrypt backup.tgz.gpg | tar -xz
+$ gpg --decrypt backup.bz2.gpg | tar -xj
+</code></pre>
+<h2 id="signature"><a href="#signature" class="headerlink" title="signature"></a>signature</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://www.youdzone.com/signature.html">An introduction to Digital Signatures, by David Youd</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2011/08/what_is_a_digital_signature.html">数字签名是什么？- 阮一峰的网络日志</a></li>
+</ul>
+<p>既然文件是通过<code>不可靠</code>的网络传输的，很多时候可能被篡改替换，因此需要用到数字签名。 <a target="_blank" rel="noopener" href="https://www.kernel.org/category/signatures.html">例如在网上下载的 linux kernel 需要验证数字签名是否有效。</a></p>
+<p>注意区别加密与签名：</p>
+<ul>
+<li>加密是对文件进行加密操作，这是是用子公钥<code>0x406A8B31846FF748</code>进行 RSA 加密，确保只有对应的子私钥可以解密；</li>
+<li>加密的数据无需签名，因为如果加密的数据在传输过程中被篡改，解密时会提示<code>gpg: CRC error;</code>校验错误；</li>
+<li>对文件签名，不会对原文件进行任何处理，只是对原文件生成数字摘要并用私钥加密生成数字签名；</li>
+<li>如果只签名不加密，原文件在传输过程中会被其他人看到，但是可以保证该文件在被修改的情况下无法通过数字签名校验；</li>
+<li>加密确保<code>只有你能看到这个文件</code>，签名确保<code>只有我能写出这个文件</code>。</li>
+</ul>
+<h3 id="detached-signature"><a href="#detached-signature" class="headerlink" title="detached signature"></a>detached signature</h3><p>对于分散在多个渠道提供下载的资源（无需加密传输的大文件），最好的方法就是生成一个独立于下载文件的数字签名文件供他人下载校验。很多软件开发者也会在其软件官方网站提供签名文件供校验。<br>例如对 <code>hello.txt</code> 生成分离的签名文件：</p>
+<pre><code>$ gpg --armor --detach-sign hello.txt
+
+You need a passphrase to unlock the secret key for
+user: &quot;seanxp &lt;seanxp.com&gt;&quot;
+4096-bit RSA key, ID 0x5655CA935F09337F, created 2016-11-15
+
+$ file hello.txt.asc
+hello.txt.asc: PGP signature Signature (old)
+</code></pre>
+<p>独立生成一个 <code>hello.txt.asc</code> 的签名文件，后缀名 <code>asc</code> 表示该文件是 ASCII 码形式的。 因为是分离的签名，需要把原信息文件 <code>hello.txt</code> 连同签名文件 <code>hello.txt.asc</code> 一起寄给他人，交由他人进行检验。</p>
+<h3 id="clear-text-signature"><a href="#clear-text-signature" class="headerlink" title="clear text signature"></a>clear text signature</h3><p>对于简单文本，可以使用<code>clearsign</code>的独立（不修改原文件）不分离（原文本与数字签名写在同一文件中）式数字签名：</p>
+<pre><code>$ gpg --clearsign hello.txt
+
+$ cat hello.txt.asc
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Hello world
+-----BEGIN PGP SIGNATURE-----
+
+iQIcBAEBCgAGBQJYlVHxAAoJEFZVypNfCTN/wMEP/1HNhw7YUAIGEjkLXlALgCRj
+QLiBxQtzNszmGtzsIaPXRTt4aOxmicmNyLQ7JHImN372LnvYkYDV2PY/ZIfujGpb
+qpTE3kCTEgS55SK/zfLEA+njq1LzCsSuPUUEoIO8DXhg1L+Ktf4GhlupSWI3X/iS
+JzEszetFJ/u2650JQPofY2cWeetrY9j7UdnjqtSJQCrA9be9hcBDoepCzfZg62Ae
+hnuw8sUayE6kwoJKA5aMNcrbN5qxhvUVULJKxhK2cCzi3vatBzjnnqKeFBfz64V8
+LiM3Qk3AbKeE+2P3ZorbXgD265dYDcHTMBCzMgjKoFUvoOlrF+ZeMv7HYcQNOHx7
+dEmx2VEhInwdB9snhBokH8KsFlWsPIpLbbarwDL56jUjC4jrDW8EF05dJLXCfALV
+8M2MVD513tVSx/ktSYyY2h+mBbrfAo5J54+KZN/NJpan/woP0ooWNTyey3T/y/sv
+OZZuyg7w0Hl3j4bVnji++DcJhkwbfq32yvzDi0BLcEATNQRO5h5FifUSg3eV8W0f
+U8p1NUrd5W7in1ne1x9EMZkrFfzkLP7rYxHkmZ+KMW4fNGMFjQGi1YAQN+S0mNCM
+AGuZpLRb0MgudFzotPuyWH5D9hHyWpjF2qHrK7an9jTgtE/eemU4l00frwnBc9a1
+bl9M0p7XCJsh2xOHx72I
+=5P7S
+-----END PGP SIGNATURE-----
+</code></pre>
+<p>根据 <code>hello.txt</code> 生成 <code>hello.txt.asc</code> 文件，此签名文件中已经包含有 <code>hello.txt</code> 的数据。 只需要将此签名文件寄给他人即可。他人校验数字签名的同时即可分离出原数据文件。</p>
+<h3 id="binary-signature"><a href="#binary-signature" class="headerlink" title="binary signature"></a>binary signature</h3><p>使用<code>--sign</code>选项，即可生成最简单的数字签名：</p>
+<pre><code>$ gpg --sign hello.txt
+$ file hello.txt.gpg
+hello.txt.gpg: data
+
+$ gpg helle.txt.gpg
+</code></pre>
+<ul>
+<li>独立的签名文件 <code>hello.txt.gpg</code></li>
+<li>文件数据不加密（可以在<code>hello.txt.gpg</code>文件中看到<code>Hello world</code>）</li>
+<li>二进制数字签名</li>
+</ul>
+<h3 id="summary"><a href="#summary" class="headerlink" title="summary"></a>summary</h3><ul>
+<li>使用<code>--detach-sign</code>选项，生成分离的签名文件；</li>
+<li>使用<code>--sign</code>选项，生成不分离的签名文件，与<code>--detach-sign</code>选项相反；<ul>
+<li>加上<code>--armor</code>选项，则生成 ASCII 格式的数字签名（hello.txt.asc: PGP message Compressed Data），无法看出原文件的数据，但是解密后可以得到原文件数据；</li>
+<li>不加<code>--armor</code>选项，则生成二进制格式的数字签名（hello.txt.gpg: data），可以看到其中的原文件数据；</li>
+</ul>
+</li>
+<li>使用<code>--armor</code>选项，生成 ASCII 格式的签名；</li>
+<li>使用<code>--clearsign</code>选项，可以省略<code>--armor</code>选项，生成独立分离式文本签名；</li>
+</ul>
+<p>另外，如果本机中用于签名的私钥不止一个时，需要指定签名所用的私钥：</p>
+<pre><code>--local-user,-u: Use name as the key to sign with. Note that this option overrides --default-key.
+$ gpg -u $GPGKEY --sign hello.txt
+</code></pre>
+<h3 id="verify"><a href="#verify" class="headerlink" title="verify"></a>verify</h3><p>拿到别人的数字签名文件，需要用其公钥进行校验（别人用私钥生成签名文件，那就用对应的公钥校验签名文件）。 对于 <code>.gpg</code> 后缀的签名文件，直接使用<code>gpg xxx.gpg</code>命名校验其数字签名，并且能分离出原文件。</p>
+<pre><code>$ gpg -u $GPGKEY --sign hello.txt
+$ file hello.txt.gpg
+hello.txt.gpg: data
+
+$ rm hello.txt
+$ gpg hello.txt.gpg
+gpg: Signature made Sat Feb  4 12:34:13 2017 CST
+gpg:                using RSA key 0x5655CA935F09337F
+gpg: Good signature from &quot;seanxp &lt;seanxp.com&gt;&quot; [ultimate]
+Primary key fingerprint: 429D 47BB BDB0 AA92 B8B6  28F7 5655 CA93 5F09 337F
+$ cat -A hello.txt
+Hello world$
+</code></pre>
+<p>对于使用 <code>--detach-sign</code> 签名的签名文件，使用 <code>gpg --verify</code> 命令进行校验。因为是分离的数字签名文件，因此原文件也必须存在，gpg 会对原文件进行 hash 处理，与解密数字签名文件中的 hash 进行对比。</p>
+<pre><code>$ gpg -u $GPGKEY --armor --detach-sign hello.txt
+$ file hello.txt.asc
+hello.txt.asc: PGP signature Signature (old)
+
+$ rm hello.txt
+$ gpg --verify hello.txt.asc
+gpg: no signed data
+gpg: can&#39;t hash datafile: No data
+
+$ echo &quot;Hello world&quot; &gt; hello.txt
+$ gpg --verify hello.txt.asc
+gpg: assuming signed data in &#39;hello.txt&#39;
+gpg: Signature made Sat Feb  4 12:36:14 2017 CST
+gpg:                using RSA key 0x5655CA935F09337F
+gpg: Good signature from &quot;seanxp &lt;seanxp.com&gt;&quot; [ultimate]
+Primary key fingerprint: 429D 47BB BDB0 AA92 B8B6  28F7 5655 CA93 5F09 337F
+</code></pre>
+<p>对于不分离的数字签名文件 <code>--clearsign</code>，不需要原文件，因为签名文件中已包含签名文件的数据，可以使用<code>gpg --verify</code>直接校验。</p>
+<h2 id="Encrypt-amp-Signature"><a href="#Encrypt-amp-Signature" class="headerlink" title="Encrypt &amp; Signature"></a>Encrypt &amp; Signature</h2><p>同时进行加密和签名操作：</p>
+<pre><code>$ gpg --local-user [发信者ID] --recipient [接收者ID] --armor --sign --encrypt hello.txt
+
+$ gpg --local-user $GPGKEY --recipient torvalds@linux-foundation.org --armor --sign --encrypt hello.txt
+$ file hello.txt.asc
+hello.txt.asc: PGP message Public-Key Encrypted Session Key (old)
+</code></pre>
+<h1 id="GPG-Subkeys"><a href="#GPG-Subkeys" class="headerlink" title="GPG Subkeys"></a>GPG Subkeys</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://blog.theerrorlog.com/using-gpg.html">GPG 密鑰的「正確」用法</a></li>
+<li><a target="_blank" rel="noopener" href="https://mechanus.io/ke-neng-shi-zui-hao-de-yubikey-gpg-ssh-zhi-neng-qia-jiao-cheng/">为什么我们需要三个新的子密钥</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.mawenbao.com/note/gnupg.html">多对subkey</a></li>
+</ul>
+<p>GPG 密钥环并不只有一对公钥和私钥，如果称公钥和其对应的私钥为一个密钥对的话，那么一个 GPG 密钥环可以拥有很多个密钥对，每一个密钥对都由一个钥匙号（key ID）标识，被称为钥匙。其中有一个钥匙拥有签名其他钥匙的功能（可以在密钥环中创建钥匙），这个钥匙被称为主钥，其他的钥匙则被称为从钥。<br>GPG 列出的每个密钥环第一行一定是主钥，其余的则为从钥。 一个GPG 密钥环一共有四种类型的密钥：</p>
+<table>
+<thead>
+<tr>
+<th align="center">属性</th>
+<th align="center">代表</th>
+<th align="center">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">sec</td>
+<td align="center">SECret key</td>
+<td align="center">主钥的私钥</td>
+</tr>
+<tr>
+<td align="center">pub</td>
+<td align="center">PUBlic key</td>
+<td align="center">主钥的公钥</td>
+</tr>
+<tr>
+<td align="center">ssb</td>
+<td align="center">Secret SuBkey</td>
+<td align="center">从钥的私钥</td>
+</tr>
+<tr>
+<td align="center">sub</td>
+<td align="center">public SUBkey</td>
+<td align="center">从钥的公钥</td>
+</tr>
+</tbody></table>
+<p>至于这些钥匙的作用可以查看它们的功能，常用的功能有三种：</p>
+<table>
+<thead>
+<tr>
+<th align="center">功能</th>
+<th align="center">代表</th>
+<th align="center">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">S</td>
+<td align="center">Signing</td>
+<td align="center">签名和校验签名</td>
+</tr>
+<tr>
+<td align="center">E</td>
+<td align="center">Encryption</td>
+<td align="center">加密和解密信息</td>
+</tr>
+<tr>
+<td align="center">C</td>
+<td align="center">Certification</td>
+<td align="center">认证钥匙</td>
+</tr>
+</tbody></table>
+<ul>
+<li>E = encrypt/decrypt (decrypt with your private key of a message you received)</li>
+<li>S = sign (sign data. For example a file or to send signed e-mail)</li>
+<li>C = certify (sign another key, establishing a trust-relation)</li>
+<li>A = authentication (log in to SSH with a PGP key; this is relatively new usage)</li>
+</ul>
+<p>最后一项功能 authentication ，可以将 GPG 生成 SSH 对应的公私钥，并用于 SSH 登录。<br>注意功能是针对一对钥匙而言的，由其中的公钥和私钥共同完成。其中加密和解密分别由钥匙的公钥和私钥完成，签名和验证则分别由私钥和公钥完成。<br>一般地，GPG 密钥环中钥匙的公钥需要公布到网络上，也就意味着：</p>
+<ul>
+<li>Encryption，所有人都能用你公布的公钥加密信息，加密后的信息只有持有私钥的你才能够解密。</li>
+<li>Signing，你可以使用自己持有的私钥签名信息，所有人都能够用你公布的公钥验证签名的合法性。</li>
+<li>Certification，你可以用自己持有的私钥认证他人的公钥，从而建立信任关系。</li>
+</ul>
+<p>默认情况下，GPG 生成的密钥环将主密钥（master key）和子密钥（sub key）放在一起，主密钥用于签名和验证（usage: SC），从密钥用于加解密（usage: E）。前面给出的例子中，用于加密的密钥是 sub key，签名的密钥是 master key。</p>
+<pre><code>pub  4096R/0x5655CA935F09337F  created: 2016-11-15  expires: never       usage: SC
+sub  4096R/0x406A8B31846FF748  created: 2016-11-15  expires: 2026-11-13  usage: E
+</code></pre>
+<p>使用子密钥的好处在于能够更换签名或者加密密钥，而不破坏主密钥的关系网络和Key ID。除了默认生成的用来加密的子密钥外，还可以添加更多的子密钥，用来签名或者用来加密。它们的公钥会随着主密钥的公钥发布，方便其他人验证或者加密。<br>为保证 master private key 的安全，将其放到离线的其他介质（比如U盘），并从钥匙环中删除。同时为方便日常使用，需要分别创建一个负责加密的 subkey（默认已有）和一个负责签名的 subkey。<br>日常加密和签名操作都通过 subkeys 进行，需要使用 master private key 时（吊销/添加 subkeys，签收他人公钥），挂载U盘然后执行如下操作就能看到 master private key。<br>实际上这种用途，更安全的方法是使用一块 <a target="_blank" rel="noopener" href="https://veracrypt.codeplex.com/">VeraCrypt</a> 全盘加密的 U 盘。每次需要使用 master private key 时，插入 U 盘，VeraCrypt 全盘解密，之后使用 <code>gpg --homedir</code> 选型指定路径，执行完命令后卸载 U 盘。</p>
+<pre><code>$ gpg --homedir /path/to/your/usb-drive/_gnupg --list-secret-keys
+</code></pre>
+<h1 id="Backup-Keys"><a href="#Backup-Keys" class="headerlink" title="Backup Keys"></a>Backup Keys</h1><!-- 建议使用 VeraCrypt 隐藏盘，100K 的大小，存放公私钥及吊销证书，存放在多个不同地方的隐藏文件夹下 -->
+
+<p>查看并导出公私钥：</p>
+<pre><code>$ gpg --list-keys
+$ gpg -ao 0x5655CA935F09337F-public.key -export 0x5655CA935F09337F
+
+$ gpg --list-secret-keys
+$ gpg -ao 0x5655CA935F09337F-private.key --export-secret-keys 0x5655CA935F09337F
+</code></pre>
+<p>将公私钥文件导入本机：</p>
+<pre><code>$ gpg --import _something_-public.key
+$ gpg --import _something_-private.key
+</code></pre>
+<h1 id="gpg-conf"><a href="#gpg-conf" class="headerlink" title="gpg.conf"></a>gpg.conf</h1><p><a target="_blank" rel="noopener" href="https://github.com/SeanXP/dotfiles/blob/master/gnupg/gpg.conf">my gpg.conf in github</a></p>
+<p>使用 SSL 连接 keyserver：</p>
+<ol>
+<li>下载所需的<a target="_blank" rel="noopener" href="https://sks-keyservers.net/sks-keyservers.netCA.pem"> SSL 证书</a>与<a target="_blank" rel="noopener" href="https://sks-keyservers.net/sks-keyservers.netCA.pem.asc">数字签名</a></li>
+<li>校验证书的数字签名，需要提前导入公钥 0x250B7AFED6379D85</li>
+<li>拷贝 .pem 证书至对应目录，并在 gpg.conf 中注明</li>
+<li>配置默认 keyserver</li>
+</ol>
+<p>gpg.conf 相关配置：</p>
+<pre><code># Default key server
+keyserver hkps://hkps.pool.sks-keyservers.net
+# Provide a certificate store to override the system default
+# Get this from https://sks-keyservers.net/sks-keyservers.netCA.pem
+#keyserver-options ca-cert-file=/path/to/hkps.pool.sks-keyservers.net.pem
+keyserver-options ca-cert-file=~/.gnupg/sks-keyservers.netCA.pem
+</code></pre>
+<h1 id="Other"><a href="#Other" class="headerlink" title="Other"></a>Other</h1><h2 id="RSA"><a href="#RSA" class="headerlink" title="RSA"></a>RSA</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2013/06/rsa_algorithm_part_one.html">RSA算法原理（一）</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2013/07/rsa_algorithm_part_two.html">RSA算法原理（二）</a></li>
+</ul>
+<h2 id="PGP-Pretty-Good-Privacy"><a href="#PGP-Pretty-Good-Privacy" class="headerlink" title="PGP(Pretty Good Privacy)"></a>PGP(Pretty Good Privacy)</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Pretty_Good_Privacy">Pretty Good Privacy - Wikipedia</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.wikiwand.com/zh-hans/%E8%89%AF%E5%A5%BD%E9%9A%B1%E7%A7%81%E5%AF%86%E7%A2%BC%E6%B3%95">良好隐私密码法</a></li>
+</ul>
+<p>良好隐私密码法（英语：Pretty Good Privacy，缩写为PGP），一套用于讯息加密、验证的应用程序，采用IDEA的散列演算法作为加密与验证之用。<br>PGP的主要开发者是菲尔·齐默尔曼（Phil Zimmermann）。齐默曼于1991年将PGP在互联网上免费发布。PGP本身是商业应用程序；开源并具有同类功能的工具名为GPG（GnuPG）。PGP及其同类产品均遵守OpenPGP数据加解密标准（RFC 4880）。</p>
+<ul>
+<li>PGP加密由一系列散列、数据压缩、对称密钥加密，以及公钥加密的算法组合而成。每个步骤支持几种算法，可以选择一个使用。每个公钥均绑定唯一的用户名和/或者E-mail地址。</li>
+<li>消息采用对称加密算法加密，采用一组对称密钥。每个对称密钥只使用一次，所以也叫做会话密钥。会话密钥通过接收方的公钥来加密保护，因此只需确保仅接收方能解密会话密钥即可。加密的消息和加密的会话密钥一起发送给接收方。</li>
+<li>完整性检测被用来检查消息在传输过程中是否变更过（即验证消息完整性），而消息认证则是被用来决定消息是否确由某特定的人或实体发出（即数字签名验证）。</li>
+<li>不管是在加密消息时还是在验证签名时，都需要注意用来发送消息的公钥是否确实属于期望的接收者。简单的从某个位置下载一个公钥是没有保障的。蓄意的或意外冒名顶替是可能的。</li>
+</ul>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/PGP_diagram.svg/1000px-PGP_diagram.svg.png" alt="PGP_diagram"></p>
+<h2 id="Web-of-Trust"><a href="#Web-of-Trust" class="headerlink" title="Web of Trust"></a>Web of Trust</h2><p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Web_of_trust">Web of trust - Wikipedia</a><br>PGP 采用信任网结构（Web Of Trust）的分布式密钥管理，这种密钥管理体制下没有密钥证书管理机关（CA），用户之间的身份认证问题是通过介绍人（introducer）来解决的。所有的用户产生并分发他们自己的公开密钥，用户通过相互对公开密钥签名以创建一个包含所有 PGP 用户的信任网（Web Of Trust）。简单地说就是，在信任网中，没有大家都信任的中心权威机构，用户以各自为中心，相互认证公钥，相互签名公钥证书。这些签名使得用户的公钥彼此相连，形成自然的网状结构，也就是所谓的信任网。</p>
+<h2 id="Macbook-GPG-issue"><a href="#Macbook-GPG-issue" class="headerlink" title="Macbook GPG issue"></a>Macbook GPG issue</h2><p>Macbook 下，出现下面问题：</p>
+<pre><code>gpg-agent[30845]: command get_passphrase failed: No such file or directory
+gpg: problem with the agent: No such file or directory
+gpg: decryption failed: No secret key
+</code></pre>
+<p>即需要输入 GPG 私钥密码的时候，没有弹出输入框，而是直接默认输入失败。<br><a target="_blank" rel="noopener" href="https://github.com/IJHack/qtpass/issues/156">解决方案</a>，可以通过 <a target="_blank" rel="noopener" href="https://gpgtools.org/">GPGTools</a> 的 pinentry-mac (pinentry for GPG on Mac) 解决：</p>
+<pre><code>brew install pinentry-mac
+echo &quot;pinentry-program /usr/local/bin/pinentry-mac&quot; &gt;&gt; ~/.gnupg/gpg-agent.conf
+</code></pre>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>SeanXP
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="http://seanxp.com/2017/02/03/gpg/" title="The GNU Privacy Guard">http://seanxp.com/2017/02/03/gpg/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Tutorial/" rel="tag"># Tutorial</a>
+              <a href="/tags/Internet/" rel="tag"># Internet</a>
+              <a href="/tags/GitHub/" rel="tag"># GitHub</a>
+              <a href="/tags/Learning/" rel="tag"># Learning</a>
+              <a href="/tags/Software/" rel="tag"># Software</a>
+              <a href="/tags/Linux/" rel="tag"># Linux</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2016/12/19/TV-sanadamaru/" rel="prev" title="真田丸">
+                  <i class="fa fa-chevron-left"></i> 真田丸
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2017/02/06/GBA-Ace-Attorney/" rel="next" title="異議あり！">
+                  異議あり！ <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2015 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">SeanXP</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

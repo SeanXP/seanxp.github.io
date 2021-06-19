@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="mask-icon" href="/images/avatar.png" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;seanxp.com&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Mist&quot;,&quot;version&quot;:&quot;8.5.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;display&quot;:&quot;post&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:true,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;Searching...&quot;,&quot;empty&quot;:&quot;We didn&#39;t find any results for the search: ${query}&quot;,&quot;hits_time&quot;:&quot;${hits} results found in ${time} ms&quot;,&quot;hits&quot;:&quot;${hits} results found&quot;}}</script><script src="/js/config.js"></script>
+<meta name="description" content="井字棋可能是最简单的棋类游戏了，它简单到了成年人之间玩几乎总是平局的地步。因此，这个游戏貌似最多只能哄哄小孩子。不过，对井字棋游戏中所有可能的情况进行一番细致的分析，你会发现一个你或许不会料到的惊人结论 ——先手的最优策略不是稳坐正中央，而是先占一个角！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="井字棋优胜策略">
+<meta property="og:url" content="http://seanxp.com/2015/02/25/tic-tac-toe/index.html">
+<meta property="og:site_name" content="SeanXP">
+<meta property="og:description" content="井字棋可能是最简单的棋类游戏了，它简单到了成年人之间玩几乎总是平局的地步。因此，这个游戏貌似最多只能哄哄小孩子。不过，对井字棋游戏中所有可能的情况进行一番细致的分析，你会发现一个你或许不会料到的惊人结论 ——先手的最优策略不是稳坐正中央，而是先占一个角！">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://seanxp.com/images/2015/tic-tac-toe-1.png">
+<meta property="og:image" content="http://seanxp.com/images/2015/tic-tac-toe-2.png">
+<meta property="og:image" content="http://seanxp.com/images/2015/tic-tac-toe-3.png">
+<meta property="article:published_time" content="2015-02-24T23:59:35.000Z">
+<meta property="article:modified_time" content="2021-06-18T23:27:35.210Z">
+<meta property="article:author" content="SeanXP">
+<meta property="article:tag" content="Tutorial">
+<meta property="article:tag" content="Analysis">
+<meta property="article:tag" content="Math">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://seanxp.com/images/2015/tic-tac-toe-1.png">
+
+
+<link rel="canonical" href="http://seanxp.com/2015/02/25/tic-tac-toe/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;en&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;http:&#x2F;&#x2F;seanxp.com&#x2F;2015&#x2F;02&#x2F;25&#x2F;tic-tac-toe&#x2F;&quot;,&quot;path&quot;:&quot;2015&#x2F;02&#x2F;25&#x2F;tic-tac-toe&#x2F;&quot;,&quot;title&quot;:&quot;井字棋优胜策略&quot;}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
+<title>井字棋优胜策略 | SeanXP</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-77366457-1"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{&quot;tracking_id&quot;:&quot;UA-77366457-1&quot;,&quot;only_pageview&quot;:false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">SeanXP</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%88%E6%89%8B%E5%85%88%E5%8D%A0%E8%A7%92"><span class="nav-number">2.</span> <span class="nav-text">先手先占角</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8E%E6%89%8B%E8%BF%98%E6%98%AF%E5%85%88%E5%8D%A0%E8%A7%92"><span class="nav-number">3.</span> <span class="nav-text">后手还是先占角</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="SeanXP"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">SeanXP</p>
+  <div class="site-description" itemprop="description">为学日益，为道日损，损之又损，以至于无为，无为而无不为。</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">65</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">53</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/seanxp" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;seanxp" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:aXNlYW54cCtibG9nQGdtYWlsLmNvbQ==?subject=Hello" title="E-Mail → mailto:aXNlYW54cCtibG9nQGdtYWlsLmNvbQ&#x3D;&#x3D;?subject&#x3D;Hello" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://pgp.mit.edu/pks/lookup?op=get&search=0x5655CA935F09337F" title="GPG → https:&#x2F;&#x2F;pgp.mit.edu&#x2F;pks&#x2F;lookup?op&#x3D;get&amp;search&#x3D;0x5655CA935F09337F" rel="noopener" target="_blank"><i class="fa fa-key fa-fw"></i>GPG</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://seanxp.com/2015/02/25/tic-tac-toe/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="SeanXP">
+      <meta itemprop="description" content="为学日益，为道日损，损之又损，以至于无为，无为而无不为。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SeanXP">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          井字棋优胜策略
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2015-02-25 07:59:35" itemprop="dateCreated datePublished" datetime="2015-02-25T07:59:35+08:00">2015-02-25</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-06-19 07:27:35" itemprop="dateModified" datetime="2021-06-19T07:27:35+08:00">2021-06-19</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Reproduce/" itemprop="url" rel="index"><span itemprop="name">Reproduce</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>井字棋可能是最简单的棋类游戏了，它简单到了成年人之间玩几乎总是平局的地步。因此，这个游戏貌似最多只能哄哄小孩子。<br>不过，对井字棋游戏中所有可能的情况进行一番细致的分析，你会发现一个你或许不会料到的惊人结论 ——<br><strong>先手的最优策略不是稳坐正中央，而是先占一个角！</strong></p>
+<span id="more"></span>
+
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>因为怀旧电子宠物，在手机上下载了一个ios小游戏“Hatch”。<br>由于在这个电子宠物世界也存在金币，生存需要一定数量的金币，因此也同样存在几个挣金币的方法，其中一个就是井字棋。<br>考虑到挣金币的效率性，我放弃了几个简单无脑的游戏（包子剪子锤，概率性太大 / 接元宝，金币挣取效率低），最后决定研究一下井字棋优胜策略。<br>借助万能的搜索引擎，在果壳网搜到一篇<a target="_blank" rel="noopener" href="https://www.guokr.com/article/4754/">井字棋下棋策略</a>.</p>
+<h2 id="先手先占角"><a href="#先手先占角" class="headerlink" title="先手先占角"></a>先手先占角</h2><p>游戏开始后，二话不说先占上一个角（比如左下角吧），那么对方总共有五种本质不同的应对策略：</p>
+<ol>
+<li>占据靠近你的那条边</li>
+<li>占据靠近你的那个角</li>
+<li>占据远离你的那条边</li>
+<li>占据远离你的那个角（即对角）</li>
+<li>占据正中央的位置</li>
+</ol>
+<p>在这五种策略中，前面四种都是陷阱——如果对方不慎选择了前面四种策略中的任意一种，他就必然输掉。（同样，如果你是后手，被人先手占角，只有选择占中才不会被人牵着走）</p>
+<p><img src="/images/2015/tic-tac-toe-1.png" alt="tic-tac-toe-1"></p>
+<p>上图显示了在这四种情况下你可以如何把对方一步步逼上绝路。</p>
+<p>假设对方走正下方，占据了一个靠近你的边（最左边的那个图），你就可以占据正中央来应对，逼迫对方不得不走右上角。<br>这时，只需要在左上角放下一子，你就赢定了——图中出现了两条只差一子的连线，对方不可能兼顾得了。</p>
+<p>右边几个图显示了对方第一步棋的其它几种走法。选择合适的位置应对他，都可以在下一步迫使对方只剩一种走法，接下来你便可以下出“一箭双雕”的棋，让对方无法彻底封杀你。</p>
+<p>也就是说，当你占据棋盘一角后，在对方下一步棋的八个可选位置中，其中七个位置都是必输的，陷阱摆满了几乎整个棋盘。<br>在面对“先走一角”的诡异开局时，你的朋友说不准就会慌了手脚，没能冷静地占住中间，决定了必败的命运。</p>
+<p><img src="/images/2015/tic-tac-toe-2.png" alt="tic-tac-toe-2"></p>
+<p>对方要是真的走了正中间，你仍然有赢的机会。你可以占住右上角的位置（如上图）。<br>如果对方不幸走了剩下的两个角中的一个（上图左），你便能故技重施，再次取得胜利。<br>只有对方选择了边上的位置（上图右），才能躲过这一系列的陷阱，最终变成平局。</p>
+<h2 id="后手还是先占角"><a href="#后手还是先占角" class="headerlink" title="后手还是先占角"></a>后手还是先占角</h2><p><img src="/images/2015/tic-tac-toe-3.png" alt="tic-tac-toe-3"></p>
+<p>作为后行者，你遇到的往往是“先走中间”的经典开局。<br>此时，千万别忘了，先占角仍然是一条金科玉律。如果你不慎走了某条边的位置，对方可就赢定了！对方可以向上面的第一幅图那样，在正右方下子应对，逼迫你把下一步棋落在正左方。<br>此时，对方便可占据右上方的位置，同时产生出两条仅差一子的连线。右边三幅图则显示，如果你在角上应对，最终总会是一盘和棋。</p>
+<p>反过来，先手第一步走中间，棋盘上剩下的八个位置中有四个位置都是会导致对方必败的陷阱，因此先手第一步走中间后，获胜的机会也并不小。<br>井字棋可以算是决策树最简单的游戏之一了。在历史上，对井字棋的类似分析很大程度上启发了人们对组合游戏的认识，在博弈论中起着举足轻重的作用。</p>
+<p>转载自果壳网：<a target="_blank" rel="noopener" href="https://www.guokr.com/article/4754/">https://www.guokr.com/article/4754/</a></p>
+<p>博客推荐：<a target="_blank" rel="noopener" href="https://www.matrix67.com/">https://www.matrix67.com</a> , 一位数学爱好者的博客，里面有很多有趣的数学问题。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>SeanXP
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="http://seanxp.com/2015/02/25/tic-tac-toe/" title="井字棋优胜策略">http://seanxp.com/2015/02/25/tic-tac-toe/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Tutorial/" rel="tag"># Tutorial</a>
+              <a href="/tags/Analysis/" rel="tag"># Analysis</a>
+              <a href="/tags/Math/" rel="tag"># Math</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+            </div>
+            <div class="post-nav-item">
+                <a href="/2015/02/26/red-packet/" rel="next" title="谈今年的红包现象">
+                  谈今年的红包现象 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2015 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">SeanXP</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
